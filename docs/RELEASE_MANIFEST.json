@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "project": "Vesper",
-  "generated_at_utc": "2026-10-18T07:47:24+00:00",
+  "generated_at_utc": "2026-10-18T07:51:52+00:00",
   "base_commit": "61d28785f077cc39dabd0693b7d555ed43f15de7",
   "base_description": "Vesper initial README commit; preserved as the parent of this release",
   "included_file_count": 65,
@@ -310,8 +310,8 @@
     },
     {
       "path": "frontend/index.html",
-      "sha256": "62be01b669a06c4a13e16b697f3aec1bf75086e833ea9157fca4364b2f6268cd",
-      "size_bytes": 157578,
+      "sha256": "06ff695bea58cd7dbdcf250ef30e88bcf109173b5456461babe791eb7ea85018",
+      "size_bytes": 157923,
       "executable": false,
       "mode": "0o644"
     },
@@ -394,8 +394,8 @@
     },
     {
       "path": "tests/frontend_scene_runtime.test.mjs",
-      "sha256": "6f7965ea096c22a1ba86052216ed951b02b9f28cded2fde8aa0fdaac6dc1b654",
-      "size_bytes": 9922,
+      "sha256": "e2eed982ec25b9a59a763ba2ab1966aabbaac0485be28b9fd1c48e4391faf280",
+      "size_bytes": 11071,
       "executable": false,
       "mode": "0o644"
     },
@@ -479,10 +479,10 @@
     "docker_repeat_seed_and_restart_retest": "UNVERIFIED in this final audit; Docker socket access unavailable to this process",
     "fresh_dependency_install": "UNVERIFIED; candidate suites used the existing local Python environment",
     "candidate_python_tests": "79 passed using existing local Python 3.12 environment; fresh dependency install not tested",
-    "candidate_frontend_tests": "39 passed; covers restored per-agent sprite bundle, expanded furniture clearance, separate server-tower depth masks, chair egress, collision-free routed travel, and role-specific destinations",
+    "candidate_frontend_tests": "40 passed; covers restored per-agent sprite bundle, expanded furniture clearance, separate server-tower depth masks, chair egress, collision-free routed travel, dynamic-blocker rerouting, and role-specific destinations",
     "character_artwork": "36 bundled animated pixel-art character clips, restored from earlier project atlas at owner request; independent copyright/redistribution rights not verified",
     "office_artwork": "owner-supplied Vesper office image; independent copyright/redistribution rights not verified",
-    "office_navigation": "authored collision footprints expanded 24 office pixels; separate depth masks per server tower; tested chair exits and aisle routes; idle travel runs one role-specific routine at a time; static waypoints, not dynamic object recognition",
+    "office_navigation": "authored collision footprints expanded 24 office pixels; separate depth masks per server tower; tested chair exits and aisle routes; dynamic blockers trigger route recalculation; idle travel runs one role-specific routine at a time; static waypoints, not dynamic object recognition",
     "candidate_browser_scene_check": "verified on 2026-10-18 at the local Vesper UI; full office art visible with 24px scene padding, role sprite rendering, spaced specialist positions, and role-specific idle stop in the live transcript"
   }
 }

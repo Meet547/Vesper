@@ -53,7 +53,7 @@ function runtime() {
   const sandbox = { ...theatre, D: data, window: { devicePixelRatio: 1 }, S: 135/136, CYC: 62,
     scheduleScene() {}, reducedMotion: false, T: 0, console };
   const context = vm.createContext(sandbox);
-  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,toSeat,standUp,interruptMotion,chairTransition,upd,spr,stationTarget,wpath,ok,cl,near,ctr,NAV_BLOCKERS,DEPTH_BANDS};', context);
+  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,toSeat,standUp,walkToPoint,interruptMotion,chairTransition,upd,spr,stationTarget,wpath,ok,cl,near,ctr,NAV_BLOCKERS,DEPTH_BANDS};', context);
   return context.scene;
 }
 
@@ -172,4 +172,21 @@ test('agents walk back to their chair before sitting, without a straight-line de
   assert.equal(await completeRoute(scene,scene.toSeat(actor)),true);
   assert.deepEqual([actor.x,actor.y],actor.seat);
   assert.equal(actor.mode,'sit');
+});
+
+test('a moving blocker causes the route to recalculate instead of leaving the agent stranded', async () => {
+  const scene=runtime(),actor=scene.AG[0],blocker=scene.AG[4],token=scene.interruptMotion(actor);
+  const target=scene.stationTarget(actor,'foos'),nodes=scene.wpath([actor.x,actor.y],target,actor),blockedPoint=nodes[1],route=scene.walkToPoint(actor,target,token);
+  const blockerHome=[blocker.x,blocker.y];let finished=false,result,cleared=false;route.then(value=>{finished=true;result=value});
+  scene.upd(.1);
+  assert.ok(actor.tgt,'the route has started before the blocker appears');
+  [blocker.x,blocker.y]=blockedPoint;blocker.mode='stand';
+  for(let tick=0;tick<1200&&!finished;tick++){
+    const blockedFor=actor.blockedFor||0;scene.upd(.05);
+    if(!cleared&&blockedFor>1.15&&actor.tgt===null){[blocker.x,blocker.y]=blockerHome;cleared=true}
+    await Promise.resolve();
+  }
+  assert.equal(cleared,true,'the route detects and yields to the temporary obstruction');
+  assert.equal(result,true,'the route is recalculated after the obstruction clears');
+  assert.ok(Math.hypot(actor.x-target[0],actor.y-target[1])<1);
 });

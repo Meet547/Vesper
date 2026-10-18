@@ -306,7 +306,7 @@ let INVEST=createInvestigationState(),agentTags={},agentButtons={},eventStartedA
 const fm=t=>String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0');
 function scheduleScene(){if(document.hidden||killed)return;if(idleTimer){clearTimeout(idleTimer);idleTimer=0}if(!rafId)rafId=requestAnimationFrame(loop)}
 function moving(){return AG.some(a=>a.tgt||a.tw)}
-function moveTo(a,pt,routeToken=a.routeToken){if(routeToken!==a.routeToken)return Promise.resolve(false);if(reducedMotion){a.x=pt[0];a.y=pt[1];return Promise.resolve(true)}return new Promise(r=>{a.tgt=pt;a.res=()=>r(true);scheduleScene()})}
+function moveTo(a,pt,routeToken=a.routeToken){if(routeToken!==a.routeToken)return Promise.resolve(false);if(reducedMotion){a.x=pt[0];a.y=pt[1];return Promise.resolve(true)}return new Promise(r=>{a.tgt=pt;a.res=arrived=>r(arrived===true);scheduleScene()})}
 function tween(a,dur,fn){if(reducedMotion){fn(1);return Promise.resolve()}return new Promise(r=>{a.tw={t:0,dur,fn,r};scheduleScene()})}
 async function chairTransition(a,to,dur,routeToken){
  const from=[a.x,a.y];a.mode='trans';a.face='up';
@@ -315,7 +315,7 @@ async function chairTransition(a,to,dur,routeToken){
 }
 async function standUp(a,routeToken=a.routeToken){const exit=CHAIR_EXIT[a.agentKey||a.id],completed=await chairTransition(a,exit||ctr(...near(a.x,a.y)),.28,routeToken);if(completed)a.mode='stand';return completed}
 async function sitDown(a,routeToken=a.routeToken){if(await chairTransition(a,a.seat||[a.x,a.y],.28,routeToken)){a.mode='sit';return true}return false}
-function interruptMotion(a){a.destination=null;a.routeToken=(a.routeToken||0)+1;if(a.tgt){a.tgt=null;const resolve=a.res;a.res=null;resolve&&resolve()}if(a.tw){const resolve=a.tw.r;a.tw=null;resolve&&resolve()}if(a.mode==='trans'||a.mode==='walk')a.mode='stand';return a.routeToken}
+function interruptMotion(a){a.destination=null;a.routeToken=(a.routeToken||0)+1;if(a.tgt){a.tgt=null;const resolve=a.res;a.res=null;resolve&&resolve(false)}if(a.tw){const resolve=a.tw.r;a.tw=null;resolve&&resolve()}if(a.mode==='trans'||a.mode==='walk')a.mode='stand';return a.routeToken}
 function stationTarget(a,name){
  const desired=ST[name];if(!desired)return null;const [di,dj]=cl(...desired),cell=ok(di,dj)?[di,dj]:near(...desired);if(!cell)return null;const safe=ok(di,dj)?desired:ctr(...cell);
  const occupied=AG.filter(other=>other!==a).map(other=>other.destination||[other.x,other.y]);
@@ -328,22 +328,29 @@ function stationTarget(a,name){
 async function goSt(a,name){
  const seated=a.mode==='sit'||a.mode==='loungeSit',wasLounge=a.mode==='loungeSit',routeToken=interruptMotion(a),target=stationTarget(a,name);if(!target)return false;a.destination=target;
  if(seated){if(wasLounge)a.mode='stand';else await standUp(a,routeToken)}if(routeToken!==a.routeToken)return false;
- const path=wpath([a.x,a.y],target,a);if(!path.length){a.destination=null;return false}a.mode='walk';
- for(const q of path){if(routeToken!==a.routeToken)return false;await moveTo(a,q,routeToken);if(routeToken!==a.routeToken)return false}
+ if(!await walkToPoint(a,target,routeToken)){if(routeToken===a.routeToken){a.destination=null;a.mode='stand'}return false}
  a.destination=null;a.mode='stand';a.face=FACE[name]||'down';a.at=name;return true;
+}
+async function walkToPoint(a,target,routeToken=a.routeToken){
+ for(let attempt=0;attempt<5;attempt++){
+  if(routeToken!==a.routeToken)return false;
+  const path=wpath([a.x,a.y],target,a);if(!path.length)return false;a.mode='walk';let reroute=false;
+  for(const point of path){if(routeToken!==a.routeToken)return false;const arrived=await moveTo(a,point,routeToken);if(routeToken!==a.routeToken)return false;if(!arrived){reroute=true;break}}
+  if(!reroute)return true;
+ }
+ return false;
 }
 async function toSeat(a){
  if(!a.seat||!await goSt(a,a.ap))return false;
- const token=a.routeToken,seatApproach=CHAIR_EXIT[a.agentKey||a.id]||ctr(...near(...a.seat)),path=wpath([a.x,a.y],seatApproach,a);if(!path.length)return false;
- a.destination=a.seat;a.mode='walk';
- for(const point of path){if(token!==a.routeToken)return false;await moveTo(a,point,token)}
+ const token=a.routeToken,seatApproach=CHAIR_EXIT[a.agentKey||a.id]||ctr(...near(...a.seat));
+ a.destination=a.seat;if(!await walkToPoint(a,seatApproach,token))return false;
  a.destination=null;return sitDown(a,token);
 }
 function bubble(a,text){for(const other of AG)if(other!==a)other.b='';a.b=String(text||'').slice(0,110);a.bt=T+(reducedMotion?1.8:3.6);scheduleScene()}
 let ap=null;const ask=()=>new Promise(r=>{ap=r;$('#ap').classList.add('on');$('#apn').style.display='none'});
 const done=v=>{if(!ap)return;$('#ap').classList.remove('on');$('#apn').style.display='';const r=ap;ap=null;r(v)};
 function upd(dt){for(const a of AG){if(a.tw){a.tw.t+=dt;const u=Math.min(1,a.tw.t/a.tw.dur);a.tw.fn(u);if(u>=1){const r=a.tw.r;a.tw=null;r()}}
-if(a.tgt){const dx=a.tgt[0]-a.x,dy=a.tgt[1]-a.y,l=Math.hypot(dx,dy),m=D.meta[a.cl.F],v=CYC*m.fps/m.n,st=v*dt;const step=Math.min(l,st),nx=a.x+(dx/l||0)*step,ny=a.y+(dy/l||0)*step;const [ni,nj]=cl(nx,ny),blocked=AG.some(other=>other!==a&&Math.hypot(nx-other.x,ny-other.y)<50&&Math.hypot(nx-other.x,ny-other.y)<Math.hypot(a.x-other.x,a.y-other.y));if(blocked||!ok(ni,nj)){a.blockedFor=(a.blockedFor||0)+dt;if(a.blockedFor>1.2)interruptMotion(a);continue}a.blockedFor=0;if(Math.abs(dx)>.3)a.mx=dx<0;a.sd.x+=((dx/l||0)-a.sd.x)*Math.min(1,dt*6);a.sd.y+=((dy/l||0)-a.sd.y)*Math.min(1,dt*6);if(l<=st){a.ph+=l/CYC;a.x=a.tgt[0];a.y=a.tgt[1];a.tgt=null;const r=a.res;a.res=null;r&&r()}else{a.x+=dx/l*st;a.y+=dy/l*st;a.ph+=st/CYC}}}
+if(a.tgt){const dx=a.tgt[0]-a.x,dy=a.tgt[1]-a.y,l=Math.hypot(dx,dy),m=D.meta[a.cl.F],v=CYC*m.fps/m.n,st=v*dt;const step=Math.min(l,st),nx=a.x+(dx/l||0)*step,ny=a.y+(dy/l||0)*step;const [ni,nj]=cl(nx,ny),blocked=AG.some(other=>other!==a&&Math.hypot(nx-other.x,ny-other.y)<50&&Math.hypot(nx-other.x,ny-other.y)<Math.hypot(a.x-other.x,a.y-other.y));if(blocked||!ok(ni,nj)){a.blockedFor=(a.blockedFor||0)+dt;if(a.blockedFor>1.2){a.tgt=null;const resolve=a.res;a.res=null;resolve&&resolve(false);a.blockedFor=0}continue}a.blockedFor=0;if(Math.abs(dx)>.3)a.mx=dx<0;a.sd.x+=((dx/l||0)-a.sd.x)*Math.min(1,dt*6);a.sd.y+=((dy/l||0)-a.sd.y)*Math.min(1,dt*6);if(l<=st){a.ph+=l/CYC;a.x=a.tgt[0];a.y=a.tgt[1];a.tgt=null;const r=a.res;a.res=null;r&&r(true)}else{a.x+=dx/l*st;a.y+=dy/l*st;a.ph+=st/CYC}}}
 }
 function clipFor(a){const c=a.cl,d=a.sd,agent=a.agentKey||a.id,stateMap=SPRITE_STATE_MAP[agent]||SPRITE_STATE_MAP.Scout;
  let state;if(a.mode==='walk'){if(Math.abs(d.x)>Math.abs(d.y)*1.15)state=d.x<0?'WALK_LEFT':'WALK_RIGHT';else state=d.y<-.05?'WALK_BACK':'WALK_FRONT'}
