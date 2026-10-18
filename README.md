@@ -27,7 +27,7 @@ Every supported Cypher statement, including setup-only writes, is in [TRACK1_QUE
 
 ## Clean-clone local setup
 
-Prerequisites: a working Python 3.12, Node.js for existing frontend tests, Docker Desktop, and the local FalkorDB image. No Cloud account or `.env` file is used. This branch is local only. The clean-clone check uses the commit recorded in its evidence.
+Prerequisites: a working Python 3.12, Node.js for existing frontend tests, Docker Desktop, and the local FalkorDB image. Frontend tests require Node 24.1.0 (see .nvmrc). No Cloud account or `.env` file is used. This branch is local only. The clean-clone check uses the commit recorded in its evidence.
 
 ```sh
 git clone --no-hardlinks /private/tmp/vesper-track1-20261018 /private/tmp/vesper-track1-clean
