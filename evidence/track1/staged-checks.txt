@@ -1,0 +1,80 @@
+Final staged-check stop report
+Time: 2026-10-18 22:28:58 IST (+0530)
+
+STAGED FILES:
+LICENSE
+README.md
+docs/ARCHITECTURE.md
+docs/COMPLIANCE.md
+docs/DEMO_SCRIPT.md
+docs/ELIGIBILITY.md
+docs/TRACK1_ADAPTER.md
+docs/assets/vesper-agent-team.png
+docs/demo-storyboard.md
+docs/judge-walkthrough.md
+evidence/track1/REPORT.md
+evidence/track1/claims-audit.md
+evidence/track1/clean-clone.txt
+evidence/track1/clean-dependencies.txt
+evidence/track1/clean-frontend-tests.txt
+evidence/track1/clean-generator.txt
+evidence/track1/clean-origin-removal.txt
+evidence/track1/clean-python-tests.txt
+evidence/track1/clean-readback.txt
+evidence/track1/clean-rerun-clone.txt
+evidence/track1/clean-rerun-setup.txt
+evidence/track1/clean-server-response.json
+evidence/track1/clean-server.txt
+evidence/track1/clean-status.txt
+evidence/track1/clean-venv.txt
+evidence/track1/dataset-origin-check.txt
+evidence/track1/delivery.json
+evidence/track1/dependency-licenses.txt
+evidence/track1/docker-state.txt
+evidence/track1/gate-status-audit.txt
+evidence/track1/gate0_status.json
+evidence/track1/node-pin-commit.txt
+evidence/track1/progress.json
+evidence/track1/readme-hero.json
+evidence/track1/report-evidence-inventory.txt
+evidence/track1/state-verification.txt
+
+SCOPE CHECK:
+PASS — no application code or tests are staged.
+PASS — no .env file is staged.
+PASS — no BUREAU file is staged.
+PASS — no raw dataset file is staged.
+
+COMMAND: git diff --cached --check
+EXIT: 2
+OUTPUT:
+LICENSE:202: new blank line at EOF.
+evidence/track1/clean-dependencies.txt:58: new blank line at EOF.
+evidence/track1/clean-frontend-tests.txt:55: new blank line at EOF.
+evidence/track1/clean-origin-removal.txt:17: new blank line at EOF.
+evidence/track1/clean-python-tests.txt:13: new blank line at EOF.
+evidence/track1/clean-readback.txt:41: new blank line at EOF.
+evidence/track1/clean-rerun-clone.txt:6: new blank line at EOF.
+evidence/track1/clean-rerun-setup.txt:155: new blank line at EOF.
+evidence/track1/clean-server.txt:31: new blank line at EOF.
+
+RESULT: FAIL. The stop condition was triggered. The secret scan, final submission commit, and push were NOT RUN.
+
+RESUMED CHECK — user requested a cross-check and continuation
+The nine trailing blank lines were removed without changing evidence content.
+
+COMMAND: git diff --cached --check
+EXIT: 0
+OUTPUT: (empty)
+
+README/IMAGE CROSS-CHECK:
+PASS — staged README references `docs/assets/vesper-agent-team.png` at line 5.
+PASS — staged image is present and is 2,157,580 bytes.
+PASS — installation begins at line 11.
+PASS — the complete Cypher catalog is collapsed inside `<details>`.
+
+COMMAND: staged secret scan over every staged blob
+EXIT: 0
+OUTPUT:
+SCANNED 38 staged files
+FINDINGS 0

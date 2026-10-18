@@ -1,140 +1,224 @@
 # Vesper
 
-Vesper is an evidence-first transaction-graph investigation prototype built with FastAPI and FalkorDB. It demonstrates two workflows through one shared frontend: graph-driven investigations (Track 1) and persistent, Skeptic-verified case memory (Track 2).
+**Vesper is a six-agent workspace that turns a synthetic transaction ID into a bounded, evidence-checked graph investigation.**
 
-The single interface is `frontend/index.html`. It contains the animated Vesper office, investigation controls, Case Board, findings report, JSON export, and the conditional Track 2 memory panel. Both tracks use this interface.
+![Vesper's six investigation agents](docs/assets/vesper-agent-team.png)
 
-The six specialists move between authored Vesper office waypoints. A tile pathfinder checks expanded furniture footprints, keeps moving agents apart, and draws separate foreground depth masks for each server tower. Chair exits use clear aisle points so agents do not slide through desks. During idle time, one specialist at a time follows role-specific stops: Tracer visits the server racks and evidence board, Historian visits memory pods and archive shelves, and Reporter visits the report printer. The scene uses scripted coordinates; it does not dynamically recognize arbitrary objects or make human-level decisions.
+Vesper helps analysts follow directed connections without hiding the proof. It reads a local FalkorDB graph, checks every accepted edge again, rejects disconnected leads, and returns the next investigative action. This repository is the **Graph Hacks Track 1** submission and uses generated synthetic data only.
 
-## Data and limits
+> Vesper produces investigative leads, not legal conclusions about any person.
 
-The release uses authored synthetic fixtures only. The in-memory fixture uses IDs `730000001`–`730000008`; the isolated FalkorDB fixture uses IDs `731000001`–`731000008`, with eight transaction nodes and seven directed `FLOWS_TO` edges. IDs, labels, time steps, and relationships are invented for this demonstration. They are not Bitcoin transaction records and make no claims about real wallets, people, ownership, or conduct. The source tag is `bureau_synthetic_v1` for fixture provenance.
+## Install and run
 
-Graph evidence comes from bounded FalkorDB reads. The Skeptic independently rereads nodes and directed edges before accepting a path. A successful result proves only that the returned path matches the selected synthetic graph and configured hop bound; it does not establish completeness or real-world attribution. Case memory is owner-scoped and revalidated against the current graph before use.
-
-## Local setup
-
-Requirements: macOS or Linux, Python 3.11+, Node.js 20+, and Docker Desktop / Docker Engine. The isolated demo uses no Cloud credentials and no hosted model. From a fresh clone:
+You need Python 3.12, [Node 24.1.0](.nvmrc), Docker Desktop, and Git.
 
 ```sh
-git clone https://github.com/Meet547/Vesper.git
+git clone --branch main --single-branch https://github.com/Meet547/Vesper.git
 cd Vesper
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-node --test tests/*.test.mjs
-python -m pytest -q
+
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-track1-lock.txt
+
+export VESPER_REPO="$PWD"
+export VESPER_RUN_DIR="$(mktemp -d)"
+cd "$VESPER_RUN_DIR"
+PYTHONPATH="$VESPER_REPO" "$VESPER_REPO/.venv/bin/python" "$VESPER_REPO/scripts/track1_container.py" create
+
+cd "$VESPER_REPO"
+export VESPER_TRACK=track1_synthetic
+export VESPER_TRACK1_GRAPH=vesper_synthetic_verify
+export VESPER_TRACK1_TARGET_FILE="$VESPER_RUN_DIR/evidence/track1/isolation-target.json"
+.venv/bin/python -m scripts.load_track1_graph
+.venv/bin/python -m uvicorn backend.track1.app:create_app --factory --host 127.0.0.1 --port 18783
 ```
 
-Check for the local FalkorDB container before creating one:
+Open [http://127.0.0.1:18783](http://127.0.0.1:18783). No cloud account or `.env` file is required.
 
-```sh
-docker ps -a --filter 'name=^/bureau-m84-isolated$'
-```
-
-If it exists and is stopped, start it with `docker start bureau-m84-isolated`. If no such container exists, start the loopback-only service from the included Compose file:
-
-```sh
-docker compose --profile local-db up -d
-```
-
-Wait for readiness:
-
-```sh
-for i in {1..60}; do
-  if docker exec bureau-m84-isolated redis-cli PING 2>/dev/null | grep -q PONG; then break; fi
-  sleep 1
-done
-docker exec bureau-m84-isolated redis-cli PING
-```
-
-The expected response is `PONG`. The published ports are restricted to loopback. Do not remove the container or its volume to resolve a conflict; inspect and preserve existing graphs.
-
-Seed or verify only the named Vesper graph. This script is idempotent: it checks the target graph and refuses unexpected transaction properties or relationships; it does not delete data.
-
-```sh
-./.venv/bin/python scripts/seed_milestone_8_4_isolated_graph.py
-```
-
-Expected graph: `vesper_track2_synthetic_test`, transactions `731000001`–`731000008`, and seven directed edges. The seeder reports existing graph names and preserves other graphs and saved cases/memories.
-
-## Run the shared Vesper UI
-
-```sh
-./scripts/run_track2_demo.sh
-```
-
-Open <http://127.0.0.1:8012/>. The launcher pins the backend to `127.0.0.1:8012`, FalkorDB to `redis://127.0.0.1:6389`, graph `vesper_track2_synthetic_test`, and owner `track2-isolated-demo`. The HTML response is not cached so an older page cannot mask the current Vesper frontend.
-
-## Track 1: graph-driven investigation
-
-Use seed `731000004` and a three-hop search in the shared UI, or run the read-only API preview:
+Quick API check:
 
 ```sh
 curl --fail-with-body --silent --show-error \
   -H 'Content-Type: application/json' \
-  -d '{"seed_tx_id":"731000004","max_hops":3,"memory_enabled":false}' \
-  http://127.0.0.1:8012/api/investigations/preview
+  -d '{"start_txid":"SYN-000001","end_txid":"SYN-000004","max_hops":3}' \
+  http://127.0.0.1:18783/api/route
 ```
 
-Review `traces`, `skeptic.checks.pathValidation`, `graph_decisions`, and `persisted:false`. The report and Case Board show the returned paths, independent checks, action history, handoffs, and scope limits. Preview does not save a case.
-
-## Track 2: persistent case memory
-
-For the process-restart persistence check, run this in a separate terminal after FalkorDB is ready:
-
-```sh
-export BUREAU_M84_GRAPH_ISOLATED_CONFIRM=I_CONFIRM_NONPRODUCTION
-export BUREAU_M84_ISOLATED_GRAPH_NAME=vesper_track2_synthetic_test
-export BUREAU_M84_ISOLATED_FALKORDB_URL=redis://127.0.0.1:6389
-export BUREAU_M84_ISOLATED_FALKORDB_SSL=false
-export BUREAU_M84_SEED_A=731000002
-export BUREAU_M84_SEED_B=731000001
-export BUREAU_M84_MAX_HOPS=3
-PYTHONPATH=. ./.venv/bin/python scripts/demo_milestone_8_4_restart_persistence.py
-```
-
-The script writes Case A to the Vesper graph, stops the writer process, starts a fresh reader process while FalkorDB remains available, and checks for the same case and memory IDs. It then runs Case B with memory disabled and enabled. Never point these variables at a production or Cloud graph.
-
-For the browser demonstration, use the same page at `http://127.0.0.1:8012/`:
-
-1. Click **Investigate Case A · seed 731000002**. Review the paths and Skeptic checks in Findings & evidence.
-2. Click **Save case & memory**. Confirm the database acknowledgement and note the generated case and memory IDs.
-3. Click **Case B · memory off**, then **Case B · memory on**. The panel shows the first selected frontier, saved-memory verification, Skeptic-verified paths, and graph-read counts.
-4. Reload the page, then **Reload persisted cases**. Confirm that the same Case A and memory IDs are recovered.
-
-Case IDs are generated at runtime. Capture the IDs shown in the actual run rather than using IDs from a previous session.
-
-## Graph model and queries
+Expected path:
 
 ```text
-(:Transaction {txId, label, timeStep, sourceDataset})
-  -[:FLOWS_TO]->
-(:Transaction {txId, label, timeStep, sourceDataset})
-
-(:InvestigationCase)-[:GENERATED_MEMORY]->(:InvestigationMemory)
-(:InvestigationMemory)-[:REFERENCES]->(:Transaction)
+SYN-000001 → SYN-000002 → SYN-000003 → SYN-000004
 ```
 
-`databases/schema.cypher` contains the documented graph model. Useful bounded queries are in `databases/queries/graph_health.cypher`, `flow_count.cypher`, `inspect_transaction.cypher`, `upstream_trace.cypher`, and `memory_schema.cypher`. The backend uses parameterized Cypher and applies explicit hop and result limits. The memory policy only follows a remembered route after a fresh graph check and Skeptic validation.
+## The investigation team
 
-## Reproducibility and checks
+| Agent | Task |
+| --- | --- |
+| **Scout** | Finds the seed transaction and checks its source context. |
+| **Tracer** | Follows bounded, directed graph paths. |
+| **Analyst** | Interprets only the evidence that passed validation. |
+| **Skeptic** | Rechecks every transaction and directed edge independently. |
+| **Historian** | Organizes graph-linked case context. |
+| **Reporter** | Produces the evidence-first result and its limitations. |
 
-The isolated seed and restart test report the graph name, node IDs, edge count, owner, and persistence IDs. Record the FalkorDB image digest alongside a demo recording because the Compose file uses the mutable upstream `latest` tag. A successful unit test or in-process fixture run is not evidence of a live database run; report those separately.
+## How it works
 
-Run the suites with:
+```mermaid
+flowchart LR
+    Input[Synthetic transaction ID] --> Policy[Deterministic tool policy]
+    Policy --> Reads[Bounded parameterized reads]
+    MCP[Read-only MCP client] --> Reads
+    Reads --> DB[(FalkorDB)]
+    DB --> Checks[Independent edge checks]
+    Checks --> Result[Path, next action, and limits]
+```
+
+The graph model is intentionally small:
+
+- `(:Transaction {txId, label, timeStep, sourceDataset})`
+- `(:Transaction)-[:FLOWS_TO]->(:Transaction)`
+- 4,000 generated nodes and 6,685 generated directed edges
+- six-hop maximum, two-second read deadline, and no fixture fallback
+
+The MCP server exposes three bounded, read-only tools: `get_transaction`, `expand_outgoing`, and `shortest_path`. Tool selection is deterministic; this submission does not claim LLM-driven tool selection.
+
+## Try these questions
+
+| Question | Expected result |
+| --- | --- |
+| What is the three-hop lead from `SYN-000001`? | `SYN-000001 → SYN-000002 → SYN-000003 → SYN-000004` |
+| What is the three-hop lead from `SYN-000007`? | `SYN-000007 → SYN-000008 → SYN-000009 → SYN-000010` |
+| Does the decoy connect `SYN-000006` to `SYN-000004`? | No. The independent edge query returns zero rows. |
+| What changes when `SYN-000002 → SYN-000003` is removed from the counterfactual graph? | The action changes from `inspect_endpoint` to `request_additional_evidence`. |
+
+## Test it
 
 ```sh
-python -m pytest -q
+.venv/bin/python -m pytest -q
 node --test tests/*.test.mjs
 ```
 
-The interface exports the structured investigation report as JSON using **Export JSON**. There is no Markdown export control in this release.
+Saved clean-clone results: **91 Python tests passed**, **37 frontend tests passed**, the database readback reported **zero writes**, and the HTTP path matched the manifest hop for hop. See [`evidence/track1/delivery.json`](evidence/track1/delivery.json).
 
-## Artwork and AI assistance
+## Data, AI use, and limits
 
-The office PNG was supplied by the project owner. The six specialists use their original animated pixel-art clips, restored from the earlier project sprite pack at the owner’s request. Provenance is recorded, but copyright ownership and redistribution rights for either artwork asset have not been independently verified. The interface requests Silkscreen from Google Fonts; no font files are bundled. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies the font as SIL Open Font License 1.1. System monospace fallbacks are defined.
+- `scripts/generate_synthetic_graph.py` creates every submitted graph record with seed `20261018`.
+- The dataset contains invented IDs and neutral roles—no real Bitcoin transactions, wallet addresses, or personal data.
+- Unit-test fixtures are mocked test inputs, not database evidence.
+- OpenAI Codex assisted with the generator, adapter, tests, interface, documentation, and README hero artwork.
+- The office prototype and character sprite pack are reused presentation assets with repository-recorded dates documented in [`docs/ELIGIBILITY.md`](docs/ELIGIBILITY.md).
+- The full evidence index is [`evidence/track1/REPORT.md`](evidence/track1/REPORT.md), and the three-minute demo is [`docs/demo-storyboard.md`](docs/demo-storyboard.md).
 
-AI coding assistants were used during development. Disclose that assistance in the official submission form. The submitter should be prepared to explain the graph schema, queries, action policy, Skeptic verification, memory workflow, and limitations.
+## Cypher catalog
 
-No root source-code license is declared in this repository. No license should be inferred from public visibility.
+All values are passed as parameters. Runtime tools use read-only graph queries; setup writes are isolated to a new allowlisted graph, and the counterfactual deletion is isolated to `vesper_counterfactual`.
+
+<details>
+<summary>Show every query</summary>
+
+```cypher
+RETURN 1 AS ready
+```
+
+```cypher
+MATCH (t:Transaction {txId: $tx_id})
+RETURN t.txId, t.label, t.timeStep, t.sourceDataset
+LIMIT 2
+```
+
+```cypher
+MATCH (n)
+RETURN labels(n) AS label, count(*) AS nodes
+ORDER BY label
+```
+
+```cypher
+MATCH ()-[r]->()
+RETURN type(r) AS rel, count(*) AS edges
+ORDER BY rel
+```
+
+```cypher
+MATCH (t:Transaction)
+RETURN t.label AS role, count(*) AS nodes
+ORDER BY role
+```
+
+```cypher
+MATCH p=(s:Transaction {txId: $start_txid})-[:FLOWS_TO*1..6]->(t:Transaction)
+WHERE length(p) <= $max_hops
+RETURN [n IN nodes(p) | n.txId] AS txids,
+       [r IN relationships(p) | id(r)] AS relationship_ids,
+       length(p) AS hops
+ORDER BY hops DESC, txids ASC
+LIMIT 41
+```
+
+```cypher
+MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target})
+RETURN id(r) AS relationship_id
+LIMIT 2
+```
+
+```cypher
+MATCH (t:Transaction)
+RETURN t.txId, t.label, t.timeStep, t.sourceDataset
+ORDER BY t.txId
+```
+
+```cypher
+MATCH (s:Transaction)-[r:FLOWS_TO]->(t:Transaction)
+RETURN s.txId, t.txId, id(r)
+ORDER BY s.txId, t.txId
+```
+
+```cypher
+MATCH (s:Transaction {txId: $start_txid}), (t:Transaction {txId: $end_txid})
+WITH shortestPath((s)-[:FLOWS_TO*1..6]->(t)) AS p
+WHERE p IS NOT NULL AND length(p) <= $max_hops
+RETURN [n IN nodes(p) | n.txId],
+       [r IN relationships(p) | id(r)],
+       length(p)
+```
+
+```cypher
+MATCH (n)
+RETURN n.txId, labels(n), keys(n)
+ORDER BY n.txId
+```
+
+```cypher
+MATCH ()-[r]->()
+RETURN DISTINCT keys(r)
+```
+
+```cypher
+UNWIND $nodes AS tx
+CREATE (t:Transaction {
+  txId: tx.txId,
+  label: tx.label,
+  timeStep: tx.timeStep,
+  sourceDataset: tx.sourceDataset
+})
+RETURN count(t)
+```
+
+```cypher
+UNWIND $edges AS edge
+MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target})
+CREATE (s)-[r:FLOWS_TO]->(t)
+RETURN count(r)
+```
+
+```cypher
+MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target})
+DELETE r
+RETURN count(r) AS removed
+```
+
+</details>
+
+Readable query notes are in [`docs/TRACK1_QUERIES.md`](docs/TRACK1_QUERIES.md).
+
+## License
+
+Apache License 2.0. See [`LICENSE`](LICENSE).

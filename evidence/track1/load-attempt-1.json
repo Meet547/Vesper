@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "stage": "initial bulk load acknowledgement",
+  "error_type": "redis.exceptions.TimeoutError",
+  "message": "Timeout reading from socket",
+  "client_socket_timeout_seconds": 3,
+  "query_timeout_ms": 10000,
+  "subsequent_readback": "gate1_counts.txt: 4000 nodes, 6685 edges; full record comparison scheduled",
+  "resolution": "Use 200-record batches, a 15-second client timeout and no automatic command retries. Do not clear or overwrite existing data."
+}

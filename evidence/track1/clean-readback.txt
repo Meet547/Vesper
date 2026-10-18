@@ -1,0 +1,40 @@
+STEP: 2.8
+COMMAND: VESPER_TRACK=track1_synthetic VESPER_TRACK1_GRAPH=vesper_synthetic_verify VESPER_TRACK1_TARGET_FILE=/private/tmp/vesper-track1-20261018/evidence/track1/isolation-target.json .venv/bin/python -m scripts.load_track1_graph
+EXIT: 0
+OUTPUT:
+{
+  "status": "PASS",
+  "graph": "vesper_synthetic_verify",
+  "writes": [],
+  "counts": {
+    "nodes": [
+      [
+        [
+          "Transaction"
+        ],
+        4000
+      ]
+    ],
+    "edges": [
+      [
+        "FLOWS_TO",
+        6685
+      ]
+    ],
+    "roles": [
+      [
+        "endpoint",
+        130
+      ],
+      [
+        "hub",
+        2071
+      ],
+      [
+        "relay",
+        1799
+      ]
+    ]
+  },
+  "existing_graph_read_only": true
+}

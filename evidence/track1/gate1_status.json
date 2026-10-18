@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "time_IST": "2026-10-18T17:06:45.424728+05:30",
+  "positive": "gate1_positive.txt",
+  "negative": "gate1_negative.txt",
+  "recovery": "gate1_restarted.txt",
+  "query_log": "gate1_cypher.txt",
+  "fail_closed_source": "backend/track1/investigator.py:investigate and unavailable"
+}

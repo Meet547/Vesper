@@ -1,0 +1,184 @@
+{
+  "status": "evidence_available",
+  "database_connected": true,
+  "mode": "database",
+  "graph_name": "vesper_synthetic_verify",
+  "dataset_kind": "team-authored synthetic scenarios",
+  "seed": {
+    "txId": "SYN-000007",
+    "label": "hub",
+    "timeStep": 0,
+    "sourceDataset": "vesper_team_synthetic_v1"
+  },
+  "paths": [
+    {
+      "txids": [
+        "SYN-000007",
+        "SYN-000008",
+        "SYN-000009",
+        "SYN-000010"
+      ],
+      "relationship_ids": [
+        5,
+        7,
+        8
+      ],
+      "hops": 3
+    },
+    {
+      "txids": [
+        "SYN-000007",
+        "SYN-000008",
+        "SYN-000009"
+      ],
+      "relationship_ids": [
+        5,
+        7
+      ],
+      "hops": 2
+    },
+    {
+      "txids": [
+        "SYN-000007",
+        "SYN-000011",
+        "SYN-000012"
+      ],
+      "relationship_ids": [
+        6,
+        9
+      ],
+      "hops": 2
+    },
+    {
+      "txids": [
+        "SYN-000007",
+        "SYN-000008"
+      ],
+      "relationship_ids": [
+        5
+      ],
+      "hops": 1
+    },
+    {
+      "txids": [
+        "SYN-000007",
+        "SYN-000011"
+      ],
+      "relationship_ids": [
+        6
+      ],
+      "hops": 1
+    }
+  ],
+  "accepted_lead": {
+    "txids": [
+      "SYN-000007",
+      "SYN-000008",
+      "SYN-000009",
+      "SYN-000010"
+    ],
+    "relationship_ids": [
+      5,
+      7,
+      8
+    ],
+    "hops": 3
+  },
+  "edge_checks": [
+    {
+      "source": "SYN-000007",
+      "target": "SYN-000008",
+      "row_count": 1,
+      "native_relationship_ids": [
+        5
+      ]
+    },
+    {
+      "source": "SYN-000008",
+      "target": "SYN-000009",
+      "row_count": 1,
+      "native_relationship_ids": [
+        7
+      ]
+    },
+    {
+      "source": "SYN-000009",
+      "target": "SYN-000010",
+      "row_count": 1,
+      "native_relationship_ids": [
+        8
+      ]
+    },
+    {
+      "source": "SYN-000007",
+      "target": "SYN-000008",
+      "row_count": 1,
+      "native_relationship_ids": [
+        5
+      ]
+    },
+    {
+      "source": "SYN-000008",
+      "target": "SYN-000009",
+      "row_count": 1,
+      "native_relationship_ids": [
+        7
+      ]
+    },
+    {
+      "source": "SYN-000007",
+      "target": "SYN-000011",
+      "row_count": 1,
+      "native_relationship_ids": [
+        6
+      ]
+    },
+    {
+      "source": "SYN-000011",
+      "target": "SYN-000012",
+      "row_count": 1,
+      "native_relationship_ids": [
+        9
+      ]
+    },
+    {
+      "source": "SYN-000007",
+      "target": "SYN-000008",
+      "row_count": 1,
+      "native_relationship_ids": [
+        5
+      ]
+    },
+    {
+      "source": "SYN-000007",
+      "target": "SYN-000011",
+      "row_count": 1,
+      "native_relationship_ids": [
+        6
+      ]
+    }
+  ],
+  "action": "inspect_endpoint",
+  "conclusion": null,
+  "events": [
+    {
+      "selected_tool": "get_transaction",
+      "arguments": {
+        "tx_id": "SYN-000007"
+      }
+    },
+    {
+      "selected_tool": "expand_outgoing",
+      "arguments": {
+        "start_txid": "SYN-000007",
+        "max_hops": 3
+      },
+      "reason": "The seed exists; inspect bounded directed connections."
+    },
+    {
+      "selected_action": "inspect_endpoint",
+      "reason": "An independently checked path reaches the requested depth."
+    }
+  ],
+  "notice": "Synthetic scenario leads, not legal conclusions about any person."
+}

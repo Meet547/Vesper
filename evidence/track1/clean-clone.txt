@@ -1,0 +1,5 @@
+COMMAND: git clone --no-hardlinks /private/tmp/vesper-track1-20261018 /private/tmp/vesper-track1-clean
+EXIT: 0
+OUTPUT:
+Cloning into '/private/tmp/vesper-track1-clean'...
+done.

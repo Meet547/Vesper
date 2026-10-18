@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "time_IST": "2026-10-18T17:15:05.496125+05:30",
+  "policy": "Deterministic destination-directed tool selection; no LLM involved.",
+  "evidence": [
+    "gate3_syntax.txt",
+    "gate3_selection.json",
+    "gate3_networkx.json",
+    "gate3_errors.json",
+    "gate3_cypher.json"
+  ]
+}

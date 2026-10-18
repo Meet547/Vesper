@@ -1,0 +1,20 @@
+{
+  "time_IST": "2026-10-18T17:04:20.007559+05:30",
+  "command": [
+    "/private/tmp/vesper-submission-20261018/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_api_preview.py",
+    "tests/test_auth.py",
+    "tests/test_demo_flow.py",
+    "tests/test_graph_decisions.py",
+    "tests/test_local_model_tools.py",
+    "tests/test_memory_workflow.py",
+    "tests/test_shared_context.py",
+    "tests/test_track2_demo_config.py"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "output": "/private/tmp/vesper-track1-20261018/evidence/track1/baseline-python.txt"
+}

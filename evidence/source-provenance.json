@@ -1,0 +1,942 @@
+[
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 237,
+    "release_lines": 237,
+    "source_sha256": "9afb71d6ae9d1f365f6934111abcdaede61979af0f10d702ef93177f2c35f54d",
+    "release_sha256": "9afb71d6ae9d1f365f6934111abcdaede61979af0f10d702ef93177f2c35f54d",
+    "matching_lines": 237,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 237
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 274,
+    "release_lines": 276,
+    "source_sha256": "28b6141e2558e96c9f51211aa97be31be5860ab746734ea33af96db51f4a28b4",
+    "release_sha256": "0e29f6d7c827d2aa7195c3116e69035f1629cf0a8e9704a4c6e935f3258d6c40",
+    "matching_lines": 270,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 84
+      },
+      {
+        "source_start_line": 85,
+        "release_start_line": 86,
+        "line_count": 34
+      },
+      {
+        "source_start_line": 122,
+        "release_start_line": 124,
+        "line_count": 66
+      },
+      {
+        "source_start_line": 189,
+        "release_start_line": 191,
+        "line_count": 86
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/historian.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 18,
+    "release_lines": 19,
+    "source_sha256": "4c73886b3cec10b39ebbbcbc74e8d2721ac2abaacd554261d6da58d707b586f3",
+    "release_sha256": "7bb8734ca0600e4e753c65451717fb9df9973236b70855072e55d42ab6cd4821",
+    "matching_lines": 14,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 11
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/local_model.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 165,
+    "release_lines": 165,
+    "source_sha256": "ccba9b0a01f3cbccc84f2940b34d986315d5847efd34fff8c8b17e34f0bbed27",
+    "release_sha256": "ccba9b0a01f3cbccc84f2940b34d986315d5847efd34fff8c8b17e34f0bbed27",
+    "matching_lines": 165,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 165
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 383,
+    "release_lines": 781,
+    "source_sha256": "c1b41d931a5594d7c674c007c146990b24f41a0c8604b77db4fc13eaedc6e2ce",
+    "release_sha256": "bcf2c8824c6172f305ae146d207bd902abd8adef8f4be8175997f3f8b5702fc3",
+    "matching_lines": 335,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 4,
+        "release_start_line": 5,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 9,
+        "release_start_line": 12,
+        "line_count": 10
+      },
+      {
+        "source_start_line": 19,
+        "release_start_line": 31,
+        "line_count": 17
+      },
+      {
+        "source_start_line": 37,
+        "release_start_line": 51,
+        "line_count": 10
+      },
+      {
+        "source_start_line": 47,
+        "release_start_line": 62,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 51,
+        "release_start_line": 67,
+        "line_count": 16
+      },
+      {
+        "source_start_line": 94,
+        "release_start_line": 475,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 114,
+        "release_start_line": 490,
+        "line_count": 11
+      },
+      {
+        "source_start_line": 127,
+        "release_start_line": 501,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 131,
+        "release_start_line": 505,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 135,
+        "release_start_line": 509,
+        "line_count": 23
+      },
+      {
+        "source_start_line": 160,
+        "release_start_line": 535,
+        "line_count": 39
+      },
+      {
+        "source_start_line": 199,
+        "release_start_line": 584,
+        "line_count": 56
+      },
+      {
+        "source_start_line": 255,
+        "release_start_line": 641,
+        "line_count": 21
+      },
+      {
+        "source_start_line": 277,
+        "release_start_line": 663,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 282,
+        "release_start_line": 668,
+        "line_count": 16
+      },
+      {
+        "source_start_line": 307,
+        "release_start_line": 703,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 312,
+        "release_start_line": 709,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 316,
+        "release_start_line": 714,
+        "line_count": 10
+      },
+      {
+        "source_start_line": 327,
+        "release_start_line": 725,
+        "line_count": 49
+      },
+      {
+        "source_start_line": 377,
+        "release_start_line": 775,
+        "line_count": 3
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 286,
+    "release_lines": 324,
+    "source_sha256": "34df0b039b35f425d1a8c37b8aca1d53be6e61e395290d0b5f7bce4287478afc",
+    "release_sha256": "854fa5aceeb3749efe610b2dd1101c58d0abbba4437f148f7935e81666052465",
+    "matching_lines": 285,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 171
+      },
+      {
+        "source_start_line": 172,
+        "release_start_line": 204,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 177,
+        "release_start_line": 210,
+        "line_count": 25
+      },
+      {
+        "source_start_line": 202,
+        "release_start_line": 236,
+        "line_count": 14
+      },
+      {
+        "source_start_line": 216,
+        "release_start_line": 252,
+        "line_count": 40
+      },
+      {
+        "source_start_line": 256,
+        "release_start_line": 294,
+        "line_count": 31
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/scout.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 15,
+    "release_lines": 15,
+    "source_sha256": "2cdb0c0590b0bf237f29f16be0c9f7ed806ecfcf853baea01f24aca6f42fa815",
+    "release_sha256": "2cdb0c0590b0bf237f29f16be0c9f7ed806ecfcf853baea01f24aca6f42fa815",
+    "matching_lines": 15,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 15
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/shared_context.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 185,
+    "release_lines": 268,
+    "source_sha256": "968e5802a354774a6ddc19b6bb8a515b36553706c95231d5ee11715982923f52",
+    "release_sha256": "ba97c366879d4121765787b7ad7aa83f2432597b71844bbc3550d15937e368e5",
+    "matching_lines": 174,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 37
+      },
+      {
+        "source_start_line": 43,
+        "release_start_line": 47,
+        "line_count": 24
+      },
+      {
+        "source_start_line": 67,
+        "release_start_line": 81,
+        "line_count": 11
+      },
+      {
+        "source_start_line": 79,
+        "release_start_line": 93,
+        "line_count": 9
+      },
+      {
+        "source_start_line": 88,
+        "release_start_line": 105,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 92,
+        "release_start_line": 120,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 97,
+        "release_start_line": 125,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 103,
+        "release_start_line": 140,
+        "line_count": 10
+      },
+      {
+        "source_start_line": 114,
+        "release_start_line": 151,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 120,
+        "release_start_line": 160,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 126,
+        "release_start_line": 166,
+        "line_count": 16
+      },
+      {
+        "source_start_line": 142,
+        "release_start_line": 183,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 145,
+        "release_start_line": 215,
+        "line_count": 22
+      },
+      {
+        "source_start_line": 167,
+        "release_start_line": 247,
+        "line_count": 8
+      },
+      {
+        "source_start_line": 177,
+        "release_start_line": 260,
+        "line_count": 9
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 341,
+    "release_lines": 427,
+    "source_sha256": "c5f86f0d1b821f4d360aeb29ce213361104934982144aa7bf0cdf5500f50b784",
+    "release_sha256": "7a39c64fe3274de5d4f5c7433933ed7eee6e5b929994236150b00d98098fbc24",
+    "matching_lines": 339,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 15
+      },
+      {
+        "source_start_line": 17,
+        "release_start_line": 17,
+        "line_count": 65
+      },
+      {
+        "source_start_line": 82,
+        "release_start_line": 164,
+        "line_count": 205
+      },
+      {
+        "source_start_line": 288,
+        "release_start_line": 374,
+        "line_count": 54
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/tracer.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 16,
+    "release_lines": 17,
+    "source_sha256": "5f0ece681997926e5e53f28b2f45dbdb8ee1a490e3a750aaae387bd7746c5feb",
+    "release_sha256": "2c19b141b23e900204bf85bfe7ef67195be66cd2e7144e8f8fe91668bd618440",
+    "matching_lines": 14,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 11
+      },
+      {
+        "source_start_line": 13,
+        "release_start_line": 14,
+        "line_count": 3
+      }
+    ]
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 564,
+    "release_lines": 643,
+    "source_sha256": "2287c6967663642170a04076cf607fa81a73384e2c2890115d51444f67f9aa17",
+    "release_sha256": "80dc54d38b8a3b815c6a70d165369129dd7c51598877a5989f8fbfaf5736fa21",
+    "matching_lines": 481,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 18
+      },
+      {
+        "source_start_line": 39,
+        "release_start_line": 40,
+        "line_count": 20
+      },
+      {
+        "source_start_line": 59,
+        "release_start_line": 64,
+        "line_count": 152
+      },
+      {
+        "source_start_line": 213,
+        "release_start_line": 218,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 217,
+        "release_start_line": 222,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 222,
+        "release_start_line": 227,
+        "line_count": 7
+      },
+      {
+        "source_start_line": 231,
+        "release_start_line": 238,
+        "line_count": 7
+      },
+      {
+        "source_start_line": 239,
+        "release_start_line": 247,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 245,
+        "release_start_line": 252,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 279,
+        "release_start_line": 295,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 293,
+        "release_start_line": 328,
+        "line_count": 18
+      },
+      {
+        "source_start_line": 315,
+        "release_start_line": 350,
+        "line_count": 18
+      },
+      {
+        "source_start_line": 342,
+        "release_start_line": 391,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 348,
+        "release_start_line": 399,
+        "line_count": 8
+      },
+      {
+        "source_start_line": 356,
+        "release_start_line": 409,
+        "line_count": 11
+      },
+      {
+        "source_start_line": 370,
+        "release_start_line": 424,
+        "line_count": 8
+      },
+      {
+        "source_start_line": 379,
+        "release_start_line": 434,
+        "line_count": 36
+      },
+      {
+        "source_start_line": 416,
+        "release_start_line": 473,
+        "line_count": 28
+      },
+      {
+        "source_start_line": 448,
+        "release_start_line": 509,
+        "line_count": 13
+      },
+      {
+        "source_start_line": 462,
+        "release_start_line": 526,
+        "line_count": 16
+      },
+      {
+        "source_start_line": 484,
+        "release_start_line": 552,
+        "line_count": 21
+      },
+      {
+        "source_start_line": 505,
+        "release_start_line": 574,
+        "line_count": 6
+      },
+      {
+        "source_start_line": 518,
+        "release_start_line": 592,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 522,
+        "release_start_line": 596,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 531,
+        "release_start_line": 610,
+        "line_count": 6
+      },
+      {
+        "source_start_line": 538,
+        "release_start_line": 617,
+        "line_count": 27
+      }
+    ]
+  },
+  {
+    "file": "backend/app/tools/investigation_tools.py",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 26,
+    "release_lines": 26,
+    "source_sha256": "74e7903edc6bf3b627cd0c48c17d3c93e52c0c7b06b17e6b06ad00a38d064ea4",
+    "release_sha256": "032a6e23174e71b9b55a7949b6e09c7524073a6ff75af7fb4ad05f5ad57ed7b9",
+    "matching_lines": 24,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 20
+      },
+      {
+        "source_start_line": 24,
+        "release_start_line": 24,
+        "line_count": 3
+      }
+    ]
+  },
+  {
+    "file": "databases/queries/flow_count.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 2,
+    "release_lines": 2,
+    "source_sha256": "a91677a47ef43806d0ab3c0e8ad60280efd161e9bffaf63a1cf931dfe06db048",
+    "release_sha256": "a91677a47ef43806d0ab3c0e8ad60280efd161e9bffaf63a1cf931dfe06db048",
+    "matching_lines": 2,
+    "matching_blocks_at_least_three_lines": []
+  },
+  {
+    "file": "databases/queries/graph_health.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 5,
+    "release_lines": 5,
+    "source_sha256": "dd5f468fbca9d6a4e2d185bd4243c133b390b7e53c09cfc21d3cbeb5c2f9589d",
+    "release_sha256": "dd5f468fbca9d6a4e2d185bd4243c133b390b7e53c09cfc21d3cbeb5c2f9589d",
+    "matching_lines": 5,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 5
+      }
+    ]
+  },
+  {
+    "file": "databases/queries/inspect_transaction.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 7,
+    "release_lines": 7,
+    "source_sha256": "2935ced1d78ded6556e4d5a749ce28039a8fbc9553e064c4d7e641b113974b93",
+    "release_sha256": "9f96463af04809917d720a15935596243e3104af75c9d6a493d77e0d79abeef3",
+    "matching_lines": 6,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 3,
+        "release_start_line": 3,
+        "line_count": 5
+      }
+    ]
+  },
+  {
+    "file": "databases/queries/memory_schema.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 8,
+    "release_lines": 8,
+    "source_sha256": "645c3382787ce0c0d7b694c62d72782605d59b9d776ce766cac6f8e464b89594",
+    "release_sha256": "645c3382787ce0c0d7b694c62d72782605d59b9d776ce766cac6f8e464b89594",
+    "matching_lines": 8,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 8
+      }
+    ]
+  },
+  {
+    "file": "databases/queries/upstream_trace.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 8,
+    "release_lines": 8,
+    "source_sha256": "e4dd00c3442f31d6d63e1e274b0c7cf3841bcbf9a7112eb9f38dff7467ef86cc",
+    "release_sha256": "30760abb1a205ab8f0c6a07ee1f48aaa217b855c1566864c57b539d64c7618ce",
+    "matching_lines": 7,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 3,
+        "release_start_line": 3,
+        "line_count": 6
+      }
+    ]
+  },
+  {
+    "file": "databases/schema.cypher",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 8,
+    "release_lines": 8,
+    "source_sha256": "46ae749d76f419f9f04811e43407d451895878946817312ad78747fa72541871",
+    "release_sha256": "46ae749d76f419f9f04811e43407d451895878946817312ad78747fa72541871",
+    "matching_lines": 8,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 8
+      }
+    ]
+  },
+  {
+    "file": "frontend/assets/agent-state.mjs",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 185,
+    "release_lines": 245,
+    "source_sha256": "45431a32e3400b95bc255839bc2ccde52a726928bbff9ed35138934c950dd2c3",
+    "release_sha256": "38480522419265d5b3329dc05b8650ea7d8f58dee2ad4341051fc512b72a9481",
+    "matching_lines": 175,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 4,
+        "release_start_line": 50,
+        "line_count": 82
+      },
+      {
+        "source_start_line": 87,
+        "release_start_line": 133,
+        "line_count": 8
+      },
+      {
+        "source_start_line": 96,
+        "release_start_line": 142,
+        "line_count": 13
+      },
+      {
+        "source_start_line": 110,
+        "release_start_line": 159,
+        "line_count": 11
+      },
+      {
+        "source_start_line": 122,
+        "release_start_line": 174,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 126,
+        "release_start_line": 178,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 132,
+        "release_start_line": 185,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 138,
+        "release_start_line": 192,
+        "line_count": 25
+      },
+      {
+        "source_start_line": 164,
+        "release_start_line": 218,
+        "line_count": 15
+      },
+      {
+        "source_start_line": 181,
+        "release_start_line": 241,
+        "line_count": 5
+      }
+    ]
+  },
+  {
+    "file": "frontend/assets/agent-theatre.mjs",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 122,
+    "release_lines": 173,
+    "source_sha256": "8614ccefcaec2194c58453b895e5a1f347b7e4514fb2d8615c76aca856b42e22",
+    "release_sha256": "3ccaf7634655cdb24c29ca5b3893930eb85f36d8b57bb5c86df95630060d0bb2",
+    "matching_lines": 114,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 1,
+        "release_start_line": 1,
+        "line_count": 14
+      },
+      {
+        "source_start_line": 20,
+        "release_start_line": 20,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 27,
+        "release_start_line": 28,
+        "line_count": 37
+      },
+      {
+        "source_start_line": 64,
+        "release_start_line": 67,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 70,
+        "release_start_line": 75,
+        "line_count": 7
+      },
+      {
+        "source_start_line": 77,
+        "release_start_line": 100,
+        "line_count": 46
+      }
+    ]
+  },
+  {
+    "file": "frontend/index.html",
+    "source_commit": "77dc829c0fa56f0cff08e953a420c03d25b749f0",
+    "source_lines": 642,
+    "release_lines": 825,
+    "source_sha256": "3ac0c575f67023ef5c87ed43dbbd56ecbd8ec7435b6f4c4265af0d58d840274c",
+    "release_sha256": "388177e5f39c08384fbbddd9335039208992ce1f7b8868b8cecc1b229f06f86f",
+    "matching_lines": 518,
+    "matching_blocks_at_least_three_lines": [
+      {
+        "source_start_line": 4,
+        "release_start_line": 4,
+        "line_count": 12
+      },
+      {
+        "source_start_line": 19,
+        "release_start_line": 18,
+        "line_count": 7
+      },
+      {
+        "source_start_line": 27,
+        "release_start_line": 26,
+        "line_count": 117
+      },
+      {
+        "source_start_line": 146,
+        "release_start_line": 144,
+        "line_count": 12
+      },
+      {
+        "source_start_line": 165,
+        "release_start_line": 180,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 169,
+        "release_start_line": 184,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 173,
+        "release_start_line": 188,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 180,
+        "release_start_line": 195,
+        "line_count": 9
+      },
+      {
+        "source_start_line": 190,
+        "release_start_line": 215,
+        "line_count": 15
+      },
+      {
+        "source_start_line": 223,
+        "release_start_line": 277,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 229,
+        "release_start_line": 283,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 235,
+        "release_start_line": 288,
+        "line_count": 7
+      },
+      {
+        "source_start_line": 248,
+        "release_start_line": 321,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 258,
+        "release_start_line": 331,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 278,
+        "release_start_line": 351,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 283,
+        "release_start_line": 362,
+        "line_count": 44
+      },
+      {
+        "source_start_line": 327,
+        "release_start_line": 410,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 333,
+        "release_start_line": 416,
+        "line_count": 19
+      },
+      {
+        "source_start_line": 352,
+        "release_start_line": 468,
+        "line_count": 23
+      },
+      {
+        "source_start_line": 378,
+        "release_start_line": 499,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 386,
+        "release_start_line": 524,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 390,
+        "release_start_line": 535,
+        "line_count": 30
+      },
+      {
+        "source_start_line": 432,
+        "release_start_line": 610,
+        "line_count": 18
+      },
+      {
+        "source_start_line": 451,
+        "release_start_line": 629,
+        "line_count": 8
+      },
+      {
+        "source_start_line": 460,
+        "release_start_line": 638,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 504,
+        "release_start_line": 663,
+        "line_count": 5
+      },
+      {
+        "source_start_line": 510,
+        "release_start_line": 670,
+        "line_count": 23
+      },
+      {
+        "source_start_line": 541,
+        "release_start_line": 702,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 545,
+        "release_start_line": 707,
+        "line_count": 3
+      },
+      {
+        "source_start_line": 549,
+        "release_start_line": 711,
+        "line_count": 15
+      },
+      {
+        "source_start_line": 564,
+        "release_start_line": 727,
+        "line_count": 38
+      },
+      {
+        "source_start_line": 602,
+        "release_start_line": 769,
+        "line_count": 6
+      },
+      {
+        "source_start_line": 613,
+        "release_start_line": 780,
+        "line_count": 6
+      },
+      {
+        "source_start_line": 625,
+        "release_start_line": 807,
+        "line_count": 4
+      },
+      {
+        "source_start_line": 630,
+        "release_start_line": 812,
+        "line_count": 6
+      }
+    ]
+  }
+]

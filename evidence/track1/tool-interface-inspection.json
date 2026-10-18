@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "legacy_tools": "backend/app/tools/investigation_tools.py:11-26",
+  "legacy_orchestrator": "backend/app/agents/orchestrator.py:20,36-45",
+  "finding": "Legacy surface has get_transaction, get_neighbors, trace_paths, find_related_memories; no shortest_path or MCP layer. No MCP claims were found in the prior README/docs search.",
+  "new_tools": "backend/track1/tools.py",
+  "new_selection": "backend/track1/investigator.py:find_route",
+  "new_mcp": "backend/track1/mcp_server.py",
+  "mcp_timebox_start_IST": "2026-10-18T17:15:17+05:30"
+}

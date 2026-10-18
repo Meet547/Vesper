@@ -1,0 +1,26 @@
+[
+  {
+    "source": "SYN-000001",
+    "target": "SYN-000002",
+    "row_count": 1,
+    "native_relationship_ids": [
+      0
+    ]
+  },
+  {
+    "source": "SYN-000002",
+    "target": "SYN-000003",
+    "row_count": 1,
+    "native_relationship_ids": [
+      2
+    ]
+  },
+  {
+    "source": "SYN-000003",
+    "target": "SYN-000004",
+    "row_count": 1,
+    "native_relationship_ids": [
+      3
+    ]
+  }
+]

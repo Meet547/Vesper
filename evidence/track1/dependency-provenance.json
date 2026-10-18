@@ -1,0 +1,18 @@
+{
+  "networkx": {
+    "version": "3.7",
+    "license": null,
+    "license_expression": "BSD-3-Clause",
+    "license_files": [
+      "networkx-3.7.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  "mcp": {
+    "version": "1.30.0",
+    "license": "MIT",
+    "license_expression": null,
+    "license_files": [
+      "mcp-1.30.0.dist-info/licenses/LICENSE"
+    ]
+  }
+}

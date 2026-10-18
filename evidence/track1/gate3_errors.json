@@ -1,0 +1,26 @@
+{
+  "unknown_id": {
+    "status": "FAIL",
+    "error": "unknown_id",
+    "message": "A transaction ID is absent from the graph.",
+    "path": []
+  },
+  "excessive_hops": {
+    "status": "FAIL",
+    "error": "invalid_arguments",
+    "message": "Provide SYN IDs and an integer max_hops from 1 through 6.",
+    "path": []
+  },
+  "timeout": {
+    "status": "FAIL",
+    "error": "timeout",
+    "message": "Graph query timed out.",
+    "path": []
+  },
+  "stopped_database": {
+    "status": "FAIL",
+    "error": "evidence_unavailable",
+    "message": "evidence unavailable",
+    "path": []
+  }
+}

@@ -1,0 +1,46 @@
+✔ waiting messages follow the real dependency order and reset on retry (9.742375ms)
+✔ chat dialogue uses confirmed event data and structured handoffs (0.702916ms)
+✔ missing model interpretation stays visible after the report completes (0.316834ms)
+✔ final Case Board context restores decision budget and evidence omitted from the shared snapshot (1.757166ms)
+✔ new frontend sessions begin idle and transcript append caps old entries (0.2665ms)
+✔ normalizes real stage events to safe task summaries and handoffs (7.050625ms)
+✔ supports concurrent work without overwriting another active agent (1.489042ms)
+✔ duplicate stream events are idempotent (0.324791ms)
+✔ late events from a prior retry are ignored (0.192709ms)
+✔ final report state ignores any late intermediate event (0.325333ms)
+✔ retry starts a clean session with no stale events or report state (0.178292ms)
+✔ Skeptic completion closes Historian after the memory validation handoff (0.2515ms)
+✔ investigation failure marks waiting agents as error and retry resets them (0.31725ms)
+✔ each agent voice has a distinct, short, evidence-safe opening line (1.022708ms)
+✔ idle choreography rotates deterministically and never overrides active work (0.250458ms)
+✔ sprite anchor boxes use full frame bounds and reject edge clipping (0.150584ms)
+✔ every agent has valid full-frame source mappings for all required character states (0.755375ms)
+✔ sitting frame metadata aligns its actual 90px full crop at the feet anchor (0.160417ms)
+✔ each agent cycles through distinct deterministic idle stations (0.135041ms)
+✔ real meeting/context events update the current run and ignore duplicates or old runs (1.33675ms)
+✔ graph decision events are distinct and update the Case Board context (0.212167ms)
+✔ structured handoffs preserve their backend message and do not fabricate zero counts (0.206667ms)
+✔ reporter context updates cannot prematurely finish a run; errors close meetings (0.163917ms)
+✔ pending verification counts each claim once and retains unresolved memory (0.170833ms)
+✔ runtime character states use distinct restored Vesper sprite clips over the supplied office artwork (14.333708ms)
+✔ desk transitions use one full-body feet anchor and cancellation cannot restore an old pose (7.392208ms)
+✔ occupied destinations are separated and stationary agents do not drift (883.217166ms)
+✔ office navigation avoids furniture and snaps station approaches to clear floor tiles (13322.722083ms)
+✔ labels avoid other character bodies and one another at desktop and narrow scales (1.54ms)
+✔ agent name labels use compact role slots and a pose-independent head anchor (0.228791ms)
+✔ seated foreground masks can cover chair-height legs but cannot repaint heads or shoulders (0.157417ms)
+✔ all six actual office routes reach distinct first break stations and return without teleporting (18749.394875ms)
+✔ guided console keeps primary actions visible and removes redundant scene controls (2.990542ms)
+✔ report names evidence, memory, interpretation, review, and limitations separately (0.377083ms)
+✔ small viewports and reduced-motion have explicit layout and behavior rules (1.371ms)
+✔ shared case board and developer-only sprite QA remain distinct from normal judge UI (0.772ms)
+✔ Track 2 comparison renders the backend Reporter explanation and paired policy choices (0.470958ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33067.958209
+

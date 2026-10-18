@@ -1,0 +1,3613 @@
+[
+  {
+    "file": "README.md",
+    "line": 11,
+    "categories": [
+      "dataset/provenance",
+      "transaction ID literal/candidate"
+    ],
+    "text": "The release uses authored synthetic fixtures only. The in-memory fixture uses IDs `730000001`\u2013`730000008`; the isolated FalkorDB fixture uses IDs `731000001`\u2013`731000008`, with eight transaction nodes and seven directed `FLOWS_TO` edges. IDs, labels, time steps, and relationships are invented for this demonstration. They are not Bitcoin transaction records and make no claims about real wallets, people, ownership, or conduct. The source tag is `bureau_synthetic_v1` for fixture provenance.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 59,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "Expected graph: `vesper_track2_synthetic_test`, transactions `731000001`\u2013`731000008`, and seven directed edges. The seeder reports existing graph names and preserves other graphs and saved cases/memories.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 71,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "Use seed `731000004` and a three-hop search in the shared UI, or run the read-only API preview:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 76,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  -d '{\"seed_tx_id\":\"731000004\",\"max_hops\":3,\"memory_enabled\":false}' \\",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 91,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "export BUREAU_M84_SEED_A=731000002",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 92,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "export BUREAU_M84_SEED_B=731000001",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 101,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "1. Click **Investigate Case A \u00b7 seed 731000002**. Review the paths and Skeptic checks in Findings & evidence.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 111,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "(:Transaction {txId, label, timeStep, sourceDataset})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 113,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "(:Transaction {txId, label, timeStep, sourceDataset})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "README.md",
+    "line": 136,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "The office PNG was supplied by the project owner. The six specialists use their original animated pixel-art clips, restored from the earlier project sprite pack at the owner\u2019s request. Provenance is recorded, but copyright ownership and redistribution rights for either artwork asset have not been independently verified. The interface requests Silkscreen from Google Fonts; no font files are bundled. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies the font as SIL Open Font License 1.1. System monospace fallbacks are defined.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/AGENT_ROLES.md",
+    "line": 24,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "Treat every proposed conclusion as a hypothesis. Recheck the referenced nodes/path, surface unknown labels and mixed-label paths, distinguish dataset classification from independently verified fact, and reject any claim with no graph evidence. Do not let prior memory override the current graph.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "line": 23,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "LABELS = (\"illicit\", \"licit\", \"unknown\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "line": 53,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    r\"no evidence of (any )?(illicit|criminal|risk)|\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "line": 54,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    r\"(is|are) not (illicit|licit)|definitely (licit|not illicit)\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "line": 161,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                        \"sourceDataset\": \"source_dataset\"}.get(property_name, property_name)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "line": 236,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    match = re.search(r\"\\b(illicit|licit|unknown)\\b\", text or \"\", re.IGNORECASE)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 23,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "LABELS = (\"illicit\", \"licit\", \"unknown\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 50,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"label\": str((seed or {}).get(\"label\") or \"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 52,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"source_dataset\": (seed or {}).get(\"sourceDataset\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 98,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"label\": str((node or {}).get(\"label\") or \"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 100,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                \"source_dataset\": (node or {}).get(\"sourceDataset\") if len(node or {}) > 3 else None,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 126,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        \"source_graph\": graph_name or \"unknown\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "line": 233,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "             \"sourceDataset\": t.get(\"source_dataset\"), \"isSeed\": t.get(\"is_seed\", False)}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/local_model.py",
+    "line": 163,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "        if not tx_id.isdigit() or len(tx_id) > 50:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/local_model.py",
+    "line": 164,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "            raise ValueError(\"Transaction IDs must contain digits only\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "line": 140,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                    \"frontier_tx_id\": str((choice.get(\"memory_suggestion\") or {}).get(\"frontier_tx_id\", \"0\")),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "line": 286,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                                   if isinstance(node, dict) and str(node.get(\"txId\", \"\")).isdigit())",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "line": 407,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                               if isinstance(node, dict) and str(node.get(\"txId\", \"\")).isdigit())",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "line": 730,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "            evidence_tx_ids = [preview[\"seed\"][\"txId\"]] + [str(node[\"txId\"]) for trace in preview[\"traces\"] for node in trace.get(\"nodes\", []) if isinstance(node, dict) and str(node.get(\"txId\", \"\")).isdigit()]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "line": 738,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                               \"label\": transaction.get(\"label\", \"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 25,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    r\"\\b(\\d+)\\s*(?:labeled\\s+as|marked\\s+as|tagged\\s+as|are|is)?\\s*[\\\"]?(licit|unknown|illicit)[\\\")]?\\b\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 33,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    r\"transaction (?:with ID )\\`?[0-9]+\\`? is labeled as [\\\"]?(illicit|licit|unknown)[\\\"]?\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 164,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        # label (for example, ``218062276 unknown``). It is an identifier, not a",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 217,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        seed_label = (seed or {}).get(\"label\") or \"unknown\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 242,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                summary.append(f\"Validated memory from case {memory.get('caseId', 'unknown')} [{memory.get('validationStatus')}]: {reason} Shared transactions: {', '.join(shared)}. Current supporting edges: {', '.join(edges) if edges else 'none'}.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 248,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            summary.append(f\"Memory candidate from case {memory.get('caseId', 'unknown')} was excluded [{memory.get('validationStatus', 'UNVERIFIED')}]: {memory.get('validationReason', 'not independently supported by current evidence')}.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 249,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        summary.append(f\"Skeptic review status: {(skeptic or {}).get('reviewStatus', 'unknown')}.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 303,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"Real-world wallet ownership, identity, transfer amounts, and chronology beyond dataset fields are unknown.\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "line": 314,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        label = (seed or {}).get(\"label\") or \"unknown\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/shared_context.py",
+    "line": 97,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"ref\": \"preview.evidence_ledger\", \"source_graph\": self._ledger.get(\"source_graph\", \"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/shared_context.py",
+    "line": 122,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "             \"label\": record.get(\"label\", \"unknown\"), \"source_type\": \"graph\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 34,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                if not isinstance(node, dict) or not str(node.get(\"txId\", \"\")).isdigit():",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 39,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        unknown_nodes = sorted(node_id for node_id, node in evidence_nodes.items() if str(node.get(\"label\") or \"unknown\").lower() == \"unknown\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 40,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        illicit_nodes = sorted(node_id for node_id, node in evidence_nodes.items() if str(node.get(\"label\") or \"unknown\").lower() == \"illicit\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 41,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        licit_nodes = sorted(node_id for node_id, node in evidence_nodes.items() if str(node.get(\"label\") or \"unknown\").lower() == \"licit\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 45,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            flags.append(f\"{len(unknown_nodes)} connected transaction(s) have an unknown dataset label; do not infer their status.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 47,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "            flags.append(\"No path was found within the selected hop limit in the currently imported graph.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 64,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"seedDatasetLabel\": seed.get(\"label\", \"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 107,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                len(ids) >= 2 and all(tx_id.isdigit() for tx_id in ids)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 125,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                if not tx_id.isdigit():",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 133,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    for key in (\"label\", \"timeStep\", \"sourceDataset\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 328,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            case_id = str(memory.get(\"caseId\") or \"unknown\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 337,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                old_label = str(prior.get(\"label\") or \"unknown\").lower()",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 338,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                current_label = str(current.get(\"label\") or \"unknown\").lower()",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 348,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                remembered_label = str(claim.get(\"label\") or \"unknown\").lower()",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 349,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                current_label = str((current or {}).get(\"label\") or \"unknown\").lower()",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 411,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                    if prior and str(prior.get(\"label\") or \"unknown\").lower() == str(current.get(\"label\") or \"unknown\").lower():",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "line": 413,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                                                   \"label\": str(current.get(\"label\") or \"unknown\").lower(),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 59,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            # Never use stale keys for an unknown kid/rotation refresh. For an",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 104,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        response.headers[\"Expires\"] = \"0\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 108,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        response.headers[\"Cache-Control\"] = \"public, max-age=31536000, immutable\" if immutable else \"no-cache, must-revalidate\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 161,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                            headers={\"Retry-After\": \"3\"})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 228,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    label: str = Query(default=\"\", pattern=\"^(|illicit|licit|unknown)$\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 245,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "    if not tx_id.isdigit() or len(tx_id) > 50:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/main.py",
+    "line": 246,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "        raise HTTPException(status_code=422, detail=\"Transaction ID must contain digits only and be at most 50 characters.\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/models.py",
+    "line": 26,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "        if not value.isdigit():",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/models.py",
+    "line": 27,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "            raise ValueError(\"Transaction ID must contain digits only\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 21,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "# copied from a real transaction dataset. Cloud mode remains separate.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 23,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000001\": {\"txId\": \"730000001\", \"label\": \"licit\", \"timeStep\": 1, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 24,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000002\": {\"txId\": \"730000002\", \"label\": \"unknown\", \"timeStep\": 2, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 25,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000003\": {\"txId\": \"730000003\", \"label\": \"illicit\", \"timeStep\": 3, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 26,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000004\": {\"txId\": \"730000004\", \"label\": \"unknown\", \"timeStep\": 4, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 27,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000005\": {\"txId\": \"730000005\", \"label\": \"licit\", \"timeStep\": 5, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 28,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000006\": {\"txId\": \"730000006\", \"label\": \"unknown\", \"timeStep\": 6, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 29,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000007\": {\"txId\": \"730000007\", \"label\": \"illicit\", \"timeStep\": 7, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 30,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    \"730000008\": {\"txId\": \"730000008\", \"label\": \"licit\", \"timeStep\": 8, \"sourceDataset\": \"bureau_synthetic_v1\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 33,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000001\", \"730000004\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 34,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000002\", \"730000004\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 35,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000004\", \"730000003\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 36,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000003\", \"730000005\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 37,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000005\", \"730000006\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 38,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000006\", \"730000007\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 39,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"730000007\", \"730000008\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 143,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"label\": row[1] if row[1] is not None else \"unknown\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 145,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"sourceDataset\": row[3] if len(row) > 3 else None,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 154,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"illicitTransactions\": labels.count(\"illicit\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 155,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"licitTransactions\": labels.count(\"licit\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 156,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"unknownTransactions\": labels.count(\"unknown\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 163,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"sum(CASE WHEN t.label = 'illicit' THEN 1 ELSE 0 END) AS illicitTransactions, \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 164,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"sum(CASE WHEN t.label = 'licit' THEN 1 ELSE 0 END) AS licitTransactions, \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 165,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "            \"sum(CASE WHEN t.label = 'unknown' THEN 1 ELSE 0 END) AS unknownTransactions\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 185,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"RETURN t.txId AS txId, t.label AS label, t.timeStep AS timeStep, t.sourceDataset AS sourceDataset LIMIT 1\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 193,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        label = label if label in {\"\", \"illicit\", \"licit\", \"unknown\"} else \"\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 205,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"RETURN t.txId AS txId, t.label AS label, t.timeStep AS timeStep, t.sourceDataset AS sourceDataset \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 221,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"RETURN p.txId AS txId, p.label AS label, p.timeStep AS timeStep, p.sourceDataset AS sourceDataset ORDER BY p.txId ASC LIMIT 25\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 226,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"RETURN n.txId AS txId, n.label AS label, n.timeStep AS timeStep, n.sourceDataset AS sourceDataset ORDER BY n.txId ASC LIMIT 25\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 279,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    \"[n IN nodes(p) | n.sourceDataset] AS sourceDatasets \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 280,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    \"RETURN txIds, labels, timeSteps, sourceDatasets, hops \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 288,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    \"[n IN nodes(p) | n.sourceDataset] AS sourceDatasets \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 289,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    \"RETURN txIds, labels, timeSteps, sourceDatasets, hops \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 298,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                source_datasets = row[3] or []",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 300,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                    {\"txId\": str(node_id), \"label\": labels[index] if index < len(labels) and labels[index] is not None else \"unknown\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 302,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                     \"sourceDataset\": source_datasets[index] if index < len(source_datasets) else None}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 343,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                if not isinstance(node, dict) or not str(node.get(\"txId\", \"\")).isdigit():",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 363,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "                     and all(tx_id.isdigit() for tx_id in ids))",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 376,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                for key in (\"label\", \"timeStep\", \"sourceDataset\"):",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 415,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                        f\"Case {item.get('caseId', 'unknown')} shares transaction IDs \"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 500,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                \"tags\": [\"bitcoin-investigation\", case[\"seed\"].get(\"label\", \"unknown\")],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "line": 541,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        tags = [\"bitcoin-investigation\", str(case[\"seed\"].get(\"label\") or \"unknown\")]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/README.md",
+    "line": 5,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "The cloud graph should already contain the imported data:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/README.md",
+    "line": 7,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "- `(:Transaction {txId, label, timeStep, sourceDataset})`",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/README.md",
+    "line": 10,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "`txId` is stored as a string. The local synthetic examples use values such as `730000004`; keep IDs as strings at API boundaries.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/queries/graph_health.cypher",
+    "line": 3,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "       sum(CASE WHEN t.label = 'illicit' THEN 1 ELSE 0 END) AS illicitTransactions,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/queries/graph_health.cypher",
+    "line": 4,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "       sum(CASE WHEN t.label = 'licit' THEN 1 ELSE 0 END) AS licitTransactions,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/queries/graph_health.cypher",
+    "line": 5,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "       sum(CASE WHEN t.label = 'unknown' THEN 1 ELSE 0 END) AS unknownTransactions",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/queries/inspect_transaction.cypher",
+    "line": 2,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "MATCH (t:Transaction {txId: '730000004'})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/queries/upstream_trace.cypher",
+    "line": 2,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "MATCH p = (source:Transaction)-[:FLOWS_TO*1..3]->(target:Transaction {txId: '730000004'})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/schema.cypher",
+    "line": 1,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "// Existing imported graph expected by this application:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "databases/schema.cypher",
+    "line": 2,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "// (:Transaction {txId, label, timeStep, sourceDataset})-[:FLOWS_TO]->(:Transaction)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/ARCHITECTURE.md",
+    "line": 23,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "The browser displays backend results and streamed stage/handoff events. It does not choose investigation actions or manufacture graph evidence. In the explicitly isolated Track 2 mode, the backend binds to loopback and uses the separately named synthetic graph `vesper_track2_synthetic_test`; the previous `bureau_m84_isolated_test` graph is not selected or modified. Its seed namespace is `bureau_synthetic_v1`.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/ARCHITECTURE.md",
+    "line": 27,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "- `(:Transaction {txId, label, timeStep, sourceDataset})`",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/COMPLIANCE.md",
+    "line": 3,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "This repository packages a local demonstration of graph investigation and owner-scoped case memory. The release fixture contains invented transaction IDs, labels, time steps, and directed `FLOWS_TO` relationships. It contains no imported blockchain dataset or transaction attribution. `sourceDataset=bureau_synthetic_v1` is a fixture provenance tag retained for compatibility; it does not refer to BUREAU transaction records.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/COMPLIANCE.md",
+    "line": 7,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "The office artwork was supplied directly by the project owner. The character animations were restored from the earlier project sprite pack at the owner\u2019s request. These provenance notes are not an independent copyright review or license grant. The interface requests Silkscreen from Google Fonts; no font binary is included in this repository. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies it as SIL Open Font License 1.1. No root source-code license is declared; public availability does not itself grant reuse rights.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 41,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "Expected: `status: PASS`, graph `vesper_track2_synthetic_test`, IDs `731000001` through `731000008`, eight transactions, seven directed edges, and `production_graph_writes: 0`. This is repeat-safe and preserves unrelated graphs and saved records.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 61,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "2. Enter `731000004`, set the depth to three hops, and click **Start investigation**.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 64,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "   - `731000003 \u2192 731000004` (1 hop)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 65,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "   - `731000002 \u2192 731000003 \u2192 731000004` (2 hops)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 66,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "   - `731000001 \u2192 731000002 \u2192 731000003 \u2192 731000004` (3 hops)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 74,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  -d '{\"seed_tx_id\":\"731000004\",\"max_hops\":3,\"memory_enabled\":false}' \\",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 82,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "1. In the Track 2 panel, click **Investigate Case A \u00b7 seed 731000002**.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 84,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "3. Click **Case B \u00b7 memory off** and **Case B \u00b7 memory on**. Keep the graph, seed `731000001`, three-hop limit, and action budget the same.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 88,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "The database-backed recorded Case A is `case_b9f4a7e565d2`, memory `memory_e826e337ca49`, owner `track2-isolated-demo`. Its writer and fresh reader process completed while FalkorDB remained running. The recorded memory-off invocation `inv_207ea0f5e550` selected frontier `731000005` with five Skeptic-valid paths. Memory-on invocation `inv_d223b32bb17a` recalled the Case A memory, passed Skeptic revalidation, selected `731000002` first, and returned six valid paths including `731000001 \u2192 731000002 \u2192 731000003 \u2192 731000004`. Both UI A/B previews reported zero database writes.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 97,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "export BUREAU_M84_SEED_A=731000002",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 98,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "export BUREAU_M84_SEED_B=731000001",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/DEMO_SCRIPT.md",
+    "line": 109,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "The browser JSON export was directly downloaded and parsed during verification: invocation `inv_d223b32bb17a`, seed `731000001`, six traces, Skeptic path validation, seven graph decisions, 12 agent events, and one `VERIFIED_RELEVANT` memory (`memory_e826e337ca49`). This was a read-only preview (`persisted:false`). The downloaded file was 290,954 bytes. In a fresh recording, export again and inspect the current invocation and evidence before submission.",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/RELEASE_MANIFEST.json",
+    "line": 307,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "      \"size_bytes\": 7379767,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/RELEASE_MANIFEST.json",
+    "line": 314,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "      \"size_bytes\": 157163,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/RELEASE_MANIFEST.json",
+    "line": 469,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "    \"known_elliptic_record_identifier_scan\": \"no known restricted identifiers or Elliptic references found\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "docs/RELEASE_MANIFEST.json",
+    "line": 483,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "    \"character_artwork\": \"36 bundled animated pixel-art character clips, restored from earlier project atlas at owner request; independent copyright/redistribution rights not verified\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 7,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10151f;--ink:#ece6d6;--pn:#182030;--ln:#2c3649;--mu:#929bad}}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 8,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": ":root[data-theme=dark]{--bg:#10151f;--ink:#ece6d6;--pn:#182030;--ln:#2c3649;--mu:#929bad}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 17,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": ".tg b{display:inline-block;background:#192231;color:#fff;padding:1px 5px;border:1px solid #ffffffc9;border-radius:999px;box-shadow:0 1px 3px #10152255}.bu{display:none;position:absolute;left:50%;bottom:calc(100% + 5px);transform:translateX(-50%);background:#fff;color:#171b2a;border:1px solid #171b2a;padding:4px 7px;font:10px/1.3 system-ui,sans-serif;white-space:normal;max-width:150px;width:max-content;border-radius:8px;box-shadow:0 3px 9px #171b2a30}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 52,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": ".label-illicit{background:#f7e2dc;color:#982c21;border-color:#c2402f}.label-licit{background:#e0efe5;color:#236441;border-color:#5c9a70}.label-unknown{background:#eee8da;color:#75633e;border-color:#b9a574}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 114,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": ".timeline-agent[data-state=SUCCESS]{border-color:#5c9a70;color:#236441}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 148,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": ".team-heading{justify-content:space-between}.team-heading .team-count{font:9px system-ui,sans-serif;color:var(--mu)}.agent-console{padding:10px}.agent-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:9px}.agent-chip{display:flex;align-items:center;gap:5px;min-width:0;padding:7px 6px;border:1px solid var(--ln);border-radius:7px;background:var(--bg);color:var(--ink);font:10px system-ui,sans-serif;font-weight:650;text-align:left;box-shadow:none}.agent-chip:after{content:attr(data-state);margin-left:auto;font:7px Silkscreen,monospace;color:var(--mu)}.agent-chip[aria-pressed=true]{background:color-mix(in srgb,var(--br) 14%,var(--pn));color:var(--ink);border-color:var(--br)}.agent-chip .agent-state-dot{width:7px;height:7px;flex:none;margin:0}.agent-chip[data-state=SUCCESS]:after{color:#236441}.agent-chip[data-state=ERROR]:after{color:var(--rd)}#agentDetail{min-height:0;padding:2px 1px;font-size:11px;line-height:1.45}#agentDetail b{font-size:11px}#agentDetail .agent-tagline{font-size:10px;margin-top:2px}.tg .agent-state{display:none}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 192,
+    "categories": [
+      "transaction ID literal/candidate",
+      "ID input contract"
+    ],
+    "text": "    <input id=\"seedTxId\" name=\"seed_tx_id\" inputmode=\"numeric\" autocomplete=\"off\" maxlength=\"50\" pattern=\"[0-9]+\" value=\"730000004\" required>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 194,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    <div class=\"seed-examples\" role=\"group\" aria-label=\"Quick start example investigations\"><span class=\"mu\">Or start with a sample case</span><button type=\"button\" data-example-seed=\"730000005\" aria-label=\"Use sample seed 730000005\">Sample A \u00b7 730000005</button><button type=\"button\" data-example-seed=\"730000004\" aria-label=\"Use sample seed 730000004\">Sample B \u00b7 730000004</button><button type=\"button\" data-example-seed=\"730000002\" aria-label=\"Use sample seed 730000002\">Sample C \u00b7 730000002</button></div>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 197,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    <div class=\"console-pair advanced-row\"><div><label for=\"maxHops\">Search depth</label><select id=\"maxHops\" name=\"max_hops\"><option value=\"1\">1 hop</option><option value=\"2\">2 hops</option><option value=\"3\" selected>3 hops</option><option value=\"4\">4 hops</option></select></div><div class=\"console-actions\"><button id=\"refreshBackend\" type=\"button\">Refresh status</button><button id=\"refreshCases\" type=\"button\">Refresh saved cases</button></div></div>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 198,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    <div class=\"live-stats\"><div class=\"live-stat\"><small>TX NODES</small><b id=\"statTx\">\u2014</b></div><div class=\"live-stat\"><small>FLOW EDGES</small><b id=\"statFlows\">\u2014</b></div><div class=\"live-stat\"><small>ILLICIT LABELS</small><b id=\"statIllicit\">\u2014</b></div></div>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 209,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  <div class=\"track2-actions\"><button id=\"track2RunCaseA\" type=\"button\">Investigate Case A \u00b7 seed 731000002</button><button id=\"track2ReloadCases\" type=\"button\">Reload persisted cases</button></div>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 220,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    <div class=\"console-pair\"><input id=\"searchQuery\" name=\"query\" placeholder=\"e.g. 2195\" maxlength=\"50\"><select id=\"searchLabel\" name=\"label\" aria-label=\"Dataset label\"><option value=\"\">All labels</option><option value=\"illicit\">Illicit</option><option value=\"licit\">Licit</option><option value=\"unknown\">Unknown</option></select></div>",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 238,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "const D={\"meta\":{\"scout_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"scout_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"scout_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"scout_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"scout_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"scout_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0},\"tracer_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"tracer_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"tracer_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"tracer_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"tracer_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"tracer_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0},\"profiler_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"profiler_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"profiler_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"profiler_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"profiler_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"profiler_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0},\"skeptic_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"skeptic_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"skeptic_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"skeptic_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"skeptic_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"skeptic_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0},\"historian_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"historian_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"historian_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"historian_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"historian_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"historian_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0},\"reporter_walkF\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"reporter_walkB\":{\"n\":8,\"w\":80,\"h\":136,\"fps\":8,\"idle\":0},\"reporter_idleF\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"reporter_idleB\":{\"n\":4,\"w\":80,\"h\":136,\"fps\":3,\"idle\":0},\"reporter_talkF\":{\"n\":6,\"w\":80,\"h\":136,\"fps\":6,\"idle\":0},\"reporter_sitB\":{\"n\":4,\"w\":80,\"h\":90,\"fps\":5,\"idle\":0}},\"clips\":{\"scout_walkF\":\"clip:scout_walkF\",\"scout_walkB\":\"clip:scout_walkB\",\"scout_idleF\":\"clip:scout_idleF\",\"scout_idleB\":\"clip:scout_idleB\",\"scout_talkF\":\"clip:scout_talkF\",\"scout_sitB\":\"clip:scout_sitB\",\"tracer_walkF\":\"clip:tracer_walkF\",\"tracer_walkB\":\"clip:tracer_walkB\",\"tracer_idleF\":\"clip:tracer_idleF\",\"tracer_idleB\":\"clip:tracer_idleB\",\"tracer_talkF\":\"clip:tracer_talkF\",\"tracer_sitB\":\"clip:tracer_sitB\",\"profiler_walkF\":\"clip:profiler_walkF\",\"profiler_walkB\":\"clip:profiler_walkB\",\"profiler_idleF\":\"clip:profiler_idleF\",\"profiler_idleB\":\"clip:profiler_idleB\",\"profiler_talkF\":\"clip:profiler_talkF\",\"profiler_sitB\":\"clip:profiler_sitB\",\"skeptic_walkF\":\"clip:skeptic_walkF\",\"skeptic_walkB\":\"clip:skeptic_walkB\",\"skeptic_idleF\":\"clip:skeptic_idleF\",\"skeptic_idleB\":\"clip:skeptic_idleB\",\"skeptic_talkF\":\"clip:skeptic_talkF\",\"skeptic_sitB\":\"clip:skeptic_sitB\",\"historian_walkF\":\"clip:historian_walkF\",\"historian_walkB\":\"clip:historian_walkB\",\"historian_idleF\":\"clip:historian_idleF\",\"historian_idleB\":\"clip:historian_idleB\",\"historian_talkF\":\"clip:historian_talkF\",\"historian_sitB\":\"clip:historian_sitB\",\"reporter_walkF\":\"clip:reporter_walkF\",\"reporter_walkB\":\"clip:reporter_walkB\",\"reporter_idleF\":\"clip:reporter_idleF\",\"reporter_idleB\":\"clip:reporter_idleB\",\"reporter_talkF\":\"clip:reporter_talkF\",\"reporter_sitB\":\"clip:reporter_sitB\"},\"bg\":\"bg\",\"nav\":{\"C\":8,\"gw\":158,\"gh\":106,\"rows\":[\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\",\"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111\"],\"st\":{\"arc\":[112,440],\"arc2\":[375,350],\"copier\":[785,700],\"cooler\":[910,700],\"shelf\":[970,665],\"printer\":[765,710],\"lounge\":[510,735],\"sofaF\":[80,755],\"rack\":[835,520],\"pods\":[1190,455],\"board\":[620,325],\"bean\":[670,385],\"foos\":[250,480],\"plantB\":[635,755],\"sA\":[410,595],\"sB\":[535,620],\"sC\":[690,685],\"desk1\":[490,590],\"coolerTop\":[670,355],\"mid\":[560,710],\"arch\":[1090,690]}},\"bands\":[{\"id\":\"arcade-front\",\"d\":430,\"p\":[[48,265],[124,245],[214,225],[216,405],[93,435],[48,405]]},{\"id\":\"foosball-front\",\"d\":465,\"p\":[[150,394],[257,360],[283,389],[274,458],[229,475],[151,446]]},{\"id\":\"desk-left-front\",\"d\":474,\"p\":[[314,355],[387,376],[446,431],[438,470],[368,448],[316,410]]},{\"id\":\"desk-center-front\",\"d\":548,\"p\":[[454,425],[534,445],[602,492],[600,535],[531,516],[469,477]]},{\"id\":\"desk-right-front\",\"d\":618,\"p\":[[579,491],[667,515],[756,561],[766,605],[681,586],[608,550]]},{\"id\":\"desk-lower-front\",\"d\":672,\"p\":[[495,553],[584,574],[680,625],[692,666],[606,653],[526,613]]},{\"id\":\"server-rack-front\",\"d\":505,\"p\":[[703,270],[800,255],[805,285],[945,330],[950,490],[850,500],[780,470],[705,420]]},{\"id\":\"archive-shelves-front\",\"d\":650,\"p\":[[958,478],[1040,444],[1128,442],[1135,596],[985,642]]},{\"id\":\"lounge-front\",\"d\":760,\"p\":[[75,560],[145,520],[470,687],[500,755],[406,763],[104,650]]}],\"assets\":{\"clip:historian_idleB\":{\"offset\":0,\"length\":1141,\"type\":\"image/png\"},\"clip:historian_idleF\":{\"offset\":1141,\"length\":1339,\"type\":\"image/png\"},\"clip:historian_sitB\":{\"offset\":2480,\"length\":1075,\"type\":\"image/png\"},\"clip:historian_talkF\":{\"offset\":3555,\"length\":1469,\"type\":\"image/png\"},\"clip:historian_walkB\":{\"offset\":5024,\"length\":1915,\"type\":\"image/png\"},\"clip:historian_walkF\":{\"offset\":6939,\"length\":2178,\"type\":\"image/png\"},\"clip:profiler_idleB\":{\"offset\":9117,\"length\":1206,\"type\":\"image/png\"},\"clip:profiler_idleF\":{\"offset\":10323,\"length\":1371,\"type\":\"image/png\"},\"clip:profiler_sitB\":{\"offset\":11694,\"length\":1148,\"type\":\"image/png\"},\"clip:profiler_talkF\":{\"offset\":12842,\"length\":1505,\"type\":\"image/png\"},\"clip:profiler_walkB\":{\"offset\":14347,\"length\":1994,\"type\":\"image/png\"},\"clip:profiler_walkF\":{\"offset\":16341,\"length\":2190,\"type\":\"image/png\"},\"clip:reporter_idleB\":{\"offset\":18531,\"length\":1191,\"type\":\"image/png\"},\"clip:reporter_idleF\":{\"offset\":19722,\"length\":1411,\"type\":\"image/png\"},\"clip:reporter_sitB\":{\"offset\":21133,\"length\":1155,\"type\":\"image/png\"},\"clip:reporter_talkF\":{\"offset\":22288,\"length\":1464,\"type\":\"image/png\"},\"clip:reporter_walkB\":{\"offset\":23752,\"length\":1969,\"type\":\"image/png\"},\"clip:reporter_walkF\":{\"offset\":25721,\"length\":2283,\"type\":\"image/png\"},\"clip:scout_idleB\":{\"offset\":28004,\"length\":1354,\"type\":\"image/png\"},\"clip:scout_idleF\":{\"offset\":29358,\"length\":1381,\"type\":\"image/png\"},\"clip:scout_sitB\":{\"offset\":30739,\"length\":1318,\"type\":\"image/png\"},\"clip:scout_talkF\":{\"offset\":32057,\"length\":1508,\"type\":\"image/png\"},\"clip:scout_walkB\":{\"offset\":33565,\"length\":2149,\"type\":\"image/png\"},\"clip:scout_walkF\":{\"offset\":35714,\"length\":2179,\"type\":\"image/png\"},\"clip:skeptic_idleB\":{\"offset\":37893,\"length\":1142,\"type\":\"image/png\"},\"clip:skeptic_idleF\":{\"offset\":39035,\"length\":1324,\"type\":\"image/png\"},\"clip:skeptic_sitB\":{\"offset\":40359,\"length\":1075,\"type\":\"image/png\"},\"clip:skeptic_talkF\":{\"offset\":41434,\"length\":1459,\"type\":\"image/png\"},\"clip:skeptic_walkB\":{\"offset\":42893,\"length\":1918,\"type\":\"image/png\"},\"clip:skeptic_walkF\":{\"offset\":44811,\"length\":2144,\"type\":\"image/png\"},\"clip:tracer_idleB\":{\"offset\":46955,\"length\":1197,\"type\":\"image/png\"},\"clip:tracer_idleF\":{\"offset\":48152,\"length\":1380,\"type\":\"image/png\"},\"clip:tracer_sitB\":{\"offset\":49532,\"length\":1077,\"type\":\"image/png\"},\"clip:tracer_talkF\":{\"offset\":50609,\"length\":1500,\"type\":\"image/png\"},\"clip:tracer_walkB\":{\"offset\":52109,\"length\":1971,\"type\":\"image/png\"},\"clip:tracer_walkF\":{\"offset\":54080,\"length\":2242,\"type\":\"image/png\"}}};",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 240,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "let k=1,dpr=window.devicePixelRatio||1;const NV=D.nav,C=NV.C,GW=NV.gw,GH=NV.gh,GR=NV.rows.map(r=>[...r].map(c=>c=='1')),ST=NV.st;",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 290,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "const fm=t=>String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 346,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "for(const a of AG){const e=agentTags[a.id];if(!e)continue;const frame=spr(a),m=frame.m,ax=a.x,ay=a.y,b=e.querySelector('.bu'),anchor=officeLabelAnchor(a.agentKey||a.id,ax,ay,k);e.dataset.mode=a.mode;e.dataset.workState=a.workState;e.dataset.footX=a.x.toFixed(2);e.dataset.footY=a.y.toFixed(2);e.dataset.frameHeight=m.h;e.title=a.idleBreak?'Office break \u00b7 backend idle':INVEST.status==='running'?`${a.workState} \u00b7 backend event`:'Backend idle';e.style.transform=`translate3d(${anchor.x}px,${anchor.y}px,0) translate(-50%,-100%)`;const on=!!(a.b&&T<a.bt);if(b.dataset.visible!==String(on)){b.dataset.visible=String(on);if(on){b.style.display='block';b.style.opacity='1'}else{b.style.opacity='0';setTimeout(()=>{if(b.dataset.visible==='false')b.style.display='none'},160)}}if(on&&b.textContent!==a.b)b.textContent=a.b}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 357,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  const seeds=isolated?['731000004','731000002','731000001']:['730000005','730000004','730000002'];",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 360,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  if((isolated&&/^73000000\\d$/.test(input.value))||(!isolated&&/^73100000\\d$/.test(input.value)))input.value=isolated?'731000004':'730000004';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 367,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "const prettyLabel=value=>String(value||'unknown').toLowerCase();",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 368,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "const labelClassLive=value=>`label-${['illicit','licit','unknown'].includes(prettyLabel(value))?prettyLabel(value):'unknown'}`;",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 398,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "async function beginLogin(){const config=AUTH.config;if(!config?.client_id||!config?.domain)throw new Error('Cognito Hosted UI is not configured.');const random=()=>Array.from(crypto.getRandomValues(new Uint8Array(32)),b=>b.toString(16).padStart(2,'0')).join('');const verifier=random(),state=random();const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(verifier));const challenge=btoa(String.fromCharCode(...new Uint8Array(digest))).replace(/\\+/g,'-').replace(/\\//g,'_').replace(/=+$/,'');sessionStorage.setItem('bi_pkce_verifier',verifier);sessionStorage.setItem('bi_oauth_state',state);const domain=config.domain.startsWith('http')?config.domain:`https://${config.domain}`;const url=new URL('/oauth2/authorize',domain);url.search=new URLSearchParams({response_type:'code',client_id:config.client_id,redirect_uri:config.callback_url,scope:(config.scopes||['openid','email','phone']).join(' '),code_challenge_method:'S256',code_challenge:challenge,state});location.assign(url.toString())}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 439,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": " $('#seedTxId').value=seed;$('#maxHops').value='3';$('#hopSummary').textContent='3-hop search';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 455,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  const memorySummary=memory?`${memory.validationStatus||'UNVERIFIED'} \u00b7 case ${memory.caseId||'unknown'} \u00b7 memory ${memory.memoryId||'unknown'}`:'No related memory candidate was returned.';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 477,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  const params=new URLSearchParams({query:$('#searchQuery').value.trim(),label:$('#searchLabel').value,limit:'30'});",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 524,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  const seed=result.seed||{txId:result.seedTxId||'\u2014',label:(result.findings||{}).seedDatasetLabel||'unknown'};",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 536,
+    "categories": [
+      "data/history wording"
+    ],
+    "text": "  const traceHtml=traces.length?traces.map(renderTraceCard).join(''):'<div class=\"console-empty\" style=\"margin-top:8px\">No directed paths were found within this hop limit in the imported graph. Check whether the graph is fully imported and inspect incoming/outgoing neighbors.</div>';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 538,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  const memoryHtml=memories.length?memories.map(memory=>{const status=memory.validationStatus||'UNVERIFIED';const claims=memory.revalidatedClaims||[];const supports=claims.map(claim=>claim.claim_type==='directed_edge'?`Current graph confirms ${claim.source} \u2192 ${claim.target}`:`Current graph confirms transaction ${claim.tx_id} is labeled ${claim.label}`).join('; ');const conflicts=(memory.labelConflicts||[]).map(conflict=>`Transaction ${conflict.tx_id}: remembered ${conflict.remembered_label}, current graph ${conflict.current_label}`).join('; ');const valid=['VERIFIED_RELEVANT','PARTIALLY_RELEVANT'].includes(status);return `<div class=\"trace-card\"><div class=\"trace-card-head\"><span>CASE ${htmlEscape(memory.caseId||'case unavailable')} \u00b7 seed ${htmlEscape(memory.seedTxId||'\u2014')}</span><span class=\"case-chip ${valid?'label-licit':'label-illicit'}\">${htmlEscape(status.replaceAll('_',' '))}</span></div><p style=\"margin:5px 0\"><b>Why recalled:</b> ${htmlEscape(memory.relevanceReason||'Shared transaction IDs in graph evidence.')}</p><p style=\"margin:5px 0\"><b>Skeptic:</b> ${htmlEscape(memory.validationReason||'Independent validation unavailable.')}</p>${memory.sharedTransactions?.length?`<p class=\"mu\" style=\"margin:5px 0\">Shared transactions: ${htmlEscape(memory.sharedTransactions.join(', '))}</p>`:''}${supports?`<p style=\"margin:5px 0\"><b>Current confirmation:</b> ${htmlEscape(supports)}</p>`:''}${conflicts?`<p class=\"claim-rejected\"><b>Conflict:</b> ${htmlEscape(conflicts)}</p>`:''}<p class=\"mu\" style=\"font-size:9px;margin:5px 0\">${valid?'Only the current confirmation above is reused; remembered context does not change current evidence counts.':'Candidate excluded from Reporter findings.'}</p></div>`}).join(''):'<p class=\"console-empty\">No saved case shared transaction IDs with the current deterministic evidence.</p>';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 541,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  const factHtml=hasFacts?`<div class=\"fact-grid\"><div class=\"fact-cell\"><b>${fmtNumber(facts.unique_transaction_count)}</b> unique transactions</div><div class=\"fact-cell\"><b>${fmtNumber(facts.path_count)}</b> returned directed paths</div><div class=\"fact-cell\"><b>${fmtNumber(facts.distinct_edge_count)}</b> distinct directed edges</div><div class=\"fact-cell\"><b>${fmtNumber(facts.path_occurrence_total)}</b> path occurrences</div>${['illicit','licit','unknown'].map(label=>`<div class=\"fact-cell\"><span class=\"case-chip ${labelClassLive(label)}\">${label}</span><br><b>${fmtNumber(byLabel[label]||0)}</b> unique</div>`).join('')}</div><p class=\"mu\" style=\"font-size:9px;margin:5px 0\">Unique transactions count each ID once. Path occurrences count appearances across returned paths and may be larger. Dataset labels do not establish ownership or criminal intent.</p>`:'<p class=\"console-empty\">This stored case predates the structured evidence ledger; deterministic counts are not available in the saved record.</p>';",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 551,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary"
+    ],
+    "text": "  $('#liveResults').innerHTML=`<div class=\"live-case-head\"><span class=\"case-chip\">${htmlEscape(result.persisted?'Saved case':'Read-only preview')} \u00b7 ${htmlEscape(result.investigation_id||'')}</span><span class=\"case-chip ${labelClassLive(seed.label)}\">${htmlEscape(prettyLabel(seed.label))} dataset label</span></div><div class=\"report-summary\"><b>WHAT WAS INVESTIGATED</b><p style=\"margin:5px 0;font-size:11px\">${htmlEscape(deterministicSummary)}</p></div><div class=\"report-summary\"><b>VERIFIED GRAPH EVIDENCE</b>${factHtml}</div><div class=\"report-summary\"><b>SEED CONTEXT</b><br>Transaction ${htmlEscape(seed.txId)} \u00b7 step ${htmlEscape(seed.timeStep??'\u2014')} \u00b7 ${htmlEscape(seed.sourceDataset||'dataset source not supplied')}</div><div class=\"report-summary\"><b>CONNECTED PATHS (${fmtNumber(traces.length)})</b>${traceHtml}</div><div class=\"report-summary\"><b>SKEPTIC REVIEW \u00b7 ${htmlEscape(humanStatus(skeptic.reviewStatus))}</b><br><span class=\"mu\">${fmtNumber(skeptic.uniqueTransactionsReviewed)} unique transactions checked \u00b7 ${fmtNumber(skeptic.unknownLabelTxIds?.length||0)} unknown labels</span>${flagHtml}</div><div class=\"report-summary\"><b>MODEL CLAIM CHECKS</b><br><span class=\"mu\">${fmtNumber(verified.length)} verified \u00b7 ${fmtNumber(rejected.length)} rejected \u00b7 ${fmtNumber(unverified.length)} unverified</span>${claimHtml||'<p class=\"console-empty\">No model claims required validation.</p>'}</div><div class=\"report-summary\"><details class=\"report-fold\"><summary>Model interpretation \u00b7 ${htmlEscape(modelStatus)}</summary>${interpretation?`<div class=\"model-note\">${htmlEscape(interpretation)}</div>`:'<p class=\"console-empty\">Graph investigation completed; narrative analysis unavailable. Deterministic evidence remains available.</p>'}</details></div>${timingHtml}<div class=\"report-summary\"><details class=\"report-fold\"><summary>Limits of this result</summary><ul class=\"skeptic-list\">${limitations||'<li>Review the saved record for its original evidence scope and caveats.</li>'}</ul></details></div><div class=\"report-summary\"><details class=\"report-fold\"><summary>Related case memory \u00b7 ${fmtNumber(memories.length)} candidate${memories.length===1?'':'s'} checked by the Skeptic</summary><p class=\"mu\" style=\"font-size:9px\">Current case evidence and deterministic counts remain authoritative. Only listed current confirmations may contextualize this report.</p>${memoryHtml}</details></div><div class=\"console-actions\"><button id=\"exportCase\" type=\"button\">Export JSON \u2193</button>${result.persisted?'':`<button id=\"saveCase\" type=\"button\">Save case &amp; memory</button>`}<button id=\"useSameSeed\" type=\"button\">Run seed again</button></div>`;",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 640,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": " requestAnimationFrame(()=>{token.style.transition='transform 620ms cubic-bezier(.2,.75,.25,1),opacity 160ms ease 620ms';token.style.transform=`translate(${ex}px,${ey}px)`;token.style.opacity='0'});setTimeout(()=>token.remove(),820);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 681,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": " try{for(let attempt=0;attempt<2;attempt++){const headers={'Accept':'text/event-stream','Content-Type':'application/json'};if(AUTH.accessToken)headers.Authorization=`Bearer ${AUTH.accessToken}`;response=await fetch('/api/investigations/preview/stream',{method:'POST',headers,body:JSON.stringify(payload),signal:AbortSignal.timeout(210000)});if(response.status!==401||!AUTH.required)break;if(attempt===0&&await refreshAuthSession())continue;clearAuthSession();break}}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 694,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": " const seedTxId=$('#seedTxId').value.trim();if(!/^\\d+$/.test(seedTxId)){setApiError('Transaction IDs must contain digits only.');return}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 706,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "   if(UI.track2Demo.enabled){const variant=UI.track2Demo.runVariant;if(variant==='memory_off'||variant==='memory_on'){UI.track2Demo.results[variant]=result;renderTrack2Comparison()}if(variant==='case_a'&&result.seed?.txId==='731000002')$('#track2Persistence').textContent='Case A preview complete for seed 731000002. Review the verified source path below, then use Save case & memory in the report to request a database write.';UI.track2Demo.runVariant=null}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 710,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "async function saveCurrentPreview(){const preview=UI.latest;if(!preview?.seed?.txId)return;const button=$('#saveCase');if(button){button.disabled=true;button.textContent='Saving\u2026'}try{const saved=await bureauApi('/api/investigations/save',{method:'POST',body:JSON.stringify({seed_tx_id:preview.seed.txId,max_hops:Number($('#maxHops').value)})});renderInvestigation(saved,{saved:true});$('#apn').textContent=`Case ${saved.case_id} and its memory were explicitly saved.`;if(UI.track2Demo.enabled&&saved.seed?.txId==='731000002'){if(!saved.persistence_confirmation?.confirmed)throw new Error('The server did not confirm Case A persistence and its evidence references.');UI.track2Demo.savedCaseA={case_id:saved.case_id,memory_id:saved.memory_id};UI.track2Demo.persistenceConfirmation=saved.persistence_confirmation;$('#track2Persistence').innerHTML=`<b>DATABASE WRITE CONFIRMED</b> \u00b7 Case <code>${htmlEscape(saved.case_id)}</code> \u2192 GENERATED_MEMORY \u2192 memory <code>${htmlEscape(saved.memory_id)}</code> \u2192 REFERENCES ${htmlEscape(saved.persistence_confirmation.referenced_transactions)} transactions. ${htmlEscape(saved.demo_query_accounting?.database_writes?.count??'\u2014')} write request acknowledged; ${htmlEscape(saved.demo_query_accounting?.source_database_reads?.count??'\u2014')} source reads in the save workflow.`;$('#track2RunWithoutMemory').disabled=false;$('#track2RunWithMemory').disabled=false}await Promise.all([loadSavedCases(),refreshStatsOnly()])}catch(error){setApiError(`Could not save case: ${error.message}`);if(button){button.disabled=false;button.textContent='Save case & memory'}if(UI.track2Demo.enabled&&preview.seed.txId==='731000002')$('#track2Persistence').textContent=`Save could not be confirmed: ${error.message}. No success state is shown.`}}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 718,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    const mapped={case_id:data.caseId,caseId:data.caseId,memory_id:data.memoryId,seed:{txId:data.seedTxId||'\u2014',label:(data.findings||{}).seedDatasetLabel||'unknown'},traces:data.traces||[],skeptic:data.findings||{},related_memories:data.relatedMemories||[],evidence_ledger:data.evidenceLedger||{},structured_report:data.structuredReport||{},shared_context:data.sharedContext||null,claim_validation:data.claimValidation||{},local_model:{status:(data.modelMetadata||{}).analysis_status||'not run for persisted case'},summary:data.summary||'Saved investigation retrieved from case memory.',created_at:data.createdAt,mode:UI.health?.mode||'cloud',persisted:true};",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 726,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    if(UI.track2Demo.enabled){const recovered=UI.cases.find(item=>item.seedTxId==='731000002'&&item.memoryId);if(recovered){UI.track2Demo.savedCaseA={case_id:recovered.caseId,memory_id:recovered.memoryId};if(UI.track2Demo.persistenceConfirmation?.case_id!==recovered.caseId)$('#track2Persistence').innerHTML=`<b>RECOVERED FROM FALKORDB</b> \u00b7 case <code>${htmlEscape(recovered.caseId)}</code> \u2192 memory <code>${htmlEscape(recovered.memoryId)}</code> \u00b7 status ${htmlEscape(humanStatus(recovered.status||'saved'))}. Current graph revalidation is shown in Case B \u00b7 memory on.`;$('#track2RunWithoutMemory').disabled=false;$('#track2RunWithMemory').disabled=false}else{$('#track2Persistence').textContent='No persisted Case A for this isolated demo identity. Run seed 731000002 and explicitly save it.';$('#track2RunWithoutMemory').disabled=true;$('#track2RunWithMemory').disabled=true}}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 765,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "$('#track2RunCaseA').addEventListener('click',()=>startTrack2Run('case_a',false,'731000002'));",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 766,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "$('#track2RunWithoutMemory').addEventListener('click',()=>startTrack2Run('memory_off',false,'731000001'));",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 767,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "$('#track2RunWithMemory').addEventListener('click',()=>startTrack2Run('memory_on',true,'731000001'));",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 803,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  }else throw new Error(`Unknown Vesper scene asset ${key}`);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "frontend/index.html",
+    "line": 820,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "if(new URLSearchParams(location.search).get('spriteDebug')==='1')void openSpriteDebug();",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 13,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    seed_id = \"730000002\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 23,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    base = next((path for path in one_hop if path[\"nodes\"][-1][\"txId\"] == \"730000004\"), None)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 26,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    extended = store.trace_paths(\"730000004\", 1, direction=\"downstream\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 27,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    candidate = next((path for path in extended if path[\"nodes\"][0][\"txId\"] == \"730000004\"), None)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 44,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    critical_edge = (\"730000002\", \"730000004\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 61,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    if baseline_frontier != \"730000004\" or ablated_frontier is not None:",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_2_graph_decisions.py",
+    "line": 68,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "            \"removed_directed_edge\": \"730000002->730000004\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 17,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = InvestigationOrchestrator(store).preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 18,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    paths = store.trace_paths(\"730000002\", 1, direction=\"downstream\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 36,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    two_hop = next(path for path in store.trace_paths(\"730000002\", 2, direction=\"downstream\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 42,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"reversed_edge\": lambda item: item[\"edge_ids\"].__setitem__(0, \"730000004->730000002\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 47,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        \"altered_property\": lambda item: item[\"nodes\"][1].__setitem__(\"label\", \"illicit\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 48,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"incorrect_endpoint\": lambda item: item[\"nodes\"][0].__setitem__(\"txId\", \"730000001\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_3_graph_intelligence.py",
+    "line": 63,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        check = skeptic.independently_verify_paths([corrupted], skeptic_store, \"730000002\", 3)[\"paths\"][0]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 19,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary"
+    ],
+    "text": "    tx_id: {\"txId\": tx_id, \"label\": \"unknown\", \"timeStep\": 8, \"sourceDataset\": \"bureau_synthetic_v1\"}",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 20,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    for tx_id in (\"731000001\", \"731000002\", \"731000003\", \"731000004\", \"731000005\", \"731000006\", \"731000007\", \"731000008\")",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 22,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "EDGES = [(\"731000001\", \"731000002\"), (\"731000001\", \"731000005\"), (\"731000002\", \"731000003\"), (\"731000003\", \"731000004\"),",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 23,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "         (\"731000005\", \"731000006\"), (\"731000005\", \"731000007\"), (\"731000005\", \"731000008\")]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 83,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        case_a = InvestigationOrchestrator(store).investigate(\"731000002\", 2)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 89,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        baseline = InvestigationOrchestrator(store).preview(\"731000001\", 3, use_local_model=False, memory_enabled=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 95,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        memory_enabled = InvestigationOrchestrator(store).preview(\"731000001\", 3, use_local_model=False, memory_enabled=True)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 107,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "            \"case_b_seed\": \"731000001\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 115,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                \"shared_current_graph_edge\": \"731000001->731000002\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_memory_ab.py",
+    "line": 119,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                \"changed_frontier\": \"731000002\" in memory_run[\"selected_frontiers\"],",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_restart_persistence.py",
+    "line": 84,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        falkordb_port=int(os.getenv(\"BUREAU_M84_ISOLATED_FALKORDB_PORT\", \"6379\")),",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_restart_persistence.py",
+    "line": 119,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        max_hops = max(2, min(4, int(os.getenv(\"BUREAU_M84_MAX_HOPS\", \"3\"))))",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_restart_persistence.py",
+    "line": 123,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "            if not seed_a.isdigit():",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/demo_milestone_8_4_restart_persistence.py",
+    "line": 140,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "        if not seed_b.isdigit():",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 15,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "DATASET = \"bureau_synthetic_v1\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 17,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary"
+    ],
+    "text": "    {\"txId\": tx_id, \"label\": \"unknown\", \"timeStep\": 8, \"sourceDataset\": DATASET}",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 18,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    for tx_id in (\"731000001\", \"731000002\", \"731000003\", \"731000004\", \"731000005\", \"731000006\", \"731000007\", \"731000008\")",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 21,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    {\"source\": \"731000001\", \"target\": \"731000002\"}, {\"source\": \"731000001\", \"target\": \"731000005\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 22,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    {\"source\": \"731000002\", \"target\": \"731000003\"}, {\"source\": \"731000003\", \"target\": \"731000004\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 23,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    {\"source\": \"731000005\", \"target\": \"731000006\"}, {\"source\": \"731000005\", \"target\": \"731000007\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 24,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    {\"source\": \"731000005\", \"target\": \"731000008\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 30,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "    if len(ids) != len(TRANSACTIONS) or any(tx[\"sourceDataset\"] != DATASET for tx in TRANSACTIONS):",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 86,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        module_versions[flattened.get(\"name\", \"unknown\")] = flattened.get(\"ver\", \"unknown\")",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 109,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                \"MATCH (t:Transaction) RETURN t.txId, t.label, t.timeStep, t.sourceDataset ORDER BY t.txId\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 124,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "                    expected[\"label\"], expected[\"timeStep\"], expected[\"sourceDataset\"]):",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 138,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"ON CREATE SET t.label = tx.label, t.timeStep = tx.timeStep, t.sourceDataset = tx.sourceDataset \"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 150,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"MATCH (t:Transaction) RETURN t.txId, t.label, t.timeStep, t.sourceDataset ORDER BY t.txId\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 159,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "        expected_txs = [(tx[\"txId\"], tx[\"label\"], tx[\"timeStep\"], tx[\"sourceDataset\"]) for tx in TRANSACTIONS]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 181,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"transaction_schema\": [\"txId:string\", \"label:string\", \"timeStep:integer\", \"sourceDataset:string\"],",
+    "track2_named_scope": true
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "line": 182,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "            \"synthetic_dataset\": DATASET,",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 9,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  const running = beginInvestigation(idle, '730000004');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 14,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.equal(beginInvestigation(started, '730000005').transcript.length, 0);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 18,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000004');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 24,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "      handoff: { from: 'Scout', to: 'Tracer', type: 'seed_context', evidence_ids: ['tx:730000004'] } },",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 28,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.match(lines[0].text, /seed 730000004/);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_chat.test.mjs",
+    "line": 35,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 39,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.deepEqual(result.map(item => item.message), ['1', 'done']);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 54,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 63,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 72,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000004');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 74,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  state = beginInvestigation(state, '730000002');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 79,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.equal(late.state.seed, '730000002');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 84,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000002');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 94,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000004');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 96,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  const retry = beginInvestigation(state, '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 97,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.equal(retry.seed, '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 105,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000002');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 108,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    case_id: 'case_demo', shared_transactions: ['730000002', '730000004'],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 123,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  state = beginInvestigation(state, '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 191,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 207,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  const state = beginInvestigation(createInvestigationState(), '730000002', 3);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 211,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "      graph_evidence_ids: ['edge:730000002->730000003'] },",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 214,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "      graph_evidence_ids: ['path:downstream:730000002>730000003>730000005'] },",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 224,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '730000005');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_agent_state.test.mjs",
+    "line": 241,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  let state = beginInvestigation(createInvestigationState(), '11');",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_scene_runtime.test.mjs",
+    "line": 116,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "  assert.deepEqual(theatre.officeLabelAnchor('unknown', 300, 600, 1), { x: 300, y: 460 });",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_ui_contract.test.mjs",
+    "line": 15,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.match(html, /\\['731000004','731000002','731000001'\\]/);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/frontend_ui_contract.test.mjs",
+    "line": 52,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "  assert.match(html, /get\\('spriteDebug'\\)==='1'/);",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 27,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        response = client.post(\"/api/investigations/preview\", json={\"seed_tx_id\": \"730000004\", \"max_hops\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 43,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                               json={\"seed_tx_id\": \"730000004\", \"max_hops\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 65,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                               json={\"seed_tx_id\": \"999999999\", \"max_hops\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 77,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    saved = demo_orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 83,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                               json={\"seed_tx_id\": \"730000002\", \"max_hops\": 3})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 99,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = demo_orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 100,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    second = demo_orchestrator.preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 141,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                               json={\"seed_tx_id\": \"730000004\", \"max_hops\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 148,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        assert handoffs[0][\"evidence_ids\"] == [\"tx:730000004\"]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 169,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                               json={\"seed_tx_id\": \"730000004\", \"max_hops\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_api_preview.py",
+    "line": 171,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert response.headers[\"retry-after\"] == \"3\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_auth.py",
+    "line": 31,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"token_use\": \"access\", \"client_id\": \"client\", \"sub\": \"user-123\", \"exp\": 9999999999,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_auth.py",
+    "line": 38,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"token_use\": \"id\", \"client_id\": \"client\", \"exp\": 9999999999,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_auth.py",
+    "line": 46,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"token_use\": \"access\", \"client_id\": \"client\", \"exp\": 9999999999,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 8,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert store.get_transaction(\"730000004\")[\"label\"] == \"unknown\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 9,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    neighbors = store.get_neighbors(\"730000004\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 19,
+    "categories": [
+      "dataset/provenance"
+    ],
+    "text": "    assert all(item[\"sourceDataset\"] == \"bureau_synthetic_v1\" for item in _DEMO_TRANSACTIONS.values())",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 35,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        (\"730000001\", \"730000004\"), (\"730000002\", \"730000004\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 36,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        (\"730000004\", \"730000003\"), (\"730000003\", \"730000005\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 37,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        (\"730000005\", \"730000006\"), (\"730000006\", \"730000007\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 38,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        (\"730000007\", \"730000008\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 45,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = agent.investigate(\"730000004\", 3)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 49,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    second = agent.investigate(\"730000004\", 3)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 56,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert agent.investigate(\"999999999\", 2) is None",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 61,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = InvestigationOrchestrator(store).preview(\"730000004\", 3, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 70,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    paths = store.trace_paths(\"730000004\", 4)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 72,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert store.validate_paths(paths, 4, \"730000004\")[\"allPathsValid\"]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 77,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert store.validate_paths([reversed_path], 4, \"730000004\")[\"invalidPathCount\"] == 1",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 80,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert store.validate_paths([wrong_direction], 4, \"730000004\")[\"allPathsValid\"] is False",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 83,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert store.validate_paths([over_bound], 1, \"730000004\")[\"allPathsValid\"] is False",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 90,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        {\"txId\": \"730000004\", \"label\": \"illicit\"},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 103,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = InvestigationOrchestrator(store).investigate(\"730000004\", 2)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 104,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    second = InvestigationOrchestrator(store).investigate(\"730000004\", 2)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 120,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "                return SimpleNamespace(result_set=[[['22', '33'], ['unknown', 'illicit'], [2, 3],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 122,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "            return SimpleNamespace(result_set=[[['11', '22'], ['licit', 'unknown'], [1, 2],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 131,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    paths = store.trace_paths(\"22\", 99)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_demo_flow.py",
+    "line": 137,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert all(params == {\"tx_id\": \"22\"} for _, params, _ in graph.queries)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 14,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    seed = {\"txId\": \"100\", \"label\": \"unknown\", \"timeStep\": 8, \"sourceDataset\": \"fixture\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 15,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    middle = {\"txId\": \"200\", \"label\": \"unknown\", \"timeStep\": 8, \"sourceDataset\": \"fixture\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 16,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    endpoint = {\"txId\": \"300\", \"label\": \"licit\", \"timeStep\": 8, \"sourceDataset\": \"fixture\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 37,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert [node[\"txId\"] for node in discovered_path[\"nodes\"]] == [\"100\", \"200\", \"300\"]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 42,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    critical_edge = (\"730000002\", \"730000004\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 46,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        ).preview(\"730000002\", 3, use_local_model=False, memory_enabled=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 58,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        ).preview(\"730000002\", 3, use_local_model=False, memory_enabled=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 62,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        assert baseline_frontier == \"730000004\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 72,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                                 \"nodes\": [{\"txId\": \"100\"}, {\"txId\": \"200\"}]}],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 75,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"frontier_tx_id\": \"200\", \"case_id\": \"case-a\", \"memory_id\": \"memory-a\",",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 81,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert choice[\"memory_suggestion\"][\"frontier_tx_id\"] == \"200\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 88,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    seed = {\"txId\": \"100\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 89,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    left = {\"txId\": \"200\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 90,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    right = {\"txId\": \"300\"}",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 95,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    baseline = rank_verified_frontiers(candidates, {\"200\": 1, \"300\": 0})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 96,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    alternative = rank_verified_frontiers(candidates, {\"200\": 0, \"300\": 2})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 97,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert baseline[0][\"endpoint\"] == \"200\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 98,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert alternative[0][\"endpoint\"] == \"300\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 103,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    (\"trace_upstream\", {\"tx_id\": \"100\", \"max_hops\": 5}),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 113,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = InvestigationOrchestrator(store).preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 121,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert expanded[\"action_outcome\"][\"selected_frontier_tx_id\"] == \"730000004\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 125,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert any(\"path:downstream:730000002>730000004>730000003\" == evidence_id",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 140,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        InvestigationOrchestrator(UnavailableGraphStore()).preview(\"100\", 2, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 145,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    path = store.trace_paths(\"730000002\", 1, direction=\"downstream\")[0]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 146,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    path[\"nodes\"][1][\"label\"] = \"illicit\" if path[\"nodes\"][1][\"label\"] != \"illicit\" else \"licit\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 147,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    validation = store.validate_paths([path], 1, \"730000002\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 153,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    path = next(path for path in store.trace_paths(\"730000002\", 2, direction=\"downstream\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 183,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    direct = SkepticAgent().independently_verify_paths([path], store, \"730000002\", 2)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 188,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = InvestigationOrchestrator(store).preview(\"730000002\", 2, use_local_model=False)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 211,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "        path[\"nodes\"][1][\"label\"] = \"illicit\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 213,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        path[\"nodes\"][0][\"txId\"] = \"730000001\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_graph_decisions.py",
+    "line": 230,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    check = SkepticAgent().independently_verify_paths([path], skeptic_store, \"730000002\", 3)[\"paths\"][0]",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 14,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert agent._invoke(\"get_transaction\", {\"tx_id\": \"730000004\"})[\"txId\"] == \"730000004\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 15,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert len(agent._invoke(\"trace_paths\", {\"tx_id\": \"730000004\", \"max_hops\": 99})) <= 20",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 18,
+    "categories": [
+      "ID input contract"
+    ],
+    "text": "    with pytest.raises(ValueError, match=\"digits only\"):",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 26,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                {\"message\": {\"content\": '{\"name\":\"get_transaction\",\"arguments\":{\"tx_id\":\"730000004\"}}'}},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 27,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "                {\"message\": {\"content\": \"The seed label is illicit in this demo fixture.\"}},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 36,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = agent.analyze(\"730000004\", 2, {\"seed\": {\"txId\": \"730000004\"}})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 67,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = agent.analyze(\"730000004\", 2, {\"seed\": {\"txId\": \"730000004\"}})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 78,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        raise httpx.HTTPStatusError(\"401\", request=httpx.Request(\"POST\", \"https://ollama.com/api/chat\"),",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 87,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = agent.analyze(\"730000004\", 2, {\"seed\": {\"txId\": \"730000004\"}})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 109,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    result = agent.analyze(\"730000004\", 2, {\"seed\": {\"txId\": \"730000004\"}})",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_local_model_tools.py",
+    "line": 117,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    preview = InvestigationOrchestrator(GraphStore(settings), settings).preview(\"730000004\", 2, use_local_model=True)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 21,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    saved = orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 35,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "            \"seed\": {\"txId\": \"730000004\", \"label\": \"illicit\"}, \"traces\": [],",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 37,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "            \"created_at\": \"2026-10-17T00:00:00+00:00\", \"evidence_tx_ids\": [\"730000004\"]}",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 49,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        first_future = pool.submit(InvestigationOrchestrator(store).preview, \"730000004\", 2, False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 50,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        second_future = pool.submit(InvestigationOrchestrator(store).preview, \"730000002\", 2, False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 52,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert first[\"seed\"][\"txId\"] == \"730000004\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 53,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert second[\"seed\"][\"txId\"] == \"730000002\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 58,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert first_seeds == [\"730000004\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 59,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert second_seeds == [\"730000002\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 65,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 66,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    second = orchestrator.preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 70,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert {\"730000002\", \"730000004\"}.issubset(set(case_memory[\"sharedTransactions\"]))",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 73,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert \"730000002->730000004\" in case_memory[\"currentSupportingEdges\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 83,
+    "categories": [
+      "dataset/provenance",
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"999888\": {\"txId\": \"999888\", \"label\": \"unknown\", \"timeStep\": 1, \"sourceDataset\": \"fixture\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 87,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 88,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    unrelated = orchestrator.preview(\"999888\", 3, use_local_model=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 99,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 100,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    current = orchestrator.preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 103,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                                  if claim.get(\"claim_type\") == \"transaction_label\" and claim.get(\"tx_id\") == \"730000002\")",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 104,
+    "categories": [
+      "classification vocabulary"
+    ],
+    "text": "    remembered_label_claim[\"label\"] = \"licit\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 109,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"tx_id\": \"730000002\", \"remembered_label\": \"licit\", \"current_label\": \"unknown\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 110,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"evidence_id\": \"tx:730000002\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 118,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = InvestigationOrchestrator(store).investigate(\"730000004\", 2)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 119,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    current = InvestigationOrchestrator(store).preview(\"730000002\", 2, use_local_model=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 138,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert result[\"causal_trace\"][\"shared_current_graph_edge\"] == \"731000001->731000002\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 146,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    first = orchestrator.investigate(\"730000004\", 3)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 147,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    current = orchestrator.preview(\"730000002\", 3, use_local_model=False)",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 149,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    candidate[\"evidenceLedger\"][\"transactions\"][\"730000002\"][\"label\"] = \"licit\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 165,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "              \"validationStatus\": \"VERIFIED_RELEVANT\", \"currentSupportingEdges\": [\"731000001->731000002\"]}",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 167,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"memory_route_verified\": True, \"selected_frontier_tx_id\": \"731000002\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 168,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"route_evidence_id\": \"path:downstream:731000001>731000002>731000003>731000004\",",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 170,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "                              \"source_path_id\": \"path:downstream:731000002>731000003>731000004\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 176,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert explanation[\"frontier_tx_id\"] == \"731000002\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 177,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert explanation[\"current_supporting_edges\"] == [\"731000001->731000002\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 202,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"case_id\": \"case_fixture\", \"memory_id\": \"memory_fixture\", \"seed\": {\"txId\": \"900\", \"label\": \"unknown\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 203,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"traces\": [{\"direction\": \"downstream\", \"hops\": 1, \"nodes\": [{\"txId\": \"900\"}, {\"txId\": \"901\"}]}],",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 206,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"evidence_tx_ids\": [\"900\", \"901\"], \"evidence_ledger\": {\"transactions\": {\"900\": {\"label\": \"unknown\"}}, \"edges\": [], \"paths\": []},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 207,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"verified_claims\": [{\"claim_type\": \"seed_existence\", \"evidence_ids\": [\"900\"]}],",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 220,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert json.loads(params[\"evidence_refs_json\"])[\"transaction_ids\"] == [\"900\", \"901\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 232,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "            row = [\"case_1\", \"memory_1\", \"900\", \"prior\", \"[]\", \"{}\", \"{}\", \"[]\", \"[]\", \"{}\", \"1.0\", \"2026-10-16\", [\"901\"]]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 241,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    memories = store.find_related_memories([\"901\"], limit=5, owner_id=\"cognito-user-a\")",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 246,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert params[\"context_tx_ids\"] == [\"901\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 250,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert memories[0][\"sharedTransactions\"] == [\"901\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 251,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert \"901\" in memories[0][\"relevanceReason\"]",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 260,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "            values = [\"case_1\", \"900\", \"needs_human_review\", \"summary\", \"2026-10-16\", json.dumps({",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 262,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "                \"evidenceLedger\": {\"transactions\": {\"900\": {\"label\": \"unknown\"}}},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 265,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "            }), \"memory_1\", \"[]\", json.dumps({\"transactions\": {\"900\": {\"label\": \"unknown\"}}}),",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 273,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert saved[\"evidenceLedger\"][\"transactions\"][\"900\"][\"label\"] == \"unknown\"",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 285,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        store.find_related_memories([\"900\"])",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 291,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        store.save_case({\"seed\": {\"txId\": \"900\"}})",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 307,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"case_id\": \"case_owner\", \"memory_id\": \"memory_owner\", \"seed\": {\"txId\": \"900\", \"label\": \"unknown\"},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_memory_workflow.py",
+    "line": 310,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"evidence_tx_ids\": [\"900\"], \"evidence_ledger\": {},",
+    "track2_named_scope": true
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 10,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    context = SharedInvestigationContext(\"case_demo\", \"11\", 2, \"inv_demo\")",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 13,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"transactions\": {\"11\": {\"label\": \"licit\"}},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 14,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"edges\": [{\"edge_id\": \"11->22\", \"source\": \"11\", \"target\": \"22\", \"evidence_paths\": [0]}],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 15,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "        \"paths\": [{\"path_index\": 0, \"node_ids\": [\"11\", \"22\"], \"valid\": True}],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 49,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    preview = orchestrator.preview(\"730000004\", 2, use_local_model=True, progress_callback=streamed.append,",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 58,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    assert captured_payload[\"shared_investigation_context\"][\"seed_transaction\"] == \"730000004\"",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 87,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    context = SharedInvestigationContext(\"case_fixture\", \"11\", 2)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 88,
+    "categories": [
+      "classification vocabulary",
+      "transaction ID literal/candidate"
+    ],
+    "text": "    ledger = {\"transactions\": {\"11\": {\"label\": \"licit\"}, \"99\": {\"label\": \"illicit\"}},",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 89,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "              \"edges\": [{\"edge_id\": \"11->99\", \"source\": \"11\", \"target\": \"99\", \"evidence_paths\": [0]}],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 90,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "              \"paths\": [{\"path_index\": 0, \"valid\": False, \"node_ids\": [\"11\", \"99\"],",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 103,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    context = SharedInvestigationContext(\"case_fixture\", \"11\", 2)",
+    "track2_named_scope": false
+  },
+  {
+    "file": "tests/test_shared_context.py",
+    "line": 104,
+    "categories": [
+      "transaction ID literal/candidate"
+    ],
+    "text": "    context.add_memory_candidate({\"caseId\": \"prior_case\", \"sharedTransactions\": [\"11\"]})",
+    "track2_named_scope": false
+  }
+]

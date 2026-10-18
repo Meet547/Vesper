@@ -1,0 +1,28 @@
+Step 1.1-1.2 state verification
+Start time: 2026-10-18 21:59:28 IST (+0530)
+
+COMMAND: git status --porcelain
+EXIT: 0
+OUTPUT:
+?? evidence/track1/progress.json
+
+COMMAND: git branch --show-current
+EXIT: 0
+OUTPUT:
+codex/track1-isolated
+
+COMMAND: git rev-parse HEAD
+EXIT: 0
+OUTPUT:
+d930ac07c7401f4a5ba2e838568e28d616f2286f
+
+COMMAND: git log --oneline -5
+EXIT: 0
+OUTPUT:
+d930ac0 Add bounded Track 1 graph and MCP tools with live gate evidence
+27cbe50 Add isolated Track 1 adapter and deterministic synthetic scenarios
+8e04152 Fix Vesper office navigation and depth layering
+d6e1591 Restore Vesper character sprite animations
+77593ae Publish verified Vesper release candidate
+
+Finding: The Track 1 implementation is committed in d930ac0 and 27cbe50. The working tree was clean before this verification began; at the time of this command, the new progress file from step 1.1 was the only untracked path.

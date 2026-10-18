@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "tool": "built-in image generation",
+  "use_case": "stylized-concept",
+  "output": "docs/assets/vesper-agent-team.png",
+  "width": 2164,
+  "height": 727,
+  "sha256": "f8bbb6381108826019d314d8bc6021d1a4ea9c5e2a202a55875e536ec7e30b1a",
+  "reference_images": [
+    "frontend/assets/vesper-office.png",
+    "frontend/assets/vesper-characters.b7bb881d9bbe56aa.pack"
+  ],
+  "prompt_summary": "Wide premium pixel-art GitHub README banner with exactly six distinct, full-body, front-facing Vesper investigation agents in the existing office palette; subtle role props; no text, logos, Bitcoin symbols, police imagery, weapons, or watermark.",
+  "visual_review": {
+    "exactly_six_agents": true,
+    "all_front_facing": true,
+    "all_full_body": true,
+    "text_free": true,
+    "project_local_copy_present": true
+  }
+}

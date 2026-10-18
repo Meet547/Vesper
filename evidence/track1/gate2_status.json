@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "time_IST": "2026-10-18T17:09:15.583741+05:30",
+  "native_relationship_ids": [
+    0,
+    2,
+    3
+  ],
+  "evidence": [
+    "gate2_edges.txt",
+    "gate2_leads.txt",
+    "gate2_delete.txt",
+    "gate2_counterfactual.txt",
+    "gate2_primary_unchanged.txt",
+    "gate2_cypher.txt"
+  ]
+}

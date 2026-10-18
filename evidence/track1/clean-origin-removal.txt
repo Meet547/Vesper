@@ -1,0 +1,16 @@
+STEP: 2.10
+COMMAND: git remote -v
+EXIT: 0
+OUTPUT:
+origin	/private/tmp/vesper-track1-20261018 (fetch)
+origin	/private/tmp/vesper-track1-20261018 (push)
+
+COMMAND: git remote remove origin
+EXIT: 0
+OUTPUT:
+(empty)
+
+COMMAND: git remote -v
+EXIT: 0
+OUTPUT:
+(empty; origin removed)

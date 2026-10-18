@@ -1,0 +1,116 @@
+{
+  "meta": null,
+  "nextCursor": null,
+  "tools": [
+    {
+      "name": "get_transaction",
+      "title": null,
+      "description": "Read one synthetic transaction by ID from the isolated graph; two-second query deadline.",
+      "inputSchema": {
+        "properties": {
+          "tx_id": {
+            "pattern": "^SYN-[0-9]{6}$",
+            "title": "Tx Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tx_id"
+        ],
+        "title": "get_transactionArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "expand_outgoing",
+      "title": null,
+      "description": "Read up to 40 directed paths, bounded to 1\u20136 hops; two-second query deadline.",
+      "inputSchema": {
+        "properties": {
+          "start_txid": {
+            "pattern": "^SYN-[0-9]{6}$",
+            "title": "Start Txid",
+            "type": "string"
+          },
+          "max_hops": {
+            "maximum": 6,
+            "minimum": 1,
+            "title": "Max Hops",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start_txid",
+          "max_hops"
+        ],
+        "title": "expand_outgoingArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "shortest_path",
+      "title": null,
+      "description": "Read a bounded minimum-hop route between two synthetic IDs; two-second query deadline.",
+      "inputSchema": {
+        "properties": {
+          "start_txid": {
+            "pattern": "^SYN-[0-9]{6}$",
+            "title": "Start Txid",
+            "type": "string"
+          },
+          "end_txid": {
+            "pattern": "^SYN-[0-9]{6}$",
+            "title": "End Txid",
+            "type": "string"
+          },
+          "max_hops": {
+            "maximum": 6,
+            "minimum": 1,
+            "title": "Max Hops",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start_txid",
+          "end_txid",
+          "max_hops"
+        ],
+        "title": "shortest_pathArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    }
+  ]
+}

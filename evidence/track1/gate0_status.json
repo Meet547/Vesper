@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Written team statement supplied by the user and saved",
+  "history_finding": "no contradicting evidence found",
+  "organizer_answer_received": false,
+  "user_answer": "Team statement requested and approved for docs/ELIGIBILITY.md",
+  "evidence": [
+    "../originality.md",
+    "../core-file-history.json",
+    "../../docs/ELIGIBILITY.md"
+  ],
+  "closure_basis": "team_written_statement",
+  "organizer_question_answered": false
+}

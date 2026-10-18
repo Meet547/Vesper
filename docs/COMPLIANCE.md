@@ -1,11 +1,11 @@
-# Data and release notes
+# Track 1 submission boundaries
 
-This repository packages a local demonstration of graph investigation and owner-scoped case memory. The release fixture contains invented transaction IDs, labels, time steps, and directed `FLOWS_TO` relationships. It contains no imported blockchain dataset or transaction attribution. `sourceDataset=bureau_synthetic_v1` is a fixture provenance tag retained for compatibility; it does not refer to BUREAU transaction records.
+The submitted graph data is generated synthetic scenario data. It contains invented transaction IDs, neutral roles, time steps, and directed relationships; it contains no imported blockchain dataset, wallet address, or personal data. Generator output and hashes are recorded in `evidence/track1/generator.json`.
 
-The public candidate is assembled from an explicit allowlist on top of Vesper's existing initial README commit. It excludes the original BUREAU checkout, its history, local logs, environment files, evaluation corpora, local QA output, and backups. The manifest lists the final included files and their SHA-256 hashes.
+The adapter uses only the owned `vesper-verify` container and the allowlisted graphs `vesper_synthetic_verify` and `vesper_counterfactual`. The saved container identity and readback are in `evidence/track1/isolation-target.json`, `evidence/track1/docker-state.txt`, and `evidence/track1/clean-readback.txt`.
 
-The office artwork was supplied directly by the project owner. The character animations were restored from the earlier project sprite pack at the owner’s request. These provenance notes are not an independent copyright review or license grant. The interface requests Silkscreen from Google Fonts; no font binary is included in this repository. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies it as SIL Open Font License 1.1. No root source-code license is declared; public availability does not itself grant reuse rights.
+OpenAI Codex assisted with the generator, adapter, tests, interface, and documentation. The team remains responsible for reviewing and explaining the submitted work. This disclosure is also recorded in `README.md` and `evidence/track1/REPORT.md`.
 
-The app defaults to local demo mode. The isolated integration runner binds HTTP and FalkorDB to loopback and pins the graph to `vesper_track2_synthetic_test`; it does not read Cloud credentials. Do not provide production or Cloud endpoints to the isolated scripts.
+The office prototype was first recorded in this repository on October 18, 2026 at 12:33:08 IST in commit `77593ae`. The character sprite pack was first recorded on October 18, 2026 at 12:42:49 IST in commit `d6e1591`. These are repository-recorded import dates, not claims about the assets' original creation dates. The supporting history is in `evidence/originality.md` and `evidence/core-file-history.json`.
 
-AI coding assistants were used during development. The submitter is responsible for reviewing the code and completing the official AI-assistance disclosure.
+All output is an investigative lead, not a legal conclusion about any person.

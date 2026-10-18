@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "graph": "vesper_synthetic_verify",
+  "writes": [],
+  "counts": {
+    "nodes": [
+      [
+        [
+          "Transaction"
+        ],
+        4000
+      ]
+    ],
+    "edges": [
+      [
+        "FLOWS_TO",
+        6685
+      ]
+    ],
+    "roles": [
+      [
+        "endpoint",
+        130
+      ],
+      [
+        "hub",
+        2071
+      ],
+      [
+        "relay",
+        1799
+      ]
+    ]
+  },
+  "existing_graph_read_only": true
+}

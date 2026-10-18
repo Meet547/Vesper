@@ -1,0 +1,16 @@
+COMMAND: .venv/bin/python -m scripts.generate_synthetic_graph --output /private/tmp/vesper-generated-check
+EXIT: 0
+OUTPUT:
+{"generator_version": "1.0.0", "generator_sha256": "1fe417c7f3116887f5eec03514f923617bfe223bc4df6ae78e3adbc56082f411", "seed": 20261018, "node_count": 4000, "edge_count": 6685, "files": {"nodes.json": {"sha256": "ca3f2687499b1f6ccfae571d7b0c83277d5d7b371f3fdd58d88d1e5379922b43", "bytes": 374982}, "edges.json": {"sha256": "a4781ff93307754ec5295c58ab673adf156bc98b66d421101e9348d2054fe795", "bytes": 307512}}}
+
+COMMAND: cmp -s /private/tmp/vesper-generated-check/nodes.json data/track1/nodes.json
+EXIT: 0
+OUTPUT: (empty; byte-identical)
+
+COMMAND: cmp -s /private/tmp/vesper-generated-check/edges.json data/track1/edges.json
+EXIT: 0
+OUTPUT: (empty; byte-identical)
+
+COMMAND: cmp -s /private/tmp/vesper-generated-check/synthetic_manifest.json data/track1/synthetic_manifest.json
+EXIT: 0
+OUTPUT: (empty; byte-identical)

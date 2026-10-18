@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "time_IST": "2026-10-18T17:08:42.094677+05:30",
+  "command": [
+    "/private/tmp/vesper-track1-runtime/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "output": "evidence/track1/regression-python-pre-gate2.txt"
+}

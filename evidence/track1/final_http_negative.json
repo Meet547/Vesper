@@ -1,0 +1,20 @@
+{
+  "investigation": {
+    "status": "evidence_unavailable",
+    "message": "evidence unavailable",
+    "database_connected": false,
+    "paths": [],
+    "action": null,
+    "conclusion": null,
+    "events": []
+  },
+  "route": {
+    "status": "evidence_unavailable",
+    "message": "evidence unavailable",
+    "database_connected": false,
+    "paths": [],
+    "action": null,
+    "conclusion": null,
+    "events": []
+  }
+}

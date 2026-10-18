@@ -1,0 +1,78 @@
+{
+  "accepted": {
+    "path": {
+      "txids": [
+        "SYN-000001",
+        "SYN-000002",
+        "SYN-000003",
+        "SYN-000004"
+      ],
+      "relationship_ids": [
+        0,
+        2,
+        3
+      ],
+      "hops": 3
+    },
+    "reason": "Every directed edge returned exactly one row.",
+    "checks": [
+      {
+        "source": "SYN-000001",
+        "target": "SYN-000002",
+        "row_count": 1,
+        "native_relationship_ids": [
+          0
+        ]
+      },
+      {
+        "source": "SYN-000002",
+        "target": "SYN-000003",
+        "row_count": 1,
+        "native_relationship_ids": [
+          2
+        ]
+      },
+      {
+        "source": "SYN-000003",
+        "target": "SYN-000004",
+        "row_count": 1,
+        "native_relationship_ids": [
+          3
+        ]
+      }
+    ]
+  },
+  "rejected": {
+    "candidate_path": [
+      "SYN-000001",
+      "SYN-000005",
+      "SYN-000006",
+      "SYN-000004"
+    ],
+    "reason": "The decoy branch exists, but the required connection to the destination returns zero rows.",
+    "existing_decoy_edges": [
+      {
+        "source": "SYN-000001",
+        "target": "SYN-000005",
+        "row_count": 1,
+        "native_relationship_ids": [
+          1
+        ]
+      },
+      {
+        "source": "SYN-000005",
+        "target": "SYN-000006",
+        "row_count": 1,
+        "native_relationship_ids": [
+          4
+        ]
+      }
+    ],
+    "missing_edge_result": {
+      "source": "SYN-000006",
+      "target": "SYN-000004",
+      "row_count": 0,
+      "native_relationship_ids": []
+    }
+  }
+}

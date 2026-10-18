@@ -1,0 +1,707 @@
+[
+  {
+    "file": "backend/app/agents/claim_validator.py",
+    "lines": 237,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "9afb71d6ae9d1f365f6934111abcdaede61979af0f10d702ef93177f2c35f54d",
+    "symbols": [
+      {
+        "name": "_ledger_stat",
+        "line": 68
+      },
+      {
+        "name": "_make_claim",
+        "line": 72
+      },
+      {
+        "name": "validate_claim",
+        "line": 88
+      },
+      {
+        "name": "validate_claims",
+        "line": 231
+      },
+      {
+        "name": "_label_from_text",
+        "line": 235
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/evidence_ledger.py",
+    "lines": 276,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "0e29f6d7c827d2aa7195c3116e69035f1629cf0a8e9704a4c6e935f3258d6c40",
+    "symbols": [
+      {
+        "name": "build_evidence_ledger",
+        "line": 27
+      },
+      {
+        "name": "compact_ledger_for_model",
+        "line": 203
+      },
+      {
+        "name": "complete_graph_facts",
+        "line": 260
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/graph_decisions.py",
+    "lines": 225,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "78c0b887f6eab5f04e7f3c4dc2f82be5dabb24cb194e2a7c8ef1fd1491733e5e",
+    "symbols": [
+      {
+        "name": "validate_action_call",
+        "line": 33
+      },
+      {
+        "name": "rank_verified_frontiers",
+        "line": 66
+      },
+      {
+        "name": "memory_frontier_suggestions",
+        "line": 86
+      },
+      {
+        "name": "choose_next_action",
+        "line": 144
+      },
+      {
+        "name": "_choice",
+        "line": 209
+      },
+      {
+        "name": "action_state",
+        "line": 213
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/historian.py",
+    "lines": 19,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "7bb8734ca0600e4e753c65451717fb9df9973236b70855072e55d42ab6cd4821",
+    "symbols": [
+      {
+        "name": "HistorianAgent",
+        "line": 6
+      },
+      {
+        "name": "__init__",
+        "line": 9
+      },
+      {
+        "name": "recall",
+        "line": 12
+      },
+      {
+        "name": "remember",
+        "line": 18
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/local_model.py",
+    "lines": 165,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "ccba9b0a01f3cbccc84f2940b34d986315d5847efd34fff8c8b17e34f0bbed27",
+    "symbols": [
+      {
+        "name": "LocalModelAgent",
+        "line": 32
+      },
+      {
+        "name": "__init__",
+        "line": 40
+      },
+      {
+        "name": "analyze",
+        "line": 46
+      },
+      {
+        "name": "_post",
+        "line": 125
+      },
+      {
+        "name": "_extract_content",
+        "line": 138
+      },
+      {
+        "name": "_invoke",
+        "line": 143
+      },
+      {
+        "name": "_tx_id",
+        "line": 161
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/orchestrator.py",
+    "lines": 781,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "bcf2c8824c6172f305ae146d207bd902abd8adef8f4be8175997f3f8b5702fc3",
+    "symbols": [
+      {
+        "name": "InvestigationOrchestrator",
+        "line": 33
+      },
+      {
+        "name": "__init__",
+        "line": 36
+      },
+      {
+        "name": "preview",
+        "line": 47
+      },
+      {
+        "name": "save_preview",
+        "line": 724
+      },
+      {
+        "name": "investigate",
+        "line": 778
+      },
+      {
+        "name": "emit",
+        "line": 60
+      },
+      {
+        "name": "publish_context",
+        "line": 68
+      },
+      {
+        "name": "handoff",
+        "line": 76
+      },
+      {
+        "name": "evidence_ids",
+        "line": 89
+      },
+      {
+        "name": "record_decision",
+        "line": 100
+      },
+      {
+        "name": "state_before",
+        "line": 175
+      },
+      {
+        "name": "merge_paths",
+        "line": 197
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/reporter.py",
+    "lines": 324,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "854fa5aceeb3749efe610b2dd1101c58d0abbba4437f148f7935e81666052465",
+    "symbols": [
+      {
+        "name": "extract_model_claims",
+        "line": 45
+      },
+      {
+        "name": "deterministic_claims",
+        "line": 117
+      },
+      {
+        "name": "ReporterAgent",
+        "line": 156
+      },
+      {
+        "name": "extract_claims",
+        "line": 160
+      },
+      {
+        "name": "_memory_policy_explanation",
+        "line": 173
+      },
+      {
+        "name": "create_report",
+        "line": 204
+      },
+      {
+        "name": "create_summary",
+        "line": 312
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/scout.py",
+    "lines": 15,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "2cdb0c0590b0bf237f29f16be0c9f7ed806ecfcf853baea01f24aca6f42fa815",
+    "symbols": [
+      {
+        "name": "ScoutAgent",
+        "line": 6
+      },
+      {
+        "name": "__init__",
+        "line": 9
+      },
+      {
+        "name": "find_seed",
+        "line": 12
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/shared_context.py",
+    "lines": 268,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "ba97c366879d4121765787b7ad7aa83f2432597b71844bbc3550d15937e368e5",
+    "symbols": [
+      {
+        "name": "_now",
+        "line": 22
+      },
+      {
+        "name": "SharedInvestigationContext",
+        "line": 26
+      },
+      {
+        "name": "__init__",
+        "line": 29
+      },
+      {
+        "name": "add_update",
+        "line": 56
+      },
+      {
+        "name": "record_read",
+        "line": 66
+      },
+      {
+        "name": "record_graph_decision",
+        "line": 71
+      },
+      {
+        "name": "add_handoff",
+        "line": 81
+      },
+      {
+        "name": "set_graph_evidence",
+        "line": 90
+      },
+      {
+        "name": "add_memory_candidate",
+        "line": 145
+      },
+      {
+        "name": "add_validated_memory",
+        "line": 154
+      },
+      {
+        "name": "classify_claims",
+        "line": 169
+      },
+      {
+        "name": "set_activity",
+        "line": 195
+      },
+      {
+        "name": "set_skeptic_review",
+        "line": 207
+      },
+      {
+        "name": "add_hypothesis",
+        "line": 217
+      },
+      {
+        "name": "set_case_id",
+        "line": 225
+      },
+      {
+        "name": "set_focus",
+        "line": 229
+      },
+      {
+        "name": "finish",
+        "line": 235
+      },
+      {
+        "name": "public_snapshot",
+        "line": 250
+      },
+      {
+        "name": "final_context",
+        "line": 264
+      },
+      {
+        "name": "_touch",
+        "line": 267
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/skeptic.py",
+    "lines": 427,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "7a39c64fe3274de5d4f5c7433933ed7eee6e5b929994236150b00d98098fbc24",
+    "symbols": [
+      {
+        "name": "SkepticAgent",
+        "line": 12
+      },
+      {
+        "name": "review",
+        "line": 21
+      },
+      {
+        "name": "independently_verify_paths",
+        "line": 83
+      },
+      {
+        "name": "_finding",
+        "line": 170
+      },
+      {
+        "name": "_structure_findings",
+        "line": 184
+      },
+      {
+        "name": "evaluate_claims",
+        "line": 265
+      },
+      {
+        "name": "validate_memories",
+        "line": 312
+      }
+    ]
+  },
+  {
+    "file": "backend/app/agents/tracer.py",
+    "lines": 17,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "2c19b141b23e900204bf85bfe7ef67195be66cd2e7144e8f8fe91668bd618440",
+    "symbols": [
+      {
+        "name": "TracerAgent",
+        "line": 6
+      },
+      {
+        "name": "__init__",
+        "line": 9
+      },
+      {
+        "name": "trace",
+        "line": 12
+      }
+    ]
+  },
+  {
+    "file": "backend/app/services/graph_store.py",
+    "lines": 643,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "80dc54d38b8a3b815c6a70d165369129dd7c51598877a5989f8fbfaf5736fa21",
+    "symbols": [
+      {
+        "name": "_utc_now",
+        "line": 43
+      },
+      {
+        "name": "GraphStore",
+        "line": 47
+      },
+      {
+        "name": "__init__",
+        "line": 48
+      },
+      {
+        "name": "graph_name",
+        "line": 58
+      },
+      {
+        "name": "_require_owner_scope",
+        "line": 61
+      },
+      {
+        "name": "_connect",
+        "line": 65
+      },
+      {
+        "name": "health",
+        "line": 102
+      },
+      {
+        "name": "_read_rows",
+        "line": 129
+      },
+      {
+        "name": "_write_rows",
+        "line": 134
+      },
+      {
+        "name": "_transaction_from_row",
+        "line": 140
+      },
+      {
+        "name": "get_stats",
+        "line": 148
+      },
+      {
+        "name": "get_transaction",
+        "line": 179
+      },
+      {
+        "name": "search_transactions",
+        "line": 190
+      },
+      {
+        "name": "get_neighbors",
+        "line": 211
+      },
+      {
+        "name": "trace_paths",
+        "line": 234
+      },
+      {
+        "name": "has_flow_edge",
+        "line": 318
+      },
+      {
+        "name": "validate_paths",
+        "line": 329
+      },
+      {
+        "name": "find_related_memories",
+        "line": 396
+      },
+      {
+        "name": "save_case",
+        "line": 470
+      },
+      {
+        "name": "list_cases",
+        "line": 580
+      },
+      {
+        "name": "get_case",
+        "line": 599
+      },
+      {
+        "name": "decode",
+        "line": 629
+      },
+      {
+        "name": "decode",
+        "line": 437
+      }
+    ]
+  },
+  {
+    "file": "backend/app/services/track2_demo_store.py",
+    "lines": 76,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "6c830639d47134ab97c629f1b9236f3adf88020a73e027e04b474c6ef7425780",
+    "symbols": [
+      {
+        "name": "Track2DemoGraphStore",
+        "line": 11
+      },
+      {
+        "name": "__init__",
+        "line": 14
+      },
+      {
+        "name": "reset_query_accounting",
+        "line": 19
+      },
+      {
+        "name": "_read_rows",
+        "line": 24
+      },
+      {
+        "name": "_write_rows",
+        "line": 32
+      },
+      {
+        "name": "query_accounting",
+        "line": 40
+      },
+      {
+        "name": "confirm_case_memory_provenance",
+        "line": 59
+      },
+      {
+        "name": "summarize",
+        "line": 45
+      }
+    ]
+  },
+  {
+    "file": "backend/app/tools/investigation_tools.py",
+    "lines": 26,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "032a6e23174e71b9b55a7949b6e09c7524073a6ff75af7fb4ad05f5ad57ed7b9",
+    "symbols": [
+      {
+        "name": "InvestigationTools",
+        "line": 11
+      },
+      {
+        "name": "__init__",
+        "line": 12
+      },
+      {
+        "name": "get_transaction",
+        "line": 15
+      },
+      {
+        "name": "get_neighbors",
+        "line": 18
+      },
+      {
+        "name": "trace_paths",
+        "line": 21
+      },
+      {
+        "name": "find_related_memories",
+        "line": 25
+      }
+    ]
+  },
+  {
+    "file": "databases/queries/flow_count.cypher",
+    "lines": 2,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "a91677a47ef43806d0ab3c0e8ad60280efd161e9bffaf63a1cf931dfe06db048"
+  },
+  {
+    "file": "databases/queries/graph_health.cypher",
+    "lines": 5,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "dd5f468fbca9d6a4e2d185bd4243c133b390b7e53c09cfc21d3cbeb5c2f9589d"
+  },
+  {
+    "file": "databases/queries/inspect_transaction.cypher",
+    "lines": 7,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "9f96463af04809917d720a15935596243e3104af75c9d6a493d77e0d79abeef3"
+  },
+  {
+    "file": "databases/queries/memory_schema.cypher",
+    "lines": 8,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "645c3382787ce0c0d7b694c62d72782605d59b9d776ce766cac6f8e464b89594"
+  },
+  {
+    "file": "databases/queries/upstream_trace.cypher",
+    "lines": 8,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "30760abb1a205ab8f0c6a07ee1f48aaa217b855c1566864c57b539d64c7618ce"
+  },
+  {
+    "file": "databases/schema.cypher",
+    "lines": 8,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "46ae749d76f419f9f04811e43407d451895878946817312ad78747fa72541871"
+  },
+  {
+    "file": "frontend/assets/agent-chat.mjs",
+    "lines": 68,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "558dafd39503cdafc7f7cc4d22b48a70b4a9b5e7413b1ad24f962d43c81e6d1f"
+  },
+  {
+    "file": "frontend/assets/agent-state.mjs",
+    "lines": 245,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "38480522419265d5b3329dc05b8650ea7d8f58dee2ad4341051fc512b72a9481"
+  },
+  {
+    "file": "frontend/assets/agent-theatre.mjs",
+    "lines": 173,
+    "history": [
+      "8e04152 Meet547 2026-10-18 12:57:43 +0530 2026-10-18 12:57:43 +0530 Fix Vesper office navigation and depth layering",
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "3ccaf7634655cdb24c29ca5b3893930eb85f36d8b57bb5c86df95630060d0bb2"
+  },
+  {
+    "file": "frontend/index.html",
+    "lines": 825,
+    "history": [
+      "8e04152 Meet547 2026-10-18 12:57:43 +0530 2026-10-18 12:57:43 +0530 Fix Vesper office navigation and depth layering",
+      "d6e1591 Meet547 2026-10-18 12:42:49 +0530 2026-10-18 12:42:49 +0530 Restore Vesper character sprite animations",
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "388177e5f39c08384fbbddd9335039208992ce1f7b8868b8cecc1b229f06f86f"
+  },
+  {
+    "file": "scripts/seed_milestone_8_4_isolated_graph.py",
+    "lines": 194,
+    "history": [
+      "77593ae Meet547 2026-10-18 12:33:08 +0530 2026-10-18 12:33:08 +0530 Publish verified Vesper release candidate"
+    ],
+    "sha256": "c06730ebcbca83482bf7e1acf431f29df97ea23d3701454b9656fadb108f3f09",
+    "symbols": [
+      {
+        "name": "_assert_synthetic_fixture_contract",
+        "line": 28
+      },
+      {
+        "name": "_decode",
+        "line": 49
+      },
+      {
+        "name": "_assert_container_boundary",
+        "line": 53
+      },
+      {
+        "name": "seed",
+        "line": 68
+      }
+    ]
+  }
+]
