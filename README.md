@@ -222,3 +222,4 @@ Readable query notes are in [`docs/TRACK1_QUERIES.md`](docs/TRACK1_QUERIES.md).
 ## License
 
 Apache License 2.0. See [`LICENSE`](LICENSE).
+AI Coding Agents Used: Opencode, Freebuff & ChatGPT Codex 
