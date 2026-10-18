@@ -1,0 +1,38 @@
+[
+  {
+    "query": "MATCH (s:Transaction {txId: $start_txid}), (t:Transaction {txId: $end_txid}) MATCH p=shortestPath((s)-[:FLOWS_TO*1..6]->(t)) WHERE length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId], [r IN relationships(p) | id(r)], length(p)",
+    "parameters": {
+      "start_txid": "SYN-000001",
+      "end_txid": "SYN-000004",
+      "max_hops": 3
+    },
+    "status": "FAIL",
+    "error_type": "ResponseError",
+    "message": "FalkorDB currently only supports shortestPaths in WITH or RETURN clauses"
+  },
+  {
+    "query": "MATCH (s:Transaction {txId: $start_txid}), (t:Transaction {txId: $end_txid}) WITH shortestPath((s)-[:FLOWS_TO*1..6]->(t)) AS p WHERE p IS NOT NULL AND length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId], [r IN relationships(p) | id(r)], length(p)",
+    "parameters": {
+      "start_txid": "SYN-000001",
+      "end_txid": "SYN-000004",
+      "max_hops": 3
+    },
+    "status": "PASS",
+    "rows": [
+      [
+        [
+          "SYN-000001",
+          "SYN-000002",
+          "SYN-000003",
+          "SYN-000004"
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        3
+      ]
+    ]
+  }
+]

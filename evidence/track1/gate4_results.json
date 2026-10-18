@@ -1,0 +1,328 @@
+{
+  "initialize": {
+    "meta": null,
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "experimental": {},
+      "logging": null,
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": false
+      },
+      "completions": null,
+      "tasks": null
+    },
+    "serverInfo": {
+      "name": "Vesper synthetic Track 1",
+      "title": null,
+      "version": "1.30.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "instructions": null
+  },
+  "shortest_path": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\": {\"status\": \"PASS\", \"path\": [\"SYN-000001\", \"SYN-000002\", \"SYN-000003\", \"SYN-000004\"], \"relationship_ids\": [0, 2, 3], \"hops\": 3, \"graph\": \"vesper_synthetic_verify\", \"server_timeout_ms\": 2000}, \"execution\": [{\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"RETURN 1 AS ready\", \"parameters\": {}, \"server_timeout_ms\": 2000, \"rows\": [[1]]}, {\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2\", \"parameters\": {\"tx_id\": \"SYN-000001\"}, \"server_timeout_ms\": 2000, \"rows\": [[\"SYN-000001\", \"hub\", 0, \"vesper_team_synthetic_v1\"]]}, {\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2\", \"parameters\": {\"tx_id\": \"SYN-000004\"}, \"server_timeout_ms\": 2000, \"rows\": [[\"SYN-000004\", \"endpoint\", 3, \"vesper_team_synthetic_v1\"]]}, {\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"MATCH (s:Transaction {txId: $start_txid}), (t:Transaction {txId: $end_txid}) WITH shortestPath((s)-[:FLOWS_TO*1..6]->(t)) AS p WHERE p IS NOT NULL AND length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId], [r IN relationships(p) | id(r)], length(p)\", \"parameters\": {\"start_txid\": \"SYN-000001\", \"end_txid\": \"SYN-000004\", \"max_hops\": 3}, \"server_timeout_ms\": 2000, \"rows\": [[[\"SYN-000001\", \"SYN-000002\", \"SYN-000003\", \"SYN-000004\"], [0, 2, 3], 3]]}]}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "result": {
+        "status": "PASS",
+        "path": [
+          "SYN-000001",
+          "SYN-000002",
+          "SYN-000003",
+          "SYN-000004"
+        ],
+        "relationship_ids": [
+          0,
+          2,
+          3
+        ],
+        "hops": 3,
+        "graph": "vesper_synthetic_verify",
+        "server_timeout_ms": 2000
+      },
+      "execution": [
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "RETURN 1 AS ready",
+          "parameters": {},
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2",
+          "parameters": {
+            "tx_id": "SYN-000001"
+          },
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              "SYN-000001",
+              "hub",
+              0,
+              "vesper_team_synthetic_v1"
+            ]
+          ]
+        },
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2",
+          "parameters": {
+            "tx_id": "SYN-000004"
+          },
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              "SYN-000004",
+              "endpoint",
+              3,
+              "vesper_team_synthetic_v1"
+            ]
+          ]
+        },
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "MATCH (s:Transaction {txId: $start_txid}), (t:Transaction {txId: $end_txid}) WITH shortestPath((s)-[:FLOWS_TO*1..6]->(t)) AS p WHERE p IS NOT NULL AND length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId], [r IN relationships(p) | id(r)], length(p)",
+          "parameters": {
+            "start_txid": "SYN-000001",
+            "end_txid": "SYN-000004",
+            "max_hops": 3
+          },
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              [
+                "SYN-000001",
+                "SYN-000002",
+                "SYN-000003",
+                "SYN-000004"
+              ],
+              [
+                0,
+                2,
+                3
+              ],
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    "isError": false
+  },
+  "get_transaction": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\": {\"status\": \"PASS\", \"transaction\": {\"txId\": \"SYN-000001\", \"label\": \"hub\", \"timeStep\": 0, \"sourceDataset\": \"vesper_team_synthetic_v1\"}}, \"execution\": [{\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2\", \"parameters\": {\"tx_id\": \"SYN-000001\"}, \"server_timeout_ms\": 2000, \"rows\": [[\"SYN-000001\", \"hub\", 0, \"vesper_team_synthetic_v1\"]]}]}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "result": {
+        "status": "PASS",
+        "transaction": {
+          "txId": "SYN-000001",
+          "label": "hub",
+          "timeStep": 0,
+          "sourceDataset": "vesper_team_synthetic_v1"
+        }
+      },
+      "execution": [
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2",
+          "parameters": {
+            "tx_id": "SYN-000001"
+          },
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              "SYN-000001",
+              "hub",
+              0,
+              "vesper_team_synthetic_v1"
+            ]
+          ]
+        }
+      ]
+    },
+    "isError": false
+  },
+  "expand_outgoing": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\": {\"status\": \"PASS\", \"paths\": [{\"txids\": [\"SYN-000001\", \"SYN-000002\", \"SYN-000003\", \"SYN-000004\"], \"relationship_ids\": [0, 2, 3], \"hops\": 3}, {\"txids\": [\"SYN-000001\", \"SYN-000002\", \"SYN-000003\"], \"relationship_ids\": [0, 2], \"hops\": 2}, {\"txids\": [\"SYN-000001\", \"SYN-000005\", \"SYN-000006\"], \"relationship_ids\": [1, 4], \"hops\": 2}, {\"txids\": [\"SYN-000001\", \"SYN-000002\"], \"relationship_ids\": [0], \"hops\": 1}, {\"txids\": [\"SYN-000001\", \"SYN-000005\"], \"relationship_ids\": [1], \"hops\": 1}], \"truncated\": false}, \"execution\": [{\"event\": \"cypher\", \"graph\": \"vesper_synthetic_verify\", \"query\": \"MATCH p=(s:Transaction {txId: $start_txid})-[:FLOWS_TO*1..6]->(t:Transaction) WHERE length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId] AS txids, [r IN relationships(p) | id(r)] AS relationship_ids, length(p) AS hops ORDER BY hops DESC, txids ASC LIMIT 41\", \"parameters\": {\"start_txid\": \"SYN-000001\", \"max_hops\": 3}, \"server_timeout_ms\": 2000, \"rows\": [[[\"SYN-000001\", \"SYN-000002\", \"SYN-000003\", \"SYN-000004\"], [0, 2, 3], 3], [[\"SYN-000001\", \"SYN-000002\", \"SYN-000003\"], [0, 2], 2], [[\"SYN-000001\", \"SYN-000005\", \"SYN-000006\"], [1, 4], 2], [[\"SYN-000001\", \"SYN-000002\"], [0], 1], [[\"SYN-000001\", \"SYN-000005\"], [1], 1]]}]}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "result": {
+        "status": "PASS",
+        "paths": [
+          {
+            "txids": [
+              "SYN-000001",
+              "SYN-000002",
+              "SYN-000003",
+              "SYN-000004"
+            ],
+            "relationship_ids": [
+              0,
+              2,
+              3
+            ],
+            "hops": 3
+          },
+          {
+            "txids": [
+              "SYN-000001",
+              "SYN-000002",
+              "SYN-000003"
+            ],
+            "relationship_ids": [
+              0,
+              2
+            ],
+            "hops": 2
+          },
+          {
+            "txids": [
+              "SYN-000001",
+              "SYN-000005",
+              "SYN-000006"
+            ],
+            "relationship_ids": [
+              1,
+              4
+            ],
+            "hops": 2
+          },
+          {
+            "txids": [
+              "SYN-000001",
+              "SYN-000002"
+            ],
+            "relationship_ids": [
+              0
+            ],
+            "hops": 1
+          },
+          {
+            "txids": [
+              "SYN-000001",
+              "SYN-000005"
+            ],
+            "relationship_ids": [
+              1
+            ],
+            "hops": 1
+          }
+        ],
+        "truncated": false
+      },
+      "execution": [
+        {
+          "event": "cypher",
+          "graph": "vesper_synthetic_verify",
+          "query": "MATCH p=(s:Transaction {txId: $start_txid})-[:FLOWS_TO*1..6]->(t:Transaction) WHERE length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId] AS txids, [r IN relationships(p) | id(r)] AS relationship_ids, length(p) AS hops ORDER BY hops DESC, txids ASC LIMIT 41",
+          "parameters": {
+            "start_txid": "SYN-000001",
+            "max_hops": 3
+          },
+          "server_timeout_ms": 2000,
+          "rows": [
+            [
+              [
+                "SYN-000001",
+                "SYN-000002",
+                "SYN-000003",
+                "SYN-000004"
+              ],
+              [
+                0,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                "SYN-000001",
+                "SYN-000002",
+                "SYN-000003"
+              ],
+              [
+                0,
+                2
+              ],
+              2
+            ],
+            [
+              [
+                "SYN-000001",
+                "SYN-000005",
+                "SYN-000006"
+              ],
+              [
+                1,
+                4
+              ],
+              2
+            ],
+            [
+              [
+                "SYN-000001",
+                "SYN-000002"
+              ],
+              [
+                0
+              ],
+              1
+            ],
+            [
+              [
+                "SYN-000001",
+                "SYN-000005"
+              ],
+              [
+                1
+              ],
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    "isError": false
+  }
+}

@@ -14,6 +14,22 @@ class Track1Investigator:
     def __init__(self, store):
         self.store = store
 
+    def find_route(self, start_txid, end_txid, max_hops):
+        from .tools import RouteArguments, SHORTEST_TOOL, Track1Tools
+        args = RouteArguments(start_txid=start_txid, end_txid=end_txid, max_hops=max_hops)
+        try:
+            self.store.health()
+        except EvidenceUnavailable:
+            return unavailable()
+        # A destination-directed task selects the graph algorithm instead of
+        # enumerating general investigation branches. This is a deterministic policy.
+        selection = {"selected_tool": SHORTEST_TOOL["name"], "arguments": args.model_dump(),
+                     "reason": "A destination was supplied; request a bounded minimum-hop route from the graph."}
+        result = Track1Tools(self.store).call(selection["selected_tool"], selection["arguments"])
+        if result.get("error") == "evidence_unavailable":
+            return unavailable()
+        return {"tool_selection": selection, "result": result, "conclusion": None}
+
     def investigate(self, start_txid, max_hops=3):
         check_id(start_txid)
         check_hops(max_hops)

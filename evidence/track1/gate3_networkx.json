@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "version": "3.7",
+  "path": [
+    "SYN-000001",
+    "SYN-000002",
+    "SYN-000003",
+    "SYN-000004"
+  ],
+  "hops": 3,
+  "source": "gate3_database_export.json"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "shortest_path",
+  "description": "Read one shortest directed route between two synthetic transactions, bounded to at most six hops.",
+  "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "start_txid": {
+        "description": "Synthetic starting transaction ID",
+        "pattern": "^SYN-[0-9]{6}$",
+        "title": "Start Txid",
+        "type": "string"
+      },
+      "end_txid": {
+        "description": "Synthetic destination transaction ID",
+        "pattern": "^SYN-[0-9]{6}$",
+        "title": "End Txid",
+        "type": "string"
+      },
+      "max_hops": {
+        "description": "Required directed-hop bound, 1 through 6",
+        "maximum": 6,
+        "minimum": 1,
+        "title": "Max Hops",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "start_txid",
+      "end_txid",
+      "max_hops"
+    ],
+    "title": "RouteArguments",
+    "type": "object"
+  },
+  "server_timeout_ms": 2000,
+  "read_only": true
+}

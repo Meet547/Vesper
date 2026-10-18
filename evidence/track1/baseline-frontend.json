@@ -1,0 +1,14 @@
+{
+  "time_IST": "2026-10-18T17:04:53.260517+05:30",
+  "command": [
+    "/opt/homebrew/bin/node",
+    "--test",
+    "tests/frontend_agent_chat.test.mjs",
+    "tests/frontend_agent_state.test.mjs",
+    "tests/frontend_scene_runtime.test.mjs",
+    "tests/frontend_ui_contract.test.mjs"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "output": "/private/tmp/vesper-track1-20261018/evidence/track1/baseline-frontend.txt"
+}

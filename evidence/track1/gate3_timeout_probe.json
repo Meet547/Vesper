@@ -1,0 +1,16 @@
+[
+  {
+    "arguments": {
+      "start_txid": "SYN-000001",
+      "end_txid": "SYN-000004",
+      "max_hops": 6
+    },
+    "timeout_ms": 1,
+    "result": {
+      "status": "FAIL",
+      "error": "timeout",
+      "message": "Graph query timed out.",
+      "path": []
+    }
+  }
+]

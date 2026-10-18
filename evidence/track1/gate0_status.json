@@ -1,0 +1,12 @@
+{
+  "status": "NOT RUN",
+  "scope": "Written closure remains open",
+  "history_finding": "no contradicting evidence found",
+  "organizer_answer_received": false,
+  "user_answer": "No",
+  "evidence": [
+    "../originality.md",
+    "../core-file-history.json"
+  ],
+  "needed": "Team written evidence or organizer written answer"
+}

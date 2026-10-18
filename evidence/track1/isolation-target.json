@@ -1,0 +1,23 @@
+{
+  "container_name": "vesper-verify",
+  "container_id": "3a12f3d29ca87ed51e95fae85ea665ac0a3cad24d1c6ef7769c7f9071ed85dab",
+  "volume": "vesper-verify-20261018-5271ea73e2",
+  "audit_id": "5271ea73e2014d8787122391da8657e4",
+  "created_by_this_run": true,
+  "host": "127.0.0.1",
+  "port": 16479,
+  "image_digest": "falkordb/falkordb@sha256:b0bdcac2cbaff989e77cb0610439b7a9289e86de033ccbbd4368b66fb680ae7a",
+  "docker_server_version": "29.8.2",
+  "run_id": "89361b91376db31d81befbe42481cd5cb5e2ef1f",
+  "redis_server_version": "8.10.2",
+  "modules": [
+    {
+      "name": "graph",
+      "version": 42201
+    },
+    {
+      "name": "vectorset",
+      "version": 1
+    }
+  ]
+}

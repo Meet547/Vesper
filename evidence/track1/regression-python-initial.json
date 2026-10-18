@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "exit_code": 1,
+  "time_IST": "2026-10-18T17:07:53.778620+05:30",
+  "command": [
+    "/private/tmp/vesper-track1-runtime/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "output": "evidence/track1/regression-python-initial.txt"
+}

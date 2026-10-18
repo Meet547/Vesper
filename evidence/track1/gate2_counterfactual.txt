@@ -1,0 +1,11 @@
+{
+  "old_action": "inspect_endpoint",
+  "new_action": "request_additional_evidence",
+  "difference": "Removing one required edge removes the three-hop lead; the policy requests more evidence.",
+  "removed_edge": [
+    "SYN-000002",
+    "SYN-000003"
+  ],
+  "other_planted_paths_unchanged": true,
+  "primary_graph_unchanged": true
+}

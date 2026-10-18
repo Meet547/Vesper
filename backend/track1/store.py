@@ -7,6 +7,7 @@ from falkordb import FalkorDB
 from redis import Redis
 from redis.backoff import NoBackoff
 from redis.retry import Retry
+from redis.exceptions import TimeoutError as RedisTimeoutError
 
 from .config import Target
 
@@ -32,6 +33,10 @@ class EvidenceUnavailable(RuntimeError):
 
 
 class IsolationError(RuntimeError):
+    pass
+
+
+class QueryTimeout(EvidenceUnavailable):
     pass
 
 
@@ -87,6 +92,8 @@ class SyntheticStore:
             # Exceptions are never returned verbatim: transport data can be sensitive.
             self.record({"event": "query_error", "graph": self.target.graph,
                          "error_type": type(error).__name__})
+            if isinstance(error, RedisTimeoutError) or "timed out" in str(error).lower() or "timeout" in str(error).lower():
+                raise QueryTimeout("Graph query timed out") from None
             raise EvidenceUnavailable("evidence unavailable") from None
         self.record({"event": "cypher", "graph": self.target.graph, "query": query,
                      "parameters": params or {}, "server_timeout_ms": timeout, "rows": rows})

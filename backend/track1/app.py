@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field, StrictInt
 from .config import Target
 from .investigator import Track1Investigator, unavailable
 from .store import EvidenceUnavailable, IsolationError, SyntheticStore
+from .tools import RouteArguments
 
 
 class SyntheticRequest(BaseModel):
@@ -17,6 +18,12 @@ def create_app():
     target = Target.from_environment()
     app = FastAPI(title="Vesper — synthetic Track 1", docs_url=None, redoc_url=None)
 
+    def current_store():
+        current = Target.from_environment()
+        if (current.container_id, current.port, current.graph) != (target.container_id, target.port, target.graph):
+            raise HTTPException(503, "Graph isolation target changed")
+        return SyntheticStore(current)
+
     @app.middleware("http")
     async def loopback_only(request: Request, call_next):
         if not request.client or request.client.host not in {"127.0.0.1", "::1", "testclient"}:
@@ -26,7 +33,7 @@ def create_app():
 
     @app.get("/api/health")
     def health():
-        store = SyntheticStore(target)
+        store = current_store()
         try:
             return store.health()
         except EvidenceUnavailable:
@@ -38,9 +45,19 @@ def create_app():
 
     @app.post("/api/investigate")
     def investigate(body: SyntheticRequest):
-        store = SyntheticStore(target)
+        store = current_store()
         try:
             return Track1Investigator(store).investigate(body.start_txid, body.max_hops)
+        except IsolationError:
+            raise HTTPException(503, "Graph isolation check failed") from None
+        finally:
+            store.close()
+
+    @app.post("/api/route")
+    def route(body: RouteArguments):
+        store = current_store()
+        try:
+            return Track1Investigator(store).find_route(**body.model_dump())
         except IsolationError:
             raise HTTPException(503, "Graph isolation check failed") from None
         finally:

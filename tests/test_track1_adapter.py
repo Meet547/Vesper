@@ -79,3 +79,45 @@ def test_outage_discards_all_partial_evidence(fail_stage):
     assert result["status"] == "evidence_unavailable"
     assert result["paths"] == [] and result["action"] is None and result["conclusion"] is None
     assert "SYN-" not in json.dumps(result)
+
+
+def test_route_requires_strict_bounded_arguments():
+    from backend.track1.tools import RouteArguments
+    args = {"start_txid": "SYN-000001", "end_txid": "SYN-000004"}
+    with pytest.raises(ValidationError):
+        RouteArguments(**args)
+    for bound in (0, 7, True, "3", 3.0):
+        with pytest.raises(ValidationError):
+            RouteArguments(**args, max_hops=bound)
+
+
+@pytest.mark.parametrize("failure", [EvidenceUnavailable, __import__("backend.track1.store", fromlist=["QueryTimeout"]).QueryTimeout])
+def test_route_error_discards_path_and_arguments(failure):
+    from backend.track1.tools import Track1Tools
+    class FailedStore:
+        def health(self):
+            raise failure()
+    result = Track1Tools(FailedStore()).shortest_path(start_txid="SYN-000001", end_txid="SYN-000004", max_hops=3)
+    assert result["path"] == [] and result["status"] == "FAIL"
+    assert "SYN-" not in json.dumps(result)
+
+
+def test_loader_rejects_existing_different_data_without_writes():
+    from pathlib import Path
+    from scripts.load_track1_graph import load
+    class ExistingStore:
+        target = Target(16479, "expected", "owned", "vesper_synthetic_verify")
+        class Redis:
+            def execute_command(self, command):
+                assert command == "GRAPH.LIST"
+                return [b"vesper_synthetic_verify"]
+        redis = Redis()
+        def identity(self):
+            pass
+        def read(self, query):
+            return []
+        @property
+        def graph(self):
+            pytest.fail("Existing graph must not receive a write")
+    with pytest.raises(IsolationError, match="Unexpected existing graph contents"):
+        load(ExistingStore(), Path("data/track1"))

@@ -13,6 +13,8 @@ CREATE_NODES = ("UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label
                 "timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)")
 CREATE_EDGES = ("UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), "
                 "(t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)")
+NODE_KEYS = "MATCH (n) RETURN n.txId, labels(n), keys(n) ORDER BY n.txId"
+EDGE_KEYS = "MATCH ()-[r]->() RETURN DISTINCT keys(r)"
 
 
 def dataset(directory):
@@ -54,6 +56,12 @@ def load(store, directory):
     expected_edges = [[e["source"], e["target"]] for e in edges]
     if actual_nodes != expected_nodes or [r[:2] for r in actual_edges] != expected_edges:
         raise IsolationError("Unexpected existing graph contents; no records were cleared or overwritten")
+    node_keys = store.read(NODE_KEYS)
+    expected_keys = sorted(("txId", "label", "timeStep", "sourceDataset"))
+    if (len(node_keys) != len(nodes)
+            or any(labels != ["Transaction"] or sorted(keys) != expected_keys for _, labels, keys in node_keys)
+            or store.read(EDGE_KEYS) != [[[]]]):
+        raise IsolationError("Unexpected existing labels or properties; no records were cleared or overwritten")
     counts = store.counts()
     if counts["nodes"] != [[["Transaction"], manifest["node_count"]]] or counts["edges"] != [["FLOWS_TO", manifest["edge_count"]]]:
         raise IsolationError("Unexpected labels or relationships")

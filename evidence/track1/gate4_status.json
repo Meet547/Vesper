@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "time_IST": "2026-10-18T17:16:20.297628+05:30",
+  "sdk": "1.30.0",
+  "transport": "stdio subprocess",
+  "documentation": "https://github.com/modelcontextprotocol/python-sdk/tree/v1.x",
+  "evidence": [
+    "gate4_tool_list.json",
+    "gate4_selection.json",
+    "gate4_results.json",
+    "gate4_invalid_bound.json"
+  ]
+}

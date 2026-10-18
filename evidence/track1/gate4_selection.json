@@ -1,0 +1,10 @@
+{
+  "policy": "Deterministic destination-directed policy",
+  "selected_tool": "shortest_path",
+  "arguments": {
+    "start_txid": "SYN-000001",
+    "end_txid": "SYN-000004",
+    "max_hops": 3
+  },
+  "reason": "The task supplies both endpoints and requires a minimum-hop route."
+}

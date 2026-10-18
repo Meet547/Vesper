@@ -1,0 +1,631 @@
+{
+  "status": "PASS",
+  "graph": "vesper_counterfactual",
+  "writes": [
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 0,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 1000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 1200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 1400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 1600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 1800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 2000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 2200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 2400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 2600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 2800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 3000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 3200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 3400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 3600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $nodes AS tx CREATE (t:Transaction {txId: tx.txId, label: tx.label, timeStep: tx.timeStep, sourceDataset: tx.sourceDataset}) RETURN count(t)",
+      "batch_offset": 3800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 0,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 1000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 1200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 1400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 1600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 1800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 2000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 2200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 2400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 2600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 2800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 3000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 3200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 3400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 3600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 3800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 4000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 4200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 4400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 4600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 4800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 5000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 5200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 5400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 5600,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 5800,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 6000,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 6200,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 6400,
+      "parameter_count": 200,
+      "rows": [
+        [
+          200
+        ]
+      ]
+    },
+    {
+      "graph": "vesper_counterfactual",
+      "query": "UNWIND $edges AS edge MATCH (s:Transaction {txId: edge.source}), (t:Transaction {txId: edge.target}) CREATE (s)-[r:FLOWS_TO]->(t) RETURN count(r)",
+      "batch_offset": 6600,
+      "parameter_count": 85,
+      "rows": [
+        [
+          85
+        ]
+      ]
+    }
+  ],
+  "counts": {
+    "nodes": [
+      [
+        [
+          "Transaction"
+        ],
+        4000
+      ]
+    ],
+    "edges": [
+      [
+        "FLOWS_TO",
+        6685
+      ]
+    ],
+    "roles": [
+      [
+        "endpoint",
+        130
+      ],
+      [
+        "hub",
+        2071
+      ],
+      [
+        "relay",
+        1799
+      ]
+    ]
+  },
+  "existing_graph_read_only": false
+}

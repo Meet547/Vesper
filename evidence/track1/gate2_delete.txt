@@ -1,0 +1,13 @@
+{
+  "graph": "vesper_counterfactual",
+  "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) DELETE r RETURN count(r) AS removed",
+  "parameters": {
+    "source": "SYN-000002",
+    "target": "SYN-000003"
+  },
+  "rows": [
+    [
+      1
+    ]
+  ]
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "RETURN 1 AS ready",
+    "parameters": {},
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        1
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (t:Transaction {txId: $tx_id}) RETURN t.txId, t.label, t.timeStep, t.sourceDataset LIMIT 2",
+    "parameters": {
+      "tx_id": "SYN-000001"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        "SYN-000001",
+        "hub",
+        0,
+        "vesper_team_synthetic_v1"
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH p=(s:Transaction {txId: $start_txid})-[:FLOWS_TO*1..6]->(t:Transaction) WHERE length(p) <= $max_hops RETURN [n IN nodes(p) | n.txId] AS txids, [r IN relationships(p) | id(r)] AS relationship_ids, length(p) AS hops ORDER BY hops DESC, txids ASC LIMIT 41",
+    "parameters": {
+      "start_txid": "SYN-000001",
+      "max_hops": 3
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        [
+          "SYN-000001",
+          "SYN-000002",
+          "SYN-000003",
+          "SYN-000004"
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        3
+      ],
+      [
+        [
+          "SYN-000001",
+          "SYN-000002",
+          "SYN-000003"
+        ],
+        [
+          0,
+          2
+        ],
+        2
+      ],
+      [
+        [
+          "SYN-000001",
+          "SYN-000005",
+          "SYN-000006"
+        ],
+        [
+          1,
+          4
+        ],
+        2
+      ],
+      [
+        [
+          "SYN-000001",
+          "SYN-000002"
+        ],
+        [
+          0
+        ],
+        1
+      ],
+      [
+        [
+          "SYN-000001",
+          "SYN-000005"
+        ],
+        [
+          1
+        ],
+        1
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000001",
+      "target": "SYN-000002"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        0
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000002",
+      "target": "SYN-000003"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        2
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000003",
+      "target": "SYN-000004"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        3
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000001",
+      "target": "SYN-000002"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        0
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000002",
+      "target": "SYN-000003"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        2
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000001",
+      "target": "SYN-000005"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        1
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000005",
+      "target": "SYN-000006"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        4
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000001",
+      "target": "SYN-000002"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        0
+      ]
+    ]
+  },
+  {
+    "event": "cypher",
+    "graph": "vesper_synthetic_verify",
+    "query": "MATCH (s:Transaction {txId: $source})-[r:FLOWS_TO]->(t:Transaction {txId: $target}) RETURN id(r) AS relationship_id LIMIT 2",
+    "parameters": {
+      "source": "SYN-000001",
+      "target": "SYN-000005"
+    },
+    "server_timeout_ms": 2000,
+    "rows": [
+      [
+        1
+      ]
+    ]
+  }
+]
