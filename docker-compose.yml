@@ -1,0 +1,16 @@
+# Optional local FalkorDB for Vesper's isolated synthetic graph demonstration.
+# Ports are loopback-only. Existing graphs and the named volume are preserved.
+services:
+  falkordb-local:
+    image: falkordb/falkordb:latest
+    container_name: bureau-m84-isolated
+    profiles: ["local-db"]
+    ports:
+      - "127.0.0.1:6389:6379"
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - falkordb-data:/var/lib/falkordb/data
+    restart: unless-stopped
+
+volumes:
+  falkordb-data:

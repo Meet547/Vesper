@@ -1,0 +1,477 @@
+{
+  "manifest_version": 1,
+  "project": "Vesper",
+  "generated_at_utc": "2026-10-18T07:02:45+00:00",
+  "base_commit": "61d28785f077cc39dabd0693b7d555ed43f15de7",
+  "base_description": "Vesper initial README commit; preserved as the parent of this release",
+  "included_file_count": 64,
+  "manifest_file_excluded_from_its_own_hash_list": true,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "317e5ea56ed0cbcf5d037c98e0a139a7c6c5ae583e4c7eb199a819bab331855d",
+      "size_bytes": 1814,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "fb56cca13ee056a1e7933eb740ba3cf2f9c771f307780be56a6cae561b00e3e9",
+      "size_bytes": 188,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8ffd1e8eae921116e6e4d4442f10102eab2def432b2303bba81c1b52f82dedc0",
+      "size_bytes": 7744,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/__init__.py",
+      "sha256": "df1b010cddd3419961749132a43c4f9fe2e33ef64db89dec67f75002c3f5bf44",
+      "size_bytes": 28,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "sha256": "eaecc6193cd0095292a74b8937481ddf187e662a61b99bb7be82f18f885b12b2",
+      "size_bytes": 40,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/AGENT_ROLES.md",
+      "sha256": "fded050bbf3c6b69f1dbd9113eeca13ff7692e71b09c7893b14c819530220562",
+      "size_bytes": 1846,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/__init__.py",
+      "sha256": "71005ba8fc3bc9f7def7931c3a2036a056be481fb249c694a7002f200bc1256c",
+      "size_bytes": 32,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/claim_validator.py",
+      "sha256": "9afb71d6ae9d1f365f6934111abcdaede61979af0f10d702ef93177f2c35f54d",
+      "size_bytes": 12535,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/evidence_ledger.py",
+      "sha256": "0e29f6d7c827d2aa7195c3116e69035f1629cf0a8e9704a4c6e935f3258d6c40",
+      "size_bytes": 12986,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/graph_decisions.py",
+      "sha256": "78c0b887f6eab5f04e7f3c4dc2f82be5dabb24cb194e2a7c8ef1fd1491733e5e",
+      "size_bytes": 14568,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/historian.py",
+      "sha256": "7bb8734ca0600e4e753c65451717fb9df9973236b70855072e55d42ab6cd4821",
+      "size_bytes": 726,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/local_model.py",
+      "sha256": "ccba9b0a01f3cbccc84f2940b34d986315d5847efd34fff8c8b17e34f0bbed27",
+      "size_bytes": 10330,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/orchestrator.py",
+      "sha256": "bcf2c8824c6172f305ae146d207bd902abd8adef8f4be8175997f3f8b5702fc3",
+      "size_bytes": 56828,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/reporter.py",
+      "sha256": "854fa5aceeb3749efe610b2dd1101c58d0abbba4437f148f7935e81666052465",
+      "size_bytes": 19451,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/scout.py",
+      "sha256": "2cdb0c0590b0bf237f29f16be0c9f7ed806ecfcf853baea01f24aca6f42fa815",
+      "size_bytes": 474,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/shared_context.py",
+      "sha256": "ba97c366879d4121765787b7ad7aa83f2432597b71844bbc3550d15937e368e5",
+      "size_bytes": 15079,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/skeptic.py",
+      "sha256": "7a39c64fe3274de5d4f5c7433933ed7eee6e5b929994236150b00d98098fbc24",
+      "size_bytes": 24772,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/agents/tracer.py",
+      "sha256": "2c19b141b23e900204bf85bfe7ef67195be66cd2e7144e8f8fe91668bd618440",
+      "size_bytes": 675,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/config.py",
+      "sha256": "c5e56e5a456e778da1d9962c5a23ab120e50a17ab3efb30839554004849ff589",
+      "size_bytes": 5042,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/main.py",
+      "sha256": "827ef6fbc4b73c5b82ac86e3cdefe534659c48a982255657b0368a9691f06e83",
+      "size_bytes": 22305,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/models.py",
+      "sha256": "9e52215108428c8107505aa55e01d235327cc970a23843859ef6342acfdd164e",
+      "size_bytes": 1325,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/services/__init__.py",
+      "sha256": "e618105e643f3658bf9700d692ad57e5ed724f5c03522478ce2879eacd41bac4",
+      "size_bytes": 41,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/services/graph_store.py",
+      "sha256": "80dc54d38b8a3b815c6a70d165369129dd7c51598877a5989f8fbfaf5736fa21",
+      "size_bytes": 36411,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/services/track2_demo_store.py",
+      "sha256": "6c830639d47134ab97c629f1b9236f3adf88020a73e027e04b474c6ef7425780",
+      "size_bytes": 3388,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/tools/__init__.py",
+      "sha256": "b30a09a1a5336818f38e4f84228516f206b9c8da6f91514ba4101d48d7c76e94",
+      "size_bytes": 39,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/app/tools/investigation_tools.py",
+      "sha256": "032a6e23174e71b9b55a7949b6e09c7524073a6ff75af7fb4ad05f5ad57ed7b9",
+      "size_bytes": 1015,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "backend/run.py",
+      "sha256": "e077fc6b8f01db63d94fc744867b18600037de9fdb8fc78d41371c6c3435adb4",
+      "size_bytes": 417,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/README.md",
+      "sha256": "44779dc18527b7a42d1371ac6ff2487c6baae2c973bf8f7b5abf1350c98f04ea",
+      "size_bytes": 1213,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/queries/flow_count.cypher",
+      "sha256": "a91677a47ef43806d0ab3c0e8ad60280efd161e9bffaf63a1cf931dfe06db048",
+      "size_bytes": 56,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/queries/graph_health.cypher",
+      "sha256": "dd5f468fbca9d6a4e2d185bd4243c133b390b7e53c09cfc21d3cbeb5c2f9589d",
+      "size_bytes": 307,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/queries/inspect_transaction.cypher",
+      "sha256": "9f96463af04809917d720a15935596243e3104af75c9d6a493d77e0d79abeef3",
+      "size_bytes": 409,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/queries/memory_schema.cypher",
+      "sha256": "645c3382787ce0c0d7b694c62d72782605d59b9d776ce766cac6f8e464b89594",
+      "size_bytes": 564,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/queries/upstream_trace.cypher",
+      "sha256": "30760abb1a205ab8f0c6a07ee1f48aaa217b855c1566864c57b539d64c7618ce",
+      "size_bytes": 346,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "databases/schema.cypher",
+      "sha256": "46ae749d76f419f9f04811e43407d451895878946817312ad78747fa72541871",
+      "size_bytes": 486,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "c8c0eddbfdf83d2f72a28ae466206ef654612d606aed8553be7c4298fe883325",
+      "size_bytes": 473,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "6fa1254769b2a1ff45bd5d49de458c6345115e700fa4c91cb0134c617d6ebd6c",
+      "size_bytes": 3816,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/COMPLIANCE.md",
+      "sha256": "fe9132a341575d4b65ead3ba13dd88f861510260387c0aacbada4f1ccddfa581",
+      "size_bytes": 1701,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT.md",
+      "sha256": "136ae58ed3ba275f423017e5e9d0f147a9c524d76d7c40299f20fce1b98c453d",
+      "size_bytes": 6586,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "frontend/assets/agent-chat.mjs",
+      "sha256": "558dafd39503cdafc7f7cc4d22b48a70b4a9b5e7413b1ad24f962d43c81e6d1f",
+      "size_bytes": 5307,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "frontend/assets/agent-state.mjs",
+      "sha256": "38480522419265d5b3329dc05b8650ea7d8f58dee2ad4341051fc512b72a9481",
+      "size_bytes": 13859,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "frontend/assets/agent-theatre.mjs",
+      "sha256": "24673db505938d12c5bcf2619467cd582e59e9c9fc09f982787375b137e5b3a0",
+      "size_bytes": 10395,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "frontend/assets/vesper-office.png",
+      "sha256": "14636d90cfc05632f1f2a1431cc4890f0aa39764a45ad8fed299f9d6397c0516",
+      "size_bytes": 7379767,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "frontend/index.html",
+      "sha256": "775fb5f5370c7691994202b8091b3a13fab31a130ffa930c618c4d50b5cb8f52",
+      "size_bytes": 152119,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "pytest.ini",
+      "sha256": "cf050b835642f254b17a459c48a8eeb1733d11085355e781b97d7cf56540d1e4",
+      "size_bytes": 50,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "9ff88355a257981c4a19113c57112aba897102827e97a31b9b07e8f71d0e0f0f",
+      "size_bytes": 502,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/demo_milestone_8_2_graph_decisions.py",
+      "sha256": "a31e2ed7ac992ef87c676e96a744e5419b30bc9349d565e04ea13a43adb86038",
+      "size_bytes": 4777,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/demo_milestone_8_3_graph_intelligence.py",
+      "sha256": "95ffe105e01309be17275b1f2983862e161a57b2abc916cd508891f430a8ca56",
+      "size_bytes": 5154,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/demo_milestone_8_4_memory_ab.py",
+      "sha256": "28499963cba9dc21495b2afac032d97423736e95b012f65030a6dd8560d6fc55",
+      "size_bytes": 7388,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/demo_milestone_8_4_restart_persistence.py",
+      "sha256": "01214aac09eabcebcf90c3818092c4575d71db6a1d3d5b8ca4ee2e7259b8801b",
+      "size_bytes": 11369,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_track2_demo.sh",
+      "sha256": "108474420ecb16cc59fa81a6d9fe89ed37f8a81f30f26b1dfc2d8384d6c043cb",
+      "size_bytes": 752,
+      "executable": true,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/seed_milestone_8_4_isolated_graph.py",
+      "sha256": "c06730ebcbca83482bf7e1acf431f29df97ea23d3701454b9656fadb108f3f09",
+      "size_bytes": 9930,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "25b929eb52c3733e334ae5049980bf1d94b0e71089fdf43a52064a40b7ee4e06",
+      "size_bytes": 636,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/frontend_agent_chat.test.mjs",
+      "sha256": "383a09ebfb760fb92b6143ad4684e6d156f010e7f012681dcd4d42d277ad60ba",
+      "size_bytes": 2702,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/frontend_agent_state.test.mjs",
+      "sha256": "abbaaa49842f42701a20be29dbe404a9aa5f59a707985c5068cca1911c1b45d9",
+      "size_bytes": 15469,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/frontend_scene_runtime.test.mjs",
+      "sha256": "c9a46b2655178bf2fa0db24ca1612c07a662cb7da6abaa3f23db6019d15dc881",
+      "size_bytes": 6776,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/frontend_ui_contract.test.mjs",
+      "sha256": "62365d30a7fdcf4acf2aaaa893b55b7b198d5c21e3e97846606abfcbfa6c03c9",
+      "size_bytes": 3666,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_api_preview.py",
+      "sha256": "006880e4b06e2ae49c908ce5acf2ce1a1235853b13c4120f234fc34f9556bf6f",
+      "size_bytes": 8871,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_auth.py",
+      "sha256": "8655d8edeb0c944837ce9f776893d9c0b4c0e4a4b097ca4ba2ee80a388ab2e37",
+      "size_bytes": 6322,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_demo_flow.py",
+      "sha256": "9c8c92104c49ee24f5f90e184853b67a97035e4bb71630c3a8cfa95f5759926a",
+      "size_bytes": 5946,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_graph_decisions.py",
+      "sha256": "466ec3d28868dc8741b1d73806f28c4884816ffe53688ff0ad9bc44852ea0675",
+      "size_bytes": 11131,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_local_model_tools.py",
+      "sha256": "8efd2bbfc4a7f2a276359ad5df1948a4e6c55cc8ef1ea05eb7eed988b06319ce",
+      "size_bytes": 5815,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_memory_workflow.py",
+      "sha256": "ab9068a9edd4b1b3a75a1c7804f03e9b544534f20c5c2d6ac7e19f28dd3e63d2",
+      "size_bytes": 17185,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_shared_context.py",
+      "sha256": "aae41eb43209986c4d3514cc302180c6e2798f3071d4c5cbf702bb4e7f76aaab",
+      "size_bytes": 6292,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/test_track2_demo_config.py",
+      "sha256": "64441ad2f49849243e0e49961d34836db60f0965363b7a459eb5fbeff6848106",
+      "size_bytes": 1447,
+      "executable": false,
+      "mode": "0o644"
+    }
+  ],
+  "release_audit": {
+    "candidate_assembled_from_explicit_allowlist": true,
+    "synthetic_only_fixture_claim": true,
+    "known_elliptic_record_identifier_scan": "no known restricted identifiers or Elliptic references found",
+    "secret_and_local_artifact_scan": "no credentials, .env, logs, backups, keys, local paths, or generated caches found",
+    "required_backend_frontend_scripts_tests_dependencies_present": true,
+    "runner_executable": "scripts/run_track2_demo.sh",
+    "falkordb_image": "falkordb/falkordb:latest (mutable upstream tag; digest not pinned)",
+    "office_art": "owner-supplied image; independent copyright ownership and redistribution rights not verified",
+    "google_font": "remote Google Fonts Silkscreen request; upstream Google Fonts repository identifies SIL OFL 1.1; no font binary bundled",
+    "root_source_license": "not declared",
+    "markdown_export": "not available in this release",
+    "live_browser_json_export": "verified; parses and includes invocation, trace, Skeptic, graph-decision, agent-event, and related-memory fields",
+    "docker_repeat_seed_and_restart_retest": "UNVERIFIED in this final audit; Docker socket access unavailable to this process",
+    "fresh_dependency_install": "UNVERIFIED; candidate suites used the existing local Python environment",
+    "candidate_python_tests": "79 passed using existing local Python 3.12 environment; fresh dependency install not tested",
+    "candidate_frontend_tests": "36 passed using installed Node.js runtime"
+  }
+}
