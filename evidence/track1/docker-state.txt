@@ -1,0 +1,26 @@
+Step 1.4 Docker state
+
+COMMAND: docker ps --filter name=vesper-verify
+FIRST ATTEMPT EXIT: 1
+FIRST ATTEMPT OUTPUT:
+permission denied while trying to connect to the docker API at unix:///Users/meetpardeshi/.docker/run/docker.sock
+
+The same exact read-only command was approved for escalated execution.
+EXIT: 0
+OUTPUT:
+CONTAINER ID   IMAGE          COMMAND                  CREATED       STATUS       PORTS                       NAMES
+3a12f3d29ca8   b0bdcac2cbaf   "/var/lib/falkordb/b…"   5 hours ago   Up 5 hours   127.0.0.1:16479->6379/tcp   vesper-verify
+
+COMMAND: docker volume ls
+EXIT: 0
+OUTPUT:
+DRIVER    VOLUME NAME
+local     vesper-synthetic-data
+local     vesper-verify-20261018-5271ea73e2
+
+COMMAND: docker inspect --format '{{json .Config.Labels}} {{json .Mounts}}' vesper-verify
+EXIT: 0
+OUTPUT:
+{"vesper.track1.audit":"5271ea73e2014d8787122391da8657e4"} [{"Type":"volume","Name":"vesper-verify-20261018-5271ea73e2","Source":"/var/lib/docker/volumes/vesper-verify-20261018-5271ea73e2/_data","Destination":"/data","Driver":"local","Mode":"z","RW":true,"Propagation":""}]
+
+Finding: The named container exists and is running. Its vesper.track1.audit label identifies Vesper ownership. It mounts only the disposable volume vesper-verify-20261018-5271ea73e2. docker volume ls also showed the pre-existing vesper-synthetic-data volume; no operation was performed on it.

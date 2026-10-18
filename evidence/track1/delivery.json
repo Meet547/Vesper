@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "time_IST": "2026-10-18T22:15:07+05:30",
+  "source_branch": "codex/track1-isolated",
+  "source_commit": "a51f7c8b7d81b7cb2441c2f42db4786e4e7e600c",
+  "fresh_clone": "/private/tmp/vesper-track1-clean-rerun",
+  "checks": {
+    "2.7_frontend_tests": {
+      "status": "PASS",
+      "node": "24.1.0",
+      "passed": 37,
+      "evidence": "clean-frontend-tests.txt"
+    },
+    "2.8_read_only_readback": {
+      "status": "PASS",
+      "graph": "vesper_synthetic_verify",
+      "writes": 0,
+      "evidence": "clean-readback.txt"
+    },
+    "2.9_http_positive_control": {
+      "status": "PASS",
+      "hop_for_hop_match": true,
+      "server_exit_code": 0,
+      "evidence": [
+        "clean-server.txt",
+        "clean-server-response.json"
+      ]
+    },
+    "2.10_origin_removed": {
+      "status": "PASS",
+      "remaining_remotes": 0,
+      "evidence": "clean-origin-removal.txt"
+    }
+  }
+}

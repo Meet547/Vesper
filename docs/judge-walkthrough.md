@@ -8,4 +8,4 @@ Track 1 only. Use the separate local adapter and saved live evidence. No real Bi
 4. **2:00–2:40:** Show `gate3_selection.json`, the NetworkX comparison, and real MCP tool list/exchange in `gate4_results.json`. Explain deterministic selection, six-hop bound and two-second server deadline. Do not describe it as LLM-selected or tested in an external chat client.
 5. **2:40–3:00:** Show the live HTTP negative response in `final_http_negative.json`, followed by recovery. If reenacting, use only the owned-container lifecycle script. Finish with the limitation: synthetic investigative leads, not legal conclusions.
 
-The report lists the exact commit and evidence. Originality requires the team's written evidence or an organizer response before submission. Track 2 live status is NOT TESTED TODAY; its preserved regression tests are reported separately.
+The report lists the exact commit and evidence. The team's written history statement is in `docs/ELIGIBILITY.md`; no organizer response has been supplied.

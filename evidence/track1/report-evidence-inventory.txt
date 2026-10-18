@@ -1,0 +1,47 @@
+Step 1.3 REPORT.md evidence inventory
+
+Method: extract every backtick-delimited path ending in .json, .txt, .md, or .jsonl from evidence/track1/REPORT.md and test it on disk. Bare filenames are resolved against evidence/track1. Paths beginning ../ or ../../ are resolved from evidence/track1. The manifest path is explicitly introduced as "Manifest" and is resolved from the repository root.
+
+EXISTS ../../docs/TRACK1_ADAPTER.md
+EXISTS ../../docs/TRACK1_QUERIES.md
+EXISTS ../contract_before.md
+EXISTS ../core-file-history.json
+EXISTS ../dataset_references.md
+EXISTS ../originality.md
+EXISTS container-lifecycle.jsonl
+MISSING delivery.json
+EXISTS dependency-provenance.json
+EXISTS final_counterfactual.json
+EXISTS final_http_negative.json
+EXISTS final_http_positive.json
+EXISTS final_http_recovery.json
+EXISTS final_loader_readback.json
+EXISTS gate0_status.json
+EXISTS gate1_negative.txt
+EXISTS gate1_positive.txt
+EXISTS gate1_restarted.txt
+EXISTS gate1_status.json
+EXISTS gate2_cypher.txt
+EXISTS gate2_delete.txt
+EXISTS gate2_edges.txt
+EXISTS gate2_leads.txt
+EXISTS gate2_status.json
+EXISTS gate3_database_export.json
+EXISTS gate3_errors.json
+EXISTS gate3_networkx.json
+EXISTS gate3_selection.json
+EXISTS gate3_status.json
+EXISTS gate3_syntax.txt
+EXISTS gate4_invalid_bound.json
+EXISTS gate4_results.json
+EXISTS gate4_selection.json
+EXISTS gate4_status.json
+EXISTS gate4_tool_list.json
+EXISTS generator.json
+EXISTS legacy-preservation.json
+EXISTS manifest/synthetic_manifest.json (repository root)
+EXISTS regression-frontend-final.json
+EXISTS regression-python-final.json
+EXISTS tool-interface-inspection.json
+
+Finding: delivery.json is the only missing named evidence file. REPORT.md says this file is recorded when the clean-clone check finishes, and also states that the clean-clone check has not run. There is no documented standalone regeneration command in REPORT.md, so the file was not fabricated before Step 2.

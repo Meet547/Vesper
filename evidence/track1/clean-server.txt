@@ -1,0 +1,30 @@
+STEP: 2.9
+SERVER COMMAND: VESPER_TRACK=track1_synthetic VESPER_TRACK1_GRAPH=vesper_synthetic_verify VESPER_TRACK1_TARGET_FILE=/private/tmp/vesper-track1-20261018/evidence/track1/isolation-target.json .venv/bin/python -m uvicorn backend.track1.app:create_app --factory --host 127.0.0.1 --port 18783
+
+REQUEST COMMAND: curl --fail-with-body --silent --show-error -H 'Content-Type: application/json' -d '{"start_txid":"SYN-000001","end_txid":"SYN-000004","max_hops":3}' http://127.0.0.1:18783/api/route
+EXIT: 0
+OUTPUT:
+{"tool_selection":{"selected_tool":"shortest_path","arguments":{"start_txid":"SYN-000001","end_txid":"SYN-000004","max_hops":3},"reason":"A destination was supplied; request a bounded minimum-hop route from the graph."},"result":{"status":"PASS","path":["SYN-000001","SYN-000002","SYN-000003","SYN-000004"],"relationship_ids":[0,2,3],"hops":3,"graph":"vesper_synthetic_verify","server_timeout_ms":2000},"conclusion":null}
+
+COMPARISON COMMAND: .venv/bin/python -c '<compare response result.path with manifest scenario 1 expected_path>'
+EXIT: 0
+OUTPUT:
+{"actual": ["SYN-000001", "SYN-000002", "SYN-000003", "SYN-000004"], "expected": ["SYN-000001", "SYN-000002", "SYN-000003", "SYN-000004"], "hop_for_hop_match": true}
+
+SERVER STOP: SIGINT sent to the recorded server session
+SERVER EXIT: 0
+SERVER LOG:
+INFO:     Started server process [24014]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18783 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52452 - "POST /api/route HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24014]
+
+EXIT CONFIRMATION COMMAND: lsof -nP -iTCP:18783 -sTCP:LISTEN
+EXIT: 1 (expected 1 when no listener exists)
+OUTPUT:
+(empty)

@@ -1,0 +1,19 @@
+Third-party dataset check
+
+COMMAND: git ls-files | rg -i '(^|/)(data|dataset|datasets)/|\.(csv|tsv|parquet|ndjson)$'
+EXIT: 0
+OUTPUT:
+data/track1/edges.json
+data/track1/nodes.json
+data/track1/synthetic_manifest.json
+
+COMMAND: git ls-files data/track1 manifest scripts/generate_synthetic_graph.py
+EXIT: 0
+OUTPUT:
+data/track1/edges.json
+data/track1/nodes.json
+data/track1/synthetic_manifest.json
+manifest/synthetic_manifest.json
+scripts/generate_synthetic_graph.py
+
+Finding: the only tracked dataset-like files are the deterministic Track 1 outputs and their manifests. `clean-generator.txt` records byte-identical regeneration of nodes.json, edges.json, and synthetic_manifest.json from scripts/generate_synthetic_graph.py. No third-party dataset file is committed.

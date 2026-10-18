@@ -1,0 +1,33 @@
+{
+  "updated_at_ist": "2026-10-18 22:32:47 IST (+0530)",
+  "last_completed_step": "staged_checks_passed",
+  "status": "in_progress",
+  "notes": [
+    "Track 1 verification started before the 22:45 IST stop time.",
+    "Branch codex/track1-isolated at d930ac07c7401f4a5ba2e838568e28d616f2286f.",
+    "Track 1 implementation is committed in d930ac0 and 27cbe50; only progress.json was untracked after starting this run.",
+    "REPORT.md names delivery.json, which is missing. The report says it is produced when the clean-clone check finishes; it cannot be recreated before that check. All other named files exist, interpreting manifest/synthetic_manifest.json as repository-root relative.",
+    "vesper-verify is running on loopback port 16479, has the Vesper ownership label vesper.track1.audit, and mounts only vesper-verify-20261018-5271ea73e2.",
+    "gate1_status.json through gate4_status.json each record PASS, matching REPORT.md.",
+    "Clean clone, clean status, Python 3.12 venv, pinned dependency install, deterministic generator byte comparisons, and 91 Python tests passed with saved outputs.",
+    "Step 2.7 failed before execution because README.md does not specify a Node version and neither .nvmrc nor .node-version exists. Work stopped without patching.",
+    "User authorized pinning Node 24.1.0 in .nvmrc and documenting it in README.md.",
+    "Node pin committed as a51f7c8 with only .nvmrc and README.md staged.",
+    "Clean-clone steps 2.7 through 2.10 passed; delivery.json was written only after all four passed.",
+    "Submission document audit retained 69 supported claims, removed 10 unsupported or out-of-scope claims, and retained zero unsupported claims.",
+    "docs/ELIGIBILITY.md records the user-requested team statement plus repository-recorded office prototype and sprite pack import dates; gate0_status.json now closes Gate 0 on the team statement without claiming an organizer answer.",
+    "Dependency licenses for every pinned Python package are recorded from installed metadata in dependency-licenses.txt.",
+    "dataset-origin-check.txt confirms the only tracked dataset-like files are deterministic generator outputs; no third-party dataset file is committed.",
+    "docs/demo-storyboard.md contains the requested three-minute evidence-backed recording script.",
+    "User selected Apache-2.0; the standard license text is present in LICENSE.",
+    "README was rewritten for concise GitHub presentation and installation-first usability.",
+    "A built-in image-generation run created docs/assets/vesper-agent-team.png; prompt, references, dimensions, hash, and visual checks are in readme-hero.json.",
+    "Final staged scope contained no application code, tests, .env files, BUREAU files, or raw datasets.",
+    "git diff --cached --check exited 2 with nine blank-line-at-EOF findings. Per the stop condition, the secret scan, final commit, and push were not run.",
+    "User resumed the task and requested cross-checking the README and image.",
+    "Cross-check confirmed the staged README references docs/assets/vesper-agent-team.png at line 5, the 2164x727 project-local image is staged, installation begins at line 11, and the complete query catalog is collapsed in a details block.",
+    "The nine reported trailing blank lines were removed without changing evidence content.",
+    "Resumed git diff --cached --check passed with empty output.",
+    "Final staged secret scan covered 38 blobs including the scan evidence and hero PNG and found zero findings."
+  ]
+}

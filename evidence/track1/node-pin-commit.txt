@@ -1,0 +1,17 @@
+Step 1 Node pin
+
+COMMANDS:
+git add README.md .nvmrc
+git diff --cached --check
+git diff --cached --name-only
+git commit -m 'Pin Node version for frontend tests'
+
+EXIT: 0
+STAGED FILES:
+.nvmrc
+README.md
+
+COMMIT:
+a51f7c8 Pin Node version for frontend tests
+
+RESULT: documentation/configuration-only commit containing the requested Node 24.1.0 pin and README sentence.

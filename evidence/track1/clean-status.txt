@@ -1,0 +1,4 @@
+COMMAND: git status --porcelain
+EXIT: 0
+OUTPUT:
+(empty)

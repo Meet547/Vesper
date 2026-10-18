@@ -1,0 +1,6 @@
+COMMAND: /Users/meetpardeshi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12 -m venv .venv
+EXIT: 0
+OUTPUT:
+(empty)
+
+README requirement: Python 3.12. The executable is the README's documented audit-machine fallback.

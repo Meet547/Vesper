@@ -1,0 +1,29 @@
+{
+  "tool_selection": {
+    "selected_tool": "shortest_path",
+    "arguments": {
+      "start_txid": "SYN-000001",
+      "end_txid": "SYN-000004",
+      "max_hops": 3
+    },
+    "reason": "A destination was supplied; request a bounded minimum-hop route from the graph."
+  },
+  "result": {
+    "status": "PASS",
+    "path": [
+      "SYN-000001",
+      "SYN-000002",
+      "SYN-000003",
+      "SYN-000004"
+    ],
+    "relationship_ids": [
+      0,
+      2,
+      3
+    ],
+    "hops": 3,
+    "graph": "vesper_synthetic_verify",
+    "server_timeout_ms": 2000
+  },
+  "conclusion": null
+}
