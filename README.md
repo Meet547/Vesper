@@ -131,7 +131,7 @@ The interface exports the structured investigation report as JSON using **Export
 
 ## Artwork and AI assistance
 
-The office PNG is the image supplied by the project owner for this Vesper interface. This repository records that provenance; it does not independently establish copyright ownership or a redistribution license. The interface requests Silkscreen from Google Fonts; no font files are bundled. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies the font as SIL Open Font License 1.1. System monospace fallbacks are defined.
+The office PNG was supplied by the project owner. The six specialists use their original animated pixel-art clips, restored from the earlier project sprite pack at the owner’s request. Provenance is recorded, but copyright ownership and redistribution rights for either artwork asset have not been independently verified. The interface requests Silkscreen from Google Fonts; no font files are bundled. The upstream [Google Fonts Silkscreen repository](https://github.com/googlefonts/silkscreen) identifies the font as SIL Open Font License 1.1. System monospace fallbacks are defined.
 
 AI coding assistants were used during development. Disclose that assistance in the official submission form. The submitter should be prepared to explain the graph schema, queries, action policy, Skeptic verification, memory workflow, and limitations.
 

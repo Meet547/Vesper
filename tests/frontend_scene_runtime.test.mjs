@@ -7,17 +7,28 @@ import * as theatre from '../frontend/assets/agent-theatre.mjs';
 const html = await readFile(new URL('../frontend/index.html', import.meta.url), 'utf8');
 const data = JSON.parse(html.match(/const D=(.*?);\nconst R=/)[1]);
 
-test('runtime character states use the procedural sprite catalog over the supplied Vesper office artwork', async () => {
-  for (const states of Object.values(theatre.SPRITE_STATE_MAP)) for (const mapping of Object.values(states)) {
+test('runtime character states use distinct restored Vesper sprite clips over the supplied office artwork', async () => {
+  const pack = await readFile(new URL('../frontend/assets/vesper-characters.b7bb881d9bbe56aa.pack', import.meta.url));
+  const clips = new Set();
+  for (const [agent, states] of Object.entries(theatre.SPRITE_STATE_MAP)) for (const mapping of Object.values(states)) {
     const meta = data.meta[mapping.clip];
-    assert.equal(meta.w, 80, `${mapping.clip} uses the procedural frame width`);
-    assert.equal(meta.h, mapping.clip.endsWith('_sitB') ? 90 : 136);
-    assert.equal(meta.n, 1);
+    const pose = mapping.sourcePose;
+    assert.equal(meta.w, 80, `${agent}.${mapping.clip} frame width`);
+    assert.equal(meta.h, pose === 'sitB' ? 90 : 136);
+    assert.equal(meta.n, theatre.SPRITE_CLIP_LAYOUT[pose].frames);
+    const asset = data.assets[`clip:${mapping.clip}`];
+    assert.ok(asset, `${agent}.${mapping.clip} has a bundled source clip`);
+    const bytes = pack.subarray(asset.offset, asset.offset + asset.length);
+    assert.equal(bytes.toString('ascii', 1, 4), 'PNG');
+    assert.equal(bytes.readUInt32BE(16), meta.w * meta.n);
+    assert.equal(bytes.readUInt32BE(20), meta.h);
+    clips.add(mapping.clip);
   }
-  assert.deepEqual(data.assets, {});
+  assert.equal(clips.size, 30, 'each role has distinct walk, idle, and talk clips');
+  assert.equal(Object.keys(data.assets).length, 36, 'the bundle also retains authored sitting clips for QA and future pose mapping');
   assert.deepEqual(data.bands, []);
-  assert.match(html, /function makeSyntheticSceneImage\(key\)/);
-  assert.doesNotMatch(html, /bureau-background\.[a-f0-9]+\.webp|bureau-sprites\.[a-f0-9]+\.pack/);
+  assert.doesNotMatch(html, /function makeSyntheticSceneImage\(key\)/);
+  assert.match(html, /fetch\(PACK_URL/);
   assert.match(html, /bitmap\.src='\/assets\/vesper-office\.png\?v=20261018-1'/);
   const image = await readFile(new URL('../frontend/assets/vesper-office.png', import.meta.url));
   assert.equal(image.toString('ascii', 1, 4), 'PNG');

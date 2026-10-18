@@ -1,10 +1,10 @@
 {
   "manifest_version": 1,
   "project": "Vesper",
-  "generated_at_utc": "2026-10-18T07:02:45+00:00",
+  "generated_at_utc": "2026-10-18T07:12:41+00:00",
   "base_commit": "61d28785f077cc39dabd0693b7d555ed43f15de7",
   "base_description": "Vesper initial README commit; preserved as the parent of this release",
-  "included_file_count": 64,
+  "included_file_count": 65,
   "manifest_file_excluded_from_its_own_hash_list": true,
   "files": [
     {
@@ -23,8 +23,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "8ffd1e8eae921116e6e4d4442f10102eab2def432b2303bba81c1b52f82dedc0",
-      "size_bytes": 7744,
+      "sha256": "235958a16f62e623bf1340555c17756686ee4fab0fb842de581dbb591d84d87a",
+      "size_bytes": 7857,
       "executable": false,
       "mode": "0o644"
     },
@@ -261,8 +261,8 @@
     },
     {
       "path": "docs/COMPLIANCE.md",
-      "sha256": "fe9132a341575d4b65ead3ba13dd88f861510260387c0aacbada4f1ccddfa581",
-      "size_bytes": 1701,
+      "sha256": "fc26a2b50f69d41a52a672b89a52b24bb9ba1b082f75a6b5ddbc72e04102210a",
+      "size_bytes": 1776,
       "executable": false,
       "mode": "0o644"
     },
@@ -295,6 +295,13 @@
       "mode": "0o644"
     },
     {
+      "path": "frontend/assets/vesper-characters.b7bb881d9bbe56aa.pack",
+      "sha256": "b7bb881d9bbe56aac56165d7d57f88d43b3ee028b45786abfed52ac10b3cf944",
+      "size_bytes": 56322,
+      "executable": false,
+      "mode": "0o644"
+    },
+    {
       "path": "frontend/assets/vesper-office.png",
       "sha256": "14636d90cfc05632f1f2a1431cc4890f0aa39764a45ad8fed299f9d6397c0516",
       "size_bytes": 7379767,
@@ -303,8 +310,8 @@
     },
     {
       "path": "frontend/index.html",
-      "sha256": "775fb5f5370c7691994202b8091b3a13fab31a130ffa930c618c4d50b5cb8f52",
-      "size_bytes": 152119,
+      "sha256": "2d4cd6519d086f55666a1dd7b9b22090f3df1e0d59e63b42d507468ba31756e1",
+      "size_bytes": 154345,
       "executable": false,
       "mode": "0o644"
     },
@@ -387,8 +394,8 @@
     },
     {
       "path": "tests/frontend_scene_runtime.test.mjs",
-      "sha256": "c9a46b2655178bf2fa0db24ca1612c07a662cb7da6abaa3f23db6019d15dc881",
-      "size_bytes": 6776,
+      "sha256": "fc4fda03695f80d0364eeddcbbd931507e72d4030ea82f0330116bed96db8707",
+      "size_bytes": 7514,
       "executable": false,
       "mode": "0o644"
     },
@@ -472,6 +479,8 @@
     "docker_repeat_seed_and_restart_retest": "UNVERIFIED in this final audit; Docker socket access unavailable to this process",
     "fresh_dependency_install": "UNVERIFIED; candidate suites used the existing local Python environment",
     "candidate_python_tests": "79 passed using existing local Python 3.12 environment; fresh dependency install not tested",
-    "candidate_frontend_tests": "36 passed using installed Node.js runtime"
+    "candidate_frontend_tests": "36 passed; includes restored per-agent sprite clip and bundle integrity checks",
+    "character_artwork": "36 bundled animated pixel-art character clips, restored from earlier project atlas at owner request; independent copyright/redistribution rights not verified",
+    "office_artwork": "owner-supplied Vesper office image; independent copyright/redistribution rights not verified"
   }
 }
