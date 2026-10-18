@@ -4,7 +4,7 @@ Vesper is an evidence-first transaction-graph investigation prototype built with
 
 The single interface is `frontend/index.html`. It contains the animated Vesper office, investigation controls, Case Board, findings report, JSON export, and the conditional Track 2 memory panel. Both tracks use this interface.
 
-The six specialists move between authored Vesper office waypoints. The scene uses explicit furniture collision boundaries and foreground depth masks for the arcade, desk cluster, server racks, shelves, and lounge. Named destinations include workstations, archive shelves, memory pods, meeting aisle, arcade, water station, and paper station. This is scripted scene navigation; the frontend does not dynamically recognize or infer arbitrary objects in the artwork.
+The six specialists move between authored Vesper office waypoints. A tile pathfinder checks expanded furniture footprints, keeps moving agents apart, and draws separate foreground depth masks for each server tower. Chair exits use clear aisle points so agents do not slide through desks. During idle time, one specialist at a time follows role-specific stops: Tracer visits the server racks and evidence board, Historian visits memory pods and archive shelves, and Reporter visits the report printer. The scene uses scripted coordinates; it does not dynamically recognize arbitrary objects or make human-level decisions.
 
 ## Data and limits
 

@@ -28,6 +28,8 @@ test('runtime character states use distinct restored Vesper sprite clips over th
   assert.equal(Object.keys(data.assets).length, 36, 'the bundle also retains authored sitting clips for QA and future pose mapping');
   assert.ok(data.bands.length >= 8, 'walking characters receive depth-aware office furniture masks');
   assert.ok(data.bands.every(band => Array.isArray(band.p) && band.p.length >= 3 && Number.isFinite(band.d)));
+  assert.match(html, /const DEPTH_BANDS=D\.bands\.filter/);
+  assert.match(html, /g\.imageSmoothingEnabled=false/);
   assert.equal(new Set(Object.values(data.nav.st)).size, Object.keys(data.nav.st).length, 'named Vesper stations have unique map coordinates');
   assert.doesNotMatch(html, /function makeSyntheticSceneImage\(key\)/);
   assert.match(html, /fetch\(PACK_URL/);
@@ -51,18 +53,19 @@ function runtime() {
   const sandbox = { ...theatre, D: data, window: { devicePixelRatio: 1 }, S: 135/136, CYC: 62,
     scheduleScene() {}, reducedMotion: false, T: 0, console };
   const context = vm.createContext(sandbox);
-  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,interruptMotion,chairTransition,upd,spr,stationTarget,wpath,ok,NAV_BLOCKERS};', context);
+  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,toSeat,standUp,interruptMotion,chairTransition,upd,spr,stationTarget,wpath,ok,cl,near,ctr,NAV_BLOCKERS,DEPTH_BANDS};', context);
   return context.scene;
 }
 
-test('desk transitions use one full-body feet anchor and cancellation cannot restore an old pose', async () => {
+test('desk exits use the nearest clear tile and cancellation cannot restore an old pose', async () => {
   const scene = runtime(), actor = scene.AG.find(a => a.id === 'Tracer');
   const original = [actor.x, actor.y];
+  const [i,j] = scene.near(...original), exit = scene.ctr(i,j);
   actor.routeToken = 1;
-  const transition = scene.chairTransition(actor, scene.ST.sB, 1, 1);
-  scene.upd(.5);
-  assert.equal(actor.x, (original[0] + scene.ST.sB[0]) / 2);
-  assert.equal(actor.y, (original[1] + scene.ST.sB[1]) / 2);
+  const transition = scene.standUp(actor, 1);
+  scene.upd(.14);
+  assert.ok(Math.hypot(actor.x-original[0],actor.y-original[1])>0);
+  assert.ok(Math.hypot(actor.x-exit[0],actor.y-exit[1])<Math.hypot(exit[0]-original[0],exit[1]-original[1]));
   assert.equal(scene.spr(actor).m.h, 136);
   scene.interruptMotion(actor);
   const stopped = [actor.x, actor.y];
@@ -75,7 +78,7 @@ test('occupied destinations are separated and stationary agents do not drift', (
   const scene = runtime(), actor = scene.AG[0], other = scene.AG[4];
   [other.x, other.y] = scene.ST.rack;
   const target = scene.stationTarget(actor, 'rack');
-  assert.ok(Math.hypot(target[0] - other.x, target[1] - other.y) >= 52);
+  assert.ok(Math.hypot(target[0] - other.x, target[1] - other.y) >= 64);
   const positions = scene.AG.map(a => [a.x, a.y]);
   for (let tick = 0; tick < 100; tick++) scene.upd(.016);
   assert.deepEqual(scene.AG.map(a => [a.x, a.y]), positions);
@@ -93,6 +96,13 @@ test('office navigation avoids furniture and snaps station approaches to clear f
     const [i, j] = [Math.floor(target[0] / data.nav.C), Math.floor(target[1] / data.nav.C)];
     assert.equal(scene.ok(i, j), true, `station approach ${target} is on clear floor`);
   }
+});
+
+test('server towers use separate depth masks so one rack cannot hide a whole cluster', () => {
+  const scene = runtime(), racks = scene.DEPTH_BANDS.filter(band => band.id.startsWith('server-rack-'));
+  assert.equal(racks.length, 3);
+  assert.deepEqual(racks.map(band => band.d), [423, 453, 505]);
+  assert.equal(new Set(racks.map(band => JSON.stringify(band.p))).size, 3);
 });
 
 test('labels avoid other character bodies and one another at desktop and narrow scales', () => {
@@ -137,6 +147,8 @@ async function completeRoute(scene, promise) {
     for(const actor of scene.AG){
       const bounds=theatre.spriteBounds(actor.x,actor.y,80,136,135/136);
       assert.equal(theatre.spriteFitsOffice(bounds),true,`${actor.id} left the office`);
+      if(actor.mode==='walk')assert.equal(scene.ok(...scene.cl(actor.x,actor.y)),true,`${actor.id} crossed a blocked furniture tile at ${actor.x},${actor.y}`);
+      for(const other of scene.AG)if(other!==actor)assert.ok(Math.hypot(actor.x-other.x,actor.y-other.y)>=48,`${actor.id} collided with ${other.id}`);
     }
   }
   assert.equal(finished,true,'route did not settle within the simulation budget');
@@ -153,4 +165,11 @@ test('all six actual office routes reach distinct first break stations and retur
     assert.equal(await completeRoute(scene,route),true,`${agent} could not reach the break station`);
     assert.equal(await completeRoute(scene,scene.goSt(actor,routine.home)),true,`${agent} could not return`);
   }
+});
+
+test('agents walk back to their chair before sitting, without a straight-line desk transition', async () => {
+  const scene=runtime(),actor=scene.AG.find(person=>person.id==='Tracer');
+  assert.equal(await completeRoute(scene,scene.toSeat(actor)),true);
+  assert.deepEqual([actor.x,actor.y],actor.seat);
+  assert.equal(actor.mode,'sit');
 });
