@@ -26,7 +26,9 @@ test('runtime character states use distinct restored Vesper sprite clips over th
   }
   assert.equal(clips.size, 30, 'each role has distinct walk, idle, and talk clips');
   assert.equal(Object.keys(data.assets).length, 36, 'the bundle also retains authored sitting clips for QA and future pose mapping');
-  assert.deepEqual(data.bands, []);
+  assert.ok(data.bands.length >= 8, 'walking characters receive depth-aware office furniture masks');
+  assert.ok(data.bands.every(band => Array.isArray(band.p) && band.p.length >= 3 && Number.isFinite(band.d)));
+  assert.equal(new Set(Object.values(data.nav.st)).size, Object.keys(data.nav.st).length, 'named Vesper stations have unique map coordinates');
   assert.doesNotMatch(html, /function makeSyntheticSceneImage\(key\)/);
   assert.match(html, /fetch\(PACK_URL/);
   assert.match(html, /bitmap\.src='\/assets\/vesper-office\.png\?v=20261018-1'/);
@@ -49,7 +51,7 @@ function runtime() {
   const sandbox = { ...theatre, D: data, window: { devicePixelRatio: 1 }, S: 135/136, CYC: 62,
     scheduleScene() {}, reducedMotion: false, T: 0, console };
   const context = vm.createContext(sandbox);
-  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,interruptMotion,chairTransition,upd,spr,stationTarget,wpath};', context);
+  vm.runInContext(nav + '\n' + motion + '\n' + update + '\nthis.scene={AG,ST,goSt,interruptMotion,chairTransition,upd,spr,stationTarget,wpath,ok,NAV_BLOCKERS};', context);
   return context.scene;
 }
 
@@ -77,6 +79,20 @@ test('occupied destinations are separated and stationary agents do not drift', (
   const positions = scene.AG.map(a => [a.x, a.y]);
   for (let tick = 0; tick < 100; tick++) scene.upd(.016);
   assert.deepEqual(scene.AG.map(a => [a.x, a.y]), positions);
+});
+
+test('office navigation avoids furniture and snaps station approaches to clear floor tiles', () => {
+  const scene = runtime();
+  for (const polygon of scene.NAV_BLOCKERS) {
+    const [x, y] = polygon[0], [i, j] = [Math.floor(x / data.nav.C), Math.floor(y / data.nav.C)];
+    assert.equal(scene.ok(i, j), false, `furniture footprint ${x},${y} is blocked`);
+  }
+  for (const station of Object.values(scene.ST)) {
+    const target = scene.stationTarget(scene.AG[0], Object.keys(scene.ST).find(name => scene.ST[name] === station));
+    assert.ok(target, 'every named station has a reachable floor approach');
+    const [i, j] = [Math.floor(target[0] / data.nav.C), Math.floor(target[1] / data.nav.C)];
+    assert.equal(scene.ok(i, j), true, `station approach ${target} is on clear floor`);
+  }
 });
 
 test('labels avoid other character bodies and one another at desktop and narrow scales', () => {

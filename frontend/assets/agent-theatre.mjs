@@ -12,18 +12,19 @@ export const AGENT_PERSONAS = Object.freeze({
 // Stations are named waypoints in the office's walkability grid. The frontend
 // pathfinder routes each trip around furniture; one idle agent moves at a time.
 export const IDLE_ROUTINES = Object.freeze({
-  Scout: Object.freeze({ home: 'arc', visits: ['arc2', 'shelf', 'copier'] }),
+  Scout: Object.freeze({ home: 'arc', visits: ['foos', 'arc2', 'bean'] }),
   Tracer: Object.freeze({ home: 'sB', visits: ['rack', 'board', 'mid'] }),
-  Historian: Object.freeze({ home: 'shelf', visits: ['pods', 'arch', 'shelf', 'lounge'] }),
-  Analyst: Object.freeze({ home: 'sA', visits: ['board', 'lounge', 'arc2'] }),
-  Skeptic: Object.freeze({ home: 'sC', visits: ['mid', 'arch', 'shelf'] }),
+  Historian: Object.freeze({ home: 'shelf', visits: ['pods', 'arch', 'lounge', 'shelf'] }),
+  Analyst: Object.freeze({ home: 'sA', visits: ['board', 'lounge', 'mid'] }),
+  Skeptic: Object.freeze({ home: 'sC', visits: ['mid', 'rack', 'shelf'] }),
   Reporter: Object.freeze({ home: 'printer', visits: ['bean', 'arch', 'printer'] }),
 });
 
 export const OFFICE_ZONES = Object.freeze({
   DESK_SCOUT: 'arc', DESK_TRACER: 'sB', DESK_ANALYST: 'sA', DESK_HISTORIAN: 'shelf',
-  DESK_SKEPTIC: 'sC', DESK_REPORTER: 'printer', ARCHIVE: 'arch', SERVER_RACK: 'rack',
-  MEETING_ZONE: 'mid', WHITEBOARD: 'board', LOUNGE: 'lounge', ARCADE: 'arc2', COFFEE: 'bean',
+  DESK_SKEPTIC: 'sC', DESK_REPORTER: 'printer', ARCHIVE_SHELVES: 'arch', MEMORY_PODS: 'pods',
+  SERVER_RACK: 'rack', MEETING_TABLE: 'mid', ANALYST_WORKSTATION: 'board', LOUNGE: 'lounge',
+  ARCADE: 'arc2', WATER_STATION: 'bean', FOOSBALL: 'foos', PAPER_STATION: 'printer',
 });
 
 export const canTakeIdleBreak = ({ investigationState, agentState, moving = false, paused = false } = {}) =>

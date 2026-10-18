@@ -4,6 +4,8 @@ Vesper is an evidence-first transaction-graph investigation prototype built with
 
 The single interface is `frontend/index.html`. It contains the animated Vesper office, investigation controls, Case Board, findings report, JSON export, and the conditional Track 2 memory panel. Both tracks use this interface.
 
+The six specialists move between authored Vesper office waypoints. The scene uses explicit furniture collision boundaries and foreground depth masks for the arcade, desk cluster, server racks, shelves, and lounge. Named destinations include workstations, archive shelves, memory pods, meeting aisle, arcade, water station, and paper station. This is scripted scene navigation; the frontend does not dynamically recognize or infer arbitrary objects in the artwork.
+
 ## Data and limits
 
 The release uses authored synthetic fixtures only. The in-memory fixture uses IDs `730000001`–`730000008`; the isolated FalkorDB fixture uses IDs `731000001`–`731000008`, with eight transaction nodes and seven directed `FLOWS_TO` edges. IDs, labels, time steps, and relationships are invented for this demonstration. They are not Bitcoin transaction records and make no claims about real wallets, people, ownership, or conduct. The source tag is `bureau_synthetic_v1` for fixture provenance.

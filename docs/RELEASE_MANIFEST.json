@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "project": "Vesper",
-  "generated_at_utc": "2026-10-18T07:12:41+00:00",
+  "generated_at_utc": "2026-10-18T07:26:24+00:00",
   "base_commit": "61d28785f077cc39dabd0693b7d555ed43f15de7",
   "base_description": "Vesper initial README commit; preserved as the parent of this release",
   "included_file_count": 65,
@@ -23,8 +23,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "235958a16f62e623bf1340555c17756686ee4fab0fb842de581dbb591d84d87a",
-      "size_bytes": 7857,
+      "sha256": "09a8fd5d508ac6b7ccb1eeeb1a049c78ddcf19b292a384fe20c49151b2f4c78c",
+      "size_bytes": 8322,
       "executable": false,
       "mode": "0o644"
     },
@@ -289,8 +289,8 @@
     },
     {
       "path": "frontend/assets/agent-theatre.mjs",
-      "sha256": "24673db505938d12c5bcf2619467cd582e59e9c9fc09f982787375b137e5b3a0",
-      "size_bytes": 10395,
+      "sha256": "3ccaf7634655cdb24c29ca5b3893930eb85f36d8b57bb5c86df95630060d0bb2",
+      "size_bytes": 10483,
       "executable": false,
       "mode": "0o644"
     },
@@ -310,8 +310,8 @@
     },
     {
       "path": "frontend/index.html",
-      "sha256": "2d4cd6519d086f55666a1dd7b9b22090f3df1e0d59e63b42d507468ba31756e1",
-      "size_bytes": 154345,
+      "sha256": "388177e5f39c08384fbbddd9335039208992ce1f7b8868b8cecc1b229f06f86f",
+      "size_bytes": 157163,
       "executable": false,
       "mode": "0o644"
     },
@@ -394,8 +394,8 @@
     },
     {
       "path": "tests/frontend_scene_runtime.test.mjs",
-      "sha256": "fc4fda03695f80d0364eeddcbbd931507e72d4030ea82f0330116bed96db8707",
-      "size_bytes": 7514,
+      "sha256": "190b039818a49e169f3b4ae9888d1d250b78ce79f19836207b288d31ff09bce3",
+      "size_bytes": 8647,
       "executable": false,
       "mode": "0o644"
     },
@@ -479,8 +479,9 @@
     "docker_repeat_seed_and_restart_retest": "UNVERIFIED in this final audit; Docker socket access unavailable to this process",
     "fresh_dependency_install": "UNVERIFIED; candidate suites used the existing local Python environment",
     "candidate_python_tests": "79 passed using existing local Python 3.12 environment; fresh dependency install not tested",
-    "candidate_frontend_tests": "36 passed; includes restored per-agent sprite clip and bundle integrity checks",
+    "candidate_frontend_tests": "37 passed; includes restored per-agent sprite bundle integrity, furniture collision and depth-aware office route checks",
     "character_artwork": "36 bundled animated pixel-art character clips, restored from earlier project atlas at owner request; independent copyright/redistribution rights not verified",
-    "office_artwork": "owner-supplied Vesper office image; independent copyright/redistribution rights not verified"
+    "office_artwork": "owner-supplied Vesper office image; independent copyright/redistribution rights not verified",
+    "office_navigation": "explicit Vesper furniture collision polygons, named station approaches, and depth-aware foreground masks; static authored waypoints, not dynamic object recognition"
   }
 }
