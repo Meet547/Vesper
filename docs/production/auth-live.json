@@ -1,0 +1,33 @@
+{
+  "verified_on": "2026-10-20",
+  "aws_account_id": "248179616722",
+  "region": "ap-southeast-2",
+  "user_pool": {
+    "id": "ap-southeast-2_E4b6HwqtK",
+    "name": "Bureau"
+  },
+  "app_client": {
+    "id": "5n4n3gc3n5jfjj807itusakj74",
+    "name": "Bureau_test2",
+    "flow": "code",
+    "pkce_method": "S256",
+    "token_revocation": true,
+    "scopes": ["openid", "email", "phone"],
+    "production_callback": "https://vesper-frontend-delta.vercel.app/",
+    "production_logout": "https://vesper-frontend-delta.vercel.app/"
+  },
+  "browser_results": {
+    "login": "pass",
+    "callback": "pass",
+    "token_exchange": "pass",
+    "authenticated_api": "pass",
+    "investigation_stream": "pass",
+    "logout": "pass"
+  },
+  "render": {
+    "url": "https://vesper-73uk.onrender.com/",
+    "mode": "demo",
+    "database_connected": false
+  },
+  "secrets_recorded": false
+}
