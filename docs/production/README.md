@@ -80,7 +80,8 @@ the model-provider API key. Secrets must stay in Render, never source control.
   certificate-verified TLS handshake timed out. No password, graph query, or write was sent.
 
 Evidence files in this directory include the backend and frontend test logs, browser JSON,
-baseline HTTP responses, TLS probe, controlled memory comparison, and responsive screenshots.
+baseline HTTP responses, TLS probe, controlled memory comparison, responsive screenshots,
+`auth-investigation.jpg`, `auth-logout.jpg`, and the redacted `auth-live.json` summary.
 
 ## Security and remaining blockers
 
