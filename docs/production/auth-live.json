@@ -22,6 +22,8 @@
     "token_exchange": "pass",
     "authenticated_api": "pass",
     "investigation_stream": "pass",
+    "deterministic_report": "pass",
+    "analyst_model": "warning_connect_error",
     "logout": "pass"
   },
   "render": {

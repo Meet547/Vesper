@@ -72,7 +72,8 @@ the model-provider API key. Secrets must stay in Render, never source control.
   exact Vercel callback/logout URL was added.
 - Real-browser authentication: authorization code with S256 PKCE, Vercel callback, code exchange,
   authenticated stats/search/investigation streaming, and logout all passed against the Render
-  demo service.
+  demo service. The deterministic report completed; the optional Analyst interpretation reported
+  `ConnectError` because Render is still configured for the unavailable local model provider.
 - Controlled in-memory memory A/B test: prior-case recall was revalidated and changed the selected
   graph action; this is fixture evidence, not cloud persistence evidence.
 - TLS probe: port `51557` accepted TCP and returned `NOAUTH Authentication required` to a
@@ -95,8 +96,9 @@ baseline HTTP responses, TLS probe, controlled memory comparison, responsive scr
 4. **FAIL — live persistence:** saving, owner isolation, restart survival, and cloud memory A/B
    remain unverified. No production database writes were attempted.
 5. **PASS WITH WARNINGS — frontend:** routing, rendering, responsive layouts, read-only streaming,
-   and the original office identity are verified against demo evidence. Authentication and cloud
-   data remain unavailable.
+   and the original office identity are verified against demo evidence. Authentication and
+   authenticated demo API access are verified; live graph data remains unavailable, and model
+   interpretation still requires a reachable provider configuration.
 6. **PASS WITH WARNINGS — dependency audit:** runtime dependencies are pinned for deployment, but
    a dedicated vulnerability scanner was not available in this run.
 
