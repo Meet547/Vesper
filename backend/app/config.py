@@ -10,6 +10,10 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
+    render: bool = False
+    render_git_commit: str = ""
+    production: bool = False
+
     app_name: str = "Bitcoin Investigator"
     app_mode: Literal["demo", "cloud"] = "demo"
     app_host: str = "127.0.0.1"
@@ -99,7 +103,7 @@ class Settings(BaseSettings):
 
     @property
     def auth_required(self) -> bool:
-        return self.auth_mode == "cognito" or self.app_host not in {"127.0.0.1", "localhost", "::1"}
+        return self.production or self.render or self.auth_mode == "cognito" or self.app_host not in {"127.0.0.1", "localhost", "::1"}
 
 
 def validate_track2_isolated_demo(settings: Settings) -> None:
@@ -124,3 +128,27 @@ def validate_track2_isolated_demo(settings: Settings) -> None:
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     return Settings()
+
+
+def validate_production(settings: Settings) -> None:
+    """Hosting environment markers cannot silently inherit local demo defaults."""
+    if not (settings.production or settings.render):
+        return
+    if settings.app_mode != "cloud" or settings.track2_isolated_demo:
+        raise RuntimeError("Production requires APP_MODE=cloud and disables isolated demo mode.")
+    if not settings.cloud_configured:
+        raise RuntimeError("Production requires FalkorDB credentials.")
+    parsed = urlsplit(settings.falkordb_url)
+    if settings.falkordb_url:
+        if parsed.scheme != "rediss" or parsed.query:
+            raise RuntimeError("Production requires a rediss URL without connection-option overrides.")
+    elif not settings.falkordb_ssl:
+        raise RuntimeError("Production requires certificate-verified FalkorDB TLS.")
+    if settings.falkordb_graph_name != "bitcoin_investigator":
+        raise RuntimeError("Production graph must be bitcoin_investigator.")
+    if not settings.cognito_configured or settings.auth_mode != "cognito":
+        raise RuntimeError("Production requires complete Cognito configuration.")
+    if not settings.cognito_callback_url.startswith("https://"):
+        raise RuntimeError("Production requires an HTTPS Cognito callback.")
+    if not settings.cors_origin_list or any(not origin.startswith("https://") for origin in settings.cors_origin_list):
+        raise RuntimeError("Production CORS origins must be explicit HTTPS origins.")

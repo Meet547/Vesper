@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: vesper
+    runtime: python
+    buildCommand: pip install -r requirements-production-lock.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT --no-access-log
+    healthCheckPath: /api/ready
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.12
+      - key: PRODUCTION
+        value: "true"
+      - key: APP_MODE
+        value: cloud
+      - key: APP_HOST
+        value: 0.0.0.0
+      - key: AUTH_MODE
+        value: cognito
+      - key: FALKORDB_GRAPH_NAME
+        value: bitcoin_investigator
+      - key: FALKORDB_URL
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://vesper-frontend-delta.vercel.app
+      - key: COGNITO_REGION
+        sync: false
+      - key: COGNITO_USER_POOL_ID
+        sync: false
+      - key: COGNITO_APP_CLIENT_ID
+        sync: false
+      - key: COGNITO_DOMAIN
+        sync: false
+      - key: COGNITO_CALLBACK_URL
+        value: https://vesper-frontend-delta.vercel.app/
+      - key: MODEL_PROVIDER
+        value: cloud
+      - key: OLLAMA_API_KEY
+        sync: false
+      - key: OLLAMA_CLOUD_MODEL
+        value: gpt-oss:20b

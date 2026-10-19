@@ -376,7 +376,7 @@ for(const a of AG){const e=agentTags[a.id];if(!e)continue;const frame=spr(a),m=f
 if(IM.bg&&AG.every(a=>IM[spr(a).nm]))cv.dataset.sceneReady='true';
 }
 function loop(t){rafId=0;const gap=t-lastFrame;if(lastFrame&&moving()&&gap>50){UI.activeFrameGaps.push(gap);if(UI.activeFrameGaps.length>200)UI.activeFrameGaps.shift()}const dt=Math.min(.05,gap/1e3||.016);lastFrame=t;if(!killed){T+=dt;upd(dt)}const active=moving();const drawInterval=active?16:(reducedMotion?900:135);if(t-lastDraw>=drawInterval){const renderAt=performance.now();render();const renderCost=performance.now()-renderAt;if(!active){UI.idleRenderTotalMs+=renderCost;UI.idleRenderCount++}lastDraw=t}if(active&&!document.hidden&&!killed){rafId=requestAnimationFrame(loop)}else if(!document.hidden&&!killed&&!idleTimer){idleTimer=setTimeout(()=>{idleTimer=0;scheduleScene()},reducedMotion?900:135)}}
-function fit(){const s=$('#stage'),Wd=Math.max(1,s.clientWidth-16),Hd=Math.max(1,s.clientHeight-16);dpr=window.devicePixelRatio||1;k=Math.max(.01,Math.min(1,Wd/VIEW_W,Hd/VIEW_H));cv.style.width=`${VIEW_W*k}px`;cv.style.height=`${VIEW_H*k}px`;cv.width=Math.round(VIEW_W*k*dpr);cv.height=Math.round(VIEW_H*k*dpr);g.imageSmoothingEnabled=smoothTinyOffice();mc=null;document.documentElement.style.setProperty('--tz',Math.max(.48,Math.min(1,k*1.25)));lastDraw=0;scheduleScene()}
+function fit(){const s=$('#stage'),Wd=Math.max(1,s.clientWidth-16),Hd=Math.max(1,s.clientHeight-16);dpr=window.devicePixelRatio||1;k=Math.max(.01,Math.min(1,Wd/VIEW_W,Hd/VIEW_H));cv.style.width=`${VIEW_W*k}px`;cv.style.height=`${VIEW_H*k}px`;cv.width=Math.round(VIEW_W*k*dpr);cv.height=Math.round(VIEW_H*k*dpr);g.imageSmoothingEnabled=smoothTinyOffice();mc=null;document.documentElement.style.setProperty('--tz',Math.max(.48,Math.min(1,k*1.25)));lastDraw=-Infinity;scheduleScene()}
 function pos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/k-SCENE_PAD,(e.clientY-r.top)/k-SCENE_PAD]}
 const hit=(a,x,y)=>{const s=spr(a),box=boundsFor(s.x,s.y,s.m);return x>=box.left&&x<=box.right&&y>=box.top&&y<=box.bottom};
 cv.onmousemove=e=>{const[x,y]=pos(e),next=HS.find(h=>inP(x,y,h.p))||null;const nextKey=next?.id||'';const oldKey=hov?.id||'';if(nextKey!==oldKey){hov=next;cv.style.cursor=hov||AG.some(a=>hit(a,x,y))?'pointer':'default';scheduleScene()}};cv.onmouseleave=()=>{hov=null;scheduleScene()};
@@ -452,13 +452,20 @@ async function refreshBackend(){
     const stats=await bureauApi('/api/stats');UI.stats=stats;
     $('#statTx').textContent=fmtNumber(stats.totalTransactions);$('#statFlows').textContent=fmtNumber(stats.totalFlows);$('#statIllicit').textContent=fmtNumber(stats.illicitTransactions);
     if(health.mode==='demo')$('#apiMeta').textContent+=` · ${fmtNumber(stats.totalTransactions)} sample transactions`;
+    if(health.mode==='cloud'&&!demo.enabled){
+      const available=await bureauApi('/api/transactions/search?limit=3');
+      const buttons=[...document.querySelectorAll('[data-example-seed]')];
+      buttons.forEach((button,index)=>{const item=available.items?.[index];button.hidden=!item;if(item){button.dataset.exampleSeed=item.txId;button.textContent=`Graph seed · ${item.txId}`;button.setAttribute('aria-label',`Use graph seed ${item.txId}`)}});
+      const input=$('#seedTxId');
+      if(available.items?.length&&['730000004','731000004','900000001'].includes(input.value))input.value=available.items[0].txId;
+    }
     setApiError('');
     await loadSavedCases();
     return true;
   }catch(error){
     $('#apiDot').className='api-dot offline';$('#apiState').textContent='Backend unavailable';
-    $('#apiMeta').textContent='Open this page through the FastAPI server at http://127.0.0.1:8000.';
-    setApiError(`${error.message}. Start the backend and open this page from the backend URL; file:// will not connect to the API.`);
+    $('#apiMeta').textContent='The investigation service could not be reached.';
+    setApiError(`${error.message}. Check the service connection and retry.`);
     return false;
   }
 }
