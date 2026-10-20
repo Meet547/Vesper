@@ -1,0 +1,239 @@
+{
+  "case_a": {
+    "case_id": "case_59d45f37cc98",
+    "memory_id": "memory_eb6465d99a42",
+    "verified_edge_ids": [
+      "731000001->731000002",
+      "731000002->731000003",
+      "731000003->731000004"
+    ]
+  },
+  "case_b_seed": "731000001",
+  "causal_trace": {
+    "changed_action": true,
+    "changed_frontier": true,
+    "historian_recall": true,
+    "memory_case_provenance": "case_59d45f37cc98",
+    "prior_case_id": "case_59d45f37cc98",
+    "reporter_path_evidence_id": "path:downstream:731000001>731000002>731000003>731000004",
+    "route_independently_verified": true,
+    "shared_current_graph_edge": "731000001->731000002",
+    "skeptic_validated_memory": true,
+    "stored_memory_id": "memory_eb6465d99a42"
+  },
+  "interpretation": {
+    "neighbor_read_delta": 0,
+    "note": "Read counts are method-level source reads in this deterministic fixture; timings are local wall-clock measurements, not a production latency claim.",
+    "total_source_read_delta": 39,
+    "verified_path_count_delta": 1
+  },
+  "memory_disabled": {
+    "elapsed_ms": 3.968,
+    "graph_action_budget": {
+      "exhausted": false,
+      "limit": 16,
+      "remaining": 11,
+      "scope": "selected allowlisted graph workflow actions; low-level read queries are separately bounded by GraphStore",
+      "used": 5
+    },
+    "memory_linked_case_ids": [],
+    "memory_route_decisions": [],
+    "selected_actions": [
+      "inspect_seed",
+      "trace_downstream",
+      "expand_verified_frontier",
+      "cross_check_path",
+      "finalize_report"
+    ],
+    "selected_frontiers": [
+      "731000005"
+    ],
+    "source_read_counts": {
+      "edge_reads": 20,
+      "neighbor_reads": 3,
+      "path_reads": 2,
+      "transaction_reads": 26
+    },
+    "verified_paths": [
+      {
+        "edge_ids": [
+          "731000001->731000002"
+        ],
+        "evidence_id": "path:downstream:731000001>731000002",
+        "transaction_ids": [
+          "731000001",
+          "731000002"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005",
+        "transaction_ids": [
+          "731000001",
+          "731000005"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000006"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000006",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000006"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000007"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000007",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000007"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000008"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000008",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000008"
+        ]
+      }
+    ]
+  },
+  "memory_enabled": {
+    "elapsed_ms": 7.192,
+    "graph_action_budget": {
+      "exhausted": false,
+      "limit": 16,
+      "remaining": 9,
+      "scope": "selected allowlisted graph workflow actions; low-level read queries are separately bounded by GraphStore",
+      "used": 7
+    },
+    "memory_linked_case_ids": [
+      "case_59d45f37cc98"
+    ],
+    "memory_route_decisions": [
+      {
+        "memory_provenance": {
+          "case_id": "case_59d45f37cc98",
+          "memory_id": "memory_eb6465d99a42",
+          "source_path_id": "path:downstream:731000002>731000003>731000004"
+        },
+        "memory_route_verified": true,
+        "rejected_path_count": 0,
+        "route_evidence_id": "path:downstream:731000001>731000002>731000003>731000004",
+        "selected_frontier_tx_id": "731000002",
+        "verified_path_count": 1
+      }
+    ],
+    "selected_actions": [
+      "inspect_seed",
+      "trace_downstream",
+      "recall_related_case",
+      "follow_verified_memory_route",
+      "expand_verified_frontier",
+      "cross_check_path",
+      "finalize_report"
+    ],
+    "selected_frontiers": [
+      "731000002",
+      "731000005"
+    ],
+    "source_read_counts": {
+      "edge_reads": 35,
+      "memory_lookup_reads": 1,
+      "neighbor_reads": 3,
+      "path_reads": 2,
+      "transaction_reads": 49
+    },
+    "verified_paths": [
+      {
+        "edge_ids": [
+          "731000001->731000002"
+        ],
+        "evidence_id": "path:downstream:731000001>731000002",
+        "transaction_ids": [
+          "731000001",
+          "731000002"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005",
+        "transaction_ids": [
+          "731000001",
+          "731000005"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000006"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000006",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000006"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000007"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000007",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000007"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000005",
+          "731000005->731000008"
+        ],
+        "evidence_id": "path:downstream:731000001>731000005>731000008",
+        "transaction_ids": [
+          "731000001",
+          "731000005",
+          "731000008"
+        ]
+      },
+      {
+        "edge_ids": [
+          "731000001->731000002",
+          "731000002->731000003",
+          "731000003->731000004"
+        ],
+        "evidence_id": "path:downstream:731000001>731000002>731000003>731000004",
+        "transaction_ids": [
+          "731000001",
+          "731000002",
+          "731000003",
+          "731000004"
+        ]
+      }
+    ]
+  },
+  "policy_budget_limit": 16,
+  "production_graph_touched": false,
+  "same_graph_policy_budget_and_seed": true,
+  "source": "isolated_in_process_fixture"
+}

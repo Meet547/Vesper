@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import asyncio
 import json
 import queue
 import re
@@ -16,12 +17,12 @@ from typing import Any
 from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 import jwt
 
 from backend.app.agents.orchestrator import InvestigationOrchestrator
-from backend.app.config import Settings, get_settings, validate_track2_isolated_demo
+from backend.app.config import Settings, get_settings, validate_track2_isolated_demo, validate_production
 from backend.app.models import HealthResponse, InvestigationRequest, InvestigationResponse, TransactionSearchResponse
 from backend.app.services.graph_store import GraphStore
 from backend.app.services.track2_demo_store import Track2DemoGraphStore
@@ -77,6 +78,7 @@ FRONTEND_DIR = PROJECT_ROOT / "frontend"
 async def lifespan(app: FastAPI):
     settings = get_settings()
     validate_track2_isolated_demo(settings)
+    validate_production(settings)
     if settings.auth_required and (settings.auth_mode != "cognito" or not settings.cognito_configured):
         raise RuntimeError("Non-local deployment requires complete Amazon Cognito configuration (AUTH_MODE=cognito and all COGNITO_* settings).")
     app.state.settings = settings
@@ -84,7 +86,10 @@ async def lifespan(app: FastAPI):
     app.state.orchestrator = InvestigationOrchestrator(app.state.store, settings)
     app.state.process_instance_id = f"proc_{uuid4().hex[:12]}"
     app.state.process_started_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    yield
+    try:
+        yield
+    finally:
+        app.state.store.close()
 
 
 app = FastAPI(
@@ -98,6 +103,10 @@ app = FastAPI(
 @app.middleware("http")
 async def cache_versioned_frontend_assets(request, call_next):
     response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    if request.url.path.startswith("/api/"):
+        response.headers["Cache-Control"] = "no-store"
     if request.url.path == "/":
         response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
         response.headers["Pragma"] = "no-cache"
@@ -168,7 +177,7 @@ app.add_middleware(
     allow_origins=get_settings().cors_origin_list,
     allow_credentials=False,
     allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 if (FRONTEND_DIR / "assets").exists():
@@ -183,6 +192,20 @@ def health(request: Request) -> dict[str, Any]:
             "environment": "isolated_demo" if settings.track2_isolated_demo else result["mode"],
             "demo_identity": settings.isolated_demo_identity if settings.track2_isolated_demo else None,
             "process_instance_id": request.app.state.process_instance_id}
+
+
+@app.get("/api/live", tags=["system"])
+def liveness(request: Request):
+    return {"ok": True, "revision": request.app.state.settings.render_git_commit or None}
+
+
+@app.get("/api/ready", tags=["system"])
+def readiness(request: Request):
+    result = request.app.state.store.health()
+    ready = result["mode"] == "cloud" and result["database_connected"]
+    return JSONResponse({**result, "ok": ready,
+                         "revision": request.app.state.settings.render_git_commit or None},
+                        status_code=200 if ready else 503)
 
 
 @app.get("/api/demo/track2/status", tags=["system"])
@@ -288,7 +311,7 @@ def preview_investigation(body: InvestigationRequest, request: Request, owner_id
             store.reset_query_accounting()
         result = orchestrator.preview(body.seed_tx_id, body.max_hops, owner_id=owner_id,
                                       use_local_model=not settings.track2_isolated_demo,
-                                      memory_enabled=body.memory_enabled if settings.track2_isolated_demo else True,
+                                      memory_enabled=body.memory_enabled,
                                       include_policy_explanation=settings.track2_isolated_demo)
         if result is None:
             raise HTTPException(status_code=404, detail="Seed transaction was not found in the selected graph.")
@@ -305,8 +328,10 @@ def preview_investigation(body: InvestigationRequest, request: Request, owner_id
 
 
 @app.post("/api/investigations/preview/stream", tags=["investigations"])
-def stream_preview_investigation(body: InvestigationRequest, request: Request, owner_id: str | None = Depends(require_auth), _capacity: None = Depends(require_investigation_capacity)):
+def stream_preview_investigation(body: InvestigationRequest, request: Request, owner_id: str | None = Depends(require_auth)):
     """Stream safe workflow milestones, followed by the complete read-only result."""
+    if not investigation_slots.acquire(blocking=False):
+        raise HTTPException(status_code=429, detail="Investigation capacity is busy. Retry shortly.", headers={"Retry-After": "3"})
     orchestrator = request.app.state.orchestrator
     investigation_id = f"inv_{uuid4().hex[:12]}"
     events: queue.Queue[dict[str, Any] | None] = queue.Queue()
@@ -327,7 +352,7 @@ def stream_preview_investigation(body: InvestigationRequest, request: Request, o
                                           use_local_model=not settings.track2_isolated_demo,
                                           progress_callback=publish_progress,
                                           investigation_id=investigation_id, owner_id=owner_id,
-                                          memory_enabled=body.memory_enabled if settings.track2_isolated_demo else True,
+                                          memory_enabled=body.memory_enabled,
                                           include_policy_explanation=settings.track2_isolated_demo)
             if result is None:
                 events.put({"type": "error", "status": 404,
@@ -346,13 +371,28 @@ def stream_preview_investigation(body: InvestigationRequest, request: Request, o
                         "detail": "Investigation failed. Check the server logs, then retry."})
         finally:
             events.put(None)
+            investigation_slots.release()
 
-    def event_stream():
+    async def event_stream():
         worker = threading.Thread(target=run_preview, name=f"bureau-{investigation_id}", daemon=True)
-        worker.start()
+        try:
+            worker.start()
+        except Exception:
+            investigation_slots.release()
+            raise
+        last_heartbeat = time.monotonic()
         yield f"event: started\ndata: {json.dumps({'investigation_id': investigation_id})}\n\n"
         while True:
-            item = events.get()
+            if await request.is_disconnected():
+                break
+            try:
+                item = events.get_nowait()
+            except queue.Empty:
+                if time.monotonic() - last_heartbeat >= 10:
+                    yield ": heartbeat\n\n"
+                    last_heartbeat = time.monotonic()
+                await asyncio.sleep(0.1)
+                continue
             if item is None:
                 break
             event_type = item.pop("type", "progress")

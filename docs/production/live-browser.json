@@ -1,0 +1,47 @@
+[
+  {
+    "width": 390,
+    "height": 844,
+    "state": "Demo mode · sample data",
+    "overflow": false,
+    "errors": [],
+    "investigationCompleted": true,
+    "hasSkeptic": true
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "state": "Demo mode · sample data",
+    "overflow": false,
+    "errors": [],
+    "investigationCompleted": true,
+    "hasSkeptic": true
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "state": "Demo mode · sample data",
+    "overflow": false,
+    "errors": [],
+    "investigationCompleted": true,
+    "hasSkeptic": true
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "state": "Demo mode · sample data",
+    "overflow": false,
+    "errors": [],
+    "investigationCompleted": true,
+    "hasSkeptic": true
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "state": "Demo mode · sample data",
+    "overflow": false,
+    "errors": [],
+    "investigationCompleted": true,
+    "hasSkeptic": true
+  }
+]

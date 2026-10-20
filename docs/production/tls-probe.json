@@ -1,0 +1,8 @@
+{
+  "dns": true,
+  "tcp": true,
+  "tls": false,
+  "writes": 0,
+  "configured_tls": false,
+  "error_type": "TimeoutError"
+}

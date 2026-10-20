@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import logging
+import threading
 from datetime import datetime, timezone
 from typing import Any
 
@@ -48,6 +49,7 @@ class GraphStore:
     def __init__(self, settings: Settings):
         self.settings = settings
         self.mode = settings.app_mode
+        self._connection_lock = threading.RLock()
         self._client = None
         self._graph = None
         self._connect_error: str | None = None
@@ -62,7 +64,18 @@ class GraphStore:
         if self.mode == "cloud" and self.settings.auth_required and not owner_id:
             raise RuntimeError("Authenticated case and memory reads require a verified owner identity.")
 
+    def close(self):
+        with self._connection_lock:
+            if self._client is not None:
+                self._client.close()
+            self._client = None
+            self._graph = None
+
     def _connect(self):
+        with self._connection_lock:
+            return self._connect_locked()
+
+    def _connect_locked(self):
         if self.mode != "cloud":
             raise RuntimeError("Cloud graph access is unavailable in demo mode")
         if self._graph is not None:
@@ -75,7 +88,9 @@ class GraphStore:
             if self.settings.falkordb_url.strip():
                 # Use rediss://... for TLS URLs. Keep the URL in .env only.
                 self._client = FalkorDB.from_url(self.settings.falkordb_url.strip(),
-                    socket_connect_timeout=5, socket_timeout=self.settings.falkordb_socket_timeout_seconds)
+                    socket_connect_timeout=5, socket_timeout=self.settings.falkordb_socket_timeout_seconds,
+                    **({"ssl_cert_reqs": "required", "ssl_check_hostname": True}
+                       if self.settings.falkordb_url.startswith("rediss://") else {}))
             else:
                 kwargs: dict[str, Any] = {
                     "host": self.settings.falkordb_host.strip(),
@@ -85,6 +100,8 @@ class GraphStore:
                     "socket_connect_timeout": 5,
                     "socket_timeout": self.settings.falkordb_socket_timeout_seconds,
                 }
+                if self.settings.falkordb_ssl:
+                    kwargs.update(ssl_cert_reqs="required", ssl_check_hostname=True)
                 if self.settings.falkordb_username.strip():
                     kwargs["username"] = self.settings.falkordb_username.strip()
                 self._client = FalkorDB(**kwargs)
@@ -94,7 +111,7 @@ class GraphStore:
             self._connect_error = None
             return self._graph
         except Exception as exc:  # network/library errors vary by deployment
-            self._graph = None
+            self.close()
             self._connect_error = type(exc).__name__
             logger.warning("FalkorDB connection failed (%s)", type(exc).__name__)
             raise RuntimeError("Could not connect to FalkorDB. Check host, port, username, password, and TLS settings.") from exc
@@ -109,7 +126,7 @@ class GraphStore:
                 "message": "Demo mode is active. Results are illustrative and are not read from your cloud graph.",
             }
         try:
-            self._connect()
+            self._connect().ro_query("RETURN 1 AS ready", timeout=self.settings.falkordb_query_timeout_ms)
             return {
                 "ok": True,
                 "mode": "cloud",
@@ -117,13 +134,13 @@ class GraphStore:
                 "graph_name": self.graph_name,
                 "message": "Connected to the configured FalkorDB graph.",
             }
-        except RuntimeError as exc:
+        except Exception:
             return {
                 "ok": False,
                 "mode": "cloud",
                 "database_connected": False,
                 "graph_name": self.graph_name,
-                "message": str(exc),
+                "message": "FalkorDB readiness probe failed. Check server connection configuration.",
             }
 
     def _read_rows(self, query: str, params: dict[str, Any] | None = None) -> list[list[Any]]:

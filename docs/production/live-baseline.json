@@ -1,0 +1,128 @@
+[
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/health",
+    "status": 200,
+    "body": {
+      "ok": true,
+      "mode": "demo",
+      "database_connected": false,
+      "graph_name": "demo_sample_graph",
+      "message": "Demo mode is active. Results are illustrative and are not read from your cloud graph.",
+      "environment": "demo",
+      "demo_identity": null,
+      "process_instance_id": "proc_437be131fa33"
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/auth/config",
+    "status": 200,
+    "body": {
+      "required": false,
+      "provider": null,
+      "region": null,
+      "client_id": null,
+      "domain": null,
+      "callback_url": null,
+      "scopes": []
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/stats",
+    "status": 200,
+    "body": {
+      "totalTransactions": 8,
+      "totalFlows": 7,
+      "illicitTransactions": 2,
+      "licitTransactions": 3,
+      "unknownTransactions": 3,
+      "mode": "demo",
+      "is_sample": true
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/transactions/search?limit=1",
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "txId": "730000001",
+          "label": "licit",
+          "timeStep": 1,
+          "sourceDataset": "bureau_synthetic_v1"
+        }
+      ],
+      "count": 1,
+      "mode": "demo"
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/cases",
+    "status": 200,
+    "body": {
+      "items": [],
+      "count": 0,
+      "mode": "demo"
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/api/ready",
+    "status": 404,
+    "body": {
+      "detail": "Not Found"
+    }
+  },
+  {
+    "origin": "https://vesper-73uk.onrender.com",
+    "path": "/docs",
+    "status": 200,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/health",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/auth/config",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/stats",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/transactions/search?limit=1",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/cases",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/api/ready",
+    "status": 404,
+    "body": null
+  },
+  {
+    "origin": "https://vesper-frontend-delta.vercel.app",
+    "path": "/docs",
+    "status": 404,
+    "body": null
+  }
+]
