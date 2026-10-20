@@ -23,7 +23,7 @@
     "authenticated_api": "pass",
     "investigation_stream": "pass",
     "deterministic_report": "pass",
-    "analyst_model": "warning_connect_error",
+    "analyst_model": "pass",
     "logout": "pass"
   },
   "render": {

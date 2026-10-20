@@ -72,8 +72,9 @@ the model-provider API key. Secrets must stay in Render, never source control.
   exact Vercel callback/logout URL was added.
 - Real-browser authentication: authorization code with S256 PKCE, Vercel callback, code exchange,
   authenticated stats/search/investigation streaming, and logout all passed against the Render
-  demo service. The deterministic report completed; the optional Analyst interpretation reported
-  `ConnectError` because Render is still configured for the unavailable local model provider.
+  demo service. The deterministic report completed, and the Analyst interpretation completed
+  through Ollama Cloud after `MODEL_PROVIDER=cloud` and `OLLAMA_CLOUD_MODEL=gpt-oss:20b` were set
+  in Render. The model stage took 19.4 seconds in the verified run.
 - Controlled in-memory memory A/B test: prior-case recall was revalidated and changed the selected
   graph action; this is fixture evidence, not cloud persistence evidence.
 - TLS probe: port `51557` accepted TCP and returned `NOAUTH Authentication required` to a
@@ -82,7 +83,8 @@ the model-provider API key. Secrets must stay in Render, never source control.
 
 Evidence files in this directory include the backend and frontend test logs, browser JSON,
 baseline HTTP responses, TLS probe, controlled memory comparison, responsive screenshots,
-`auth-investigation.jpg`, `auth-logout.jpg`, and the redacted `auth-live.json` summary.
+`auth-investigation.jpg`, `auth-investigation-cloud.jpg`, `auth-logout.jpg`, and the redacted
+`auth-live.json` summary.
 
 ## Security and remaining blockers
 
